@@ -587,7 +587,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   BUTTONS: EXACT SOFT CREAM GOLD GRADIENT MATCHED TO USER IMAGE 2
+   BUTTONS: EXACT SOFT CREAM GOLD GRADIENT
    ========================================================================== */
 
 .btn {
@@ -1272,11 +1272,12 @@ h1, h2, h3, h4, h5, h6 {
     font-style: italic;
 }
 
-/* --- Glass Gift Pass Section --- */
+/* --- Glass Gift Pass Section (2-Column Side-by-Side Layout) --- */
 .giftcard-wrapper {
-    display grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 48px !important;
+    align-items: flex-start !important;
     border-radius: var(--radius-lg);
     padding: 50px;
     background: #FFFFFF !important;
@@ -1538,7 +1539,8 @@ h1, h2, h3, h4, h5, h6 {
     .about-grid { grid-template-columns: 1fr; padding: 28px; }
     .hero-title { font-size: 2.7rem; }
     .highlights-grid, .therapies-grid, .vip-treatments, .reviews-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
-    .giftcard-wrapper, .location-grid { grid-template-columns: 1fr; padding: 28px; }
+    .giftcard-wrapper { grid-template-columns: 1fr !important; padding: 28px; }
+    .location-grid { grid-template-columns: 1fr; padding: 28px; }
     .footer-grid-clean { grid-template-columns: 1fr 1fr; }
 }
 
