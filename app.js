@@ -3,6 +3,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initHeroVideo();
     initIntroCurtain();
     initNavigation();
     initCategoryFilters();
@@ -13,12 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
     updateVoucherPreview();
 });
 
+/* --- Force 100% Autoplay for Local Background MP4 Video --- */
+function initHeroVideo() {
+    const video = document.getElementById('hero-bg-video');
+    if (!video) return;
+
+    video.muted = true;
+    video.playsInline = true;
+    
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            console.log('Background MP4 video playing successfully!');
+        }).catch(err => {
+            console.log('Video autoplay retry on interaction:', err);
+            document.addEventListener('touchstart', () => video.play(), { once: true });
+            document.addEventListener('click', () => video.play(), { once: true });
+        });
+    }
+}
+
 /* --- Luxury Intro Curtain Reveal Animation (Silky Breathing Aura) --- */
 function initIntroCurtain() {
     const introCurtain = document.getElementById('intro-curtain');
     if (!introCurtain) return;
 
-    // Show logo intro with silky breathing silver halo, then raise curtain after 2.4 seconds
     setTimeout(() => {
         introCurtain.classList.add('curtain-raise');
         setTimeout(() => {
@@ -87,7 +107,6 @@ function triggerTabWipeTransition(targetHash) {
     void curtain.offsetWidth; // Force reflow
     curtain.classList.add('wipe-active');
 
-    // Jump to exact section position at the mid-point of the silver curtain wipe
     setTimeout(() => {
         if (targetHash && targetHash.startsWith('#')) {
             const targetSec = document.querySelector(targetHash);
@@ -100,7 +119,6 @@ function triggerTabWipeTransition(targetHash) {
                     behavior: 'instant'
                 });
                 
-                // Re-trigger slide-in animation for elements in target section
                 const slideEls = targetSec.querySelectorAll('.reveal-slide-right');
                 slideEls.forEach(el => {
                     el.classList.remove('reveal-active');
@@ -149,7 +167,6 @@ function initNavigation() {
 
     const sections = document.querySelectorAll('section[id]');
 
-    // Scroll Detection (Updates navbar link active state & pill ONLY when scrolling)
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
@@ -185,7 +202,6 @@ function initNavigation() {
         });
     }
 
-    // Header Nav Link Click Handler
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -314,7 +330,6 @@ function startWebAudioSpaSoundscape() {
     masterGain.gain.exponentialRampToValueAtTime(0.28, audioCtx.currentTime + 3);
     masterGain.connect(audioCtx.destination);
 
-    // Harmonic 432Hz Zen Chords (432Hz A, 216Hz A, 324Hz E, 540Hz C#)
     const freqs = [108, 216, 324, 432, 540];
 
     freqs.forEach(freq => {
@@ -378,7 +393,7 @@ function initScrollReveal() {
     });
 }
 
-/* --- Floating Particle Canvas (Sterling Silver & Soft Lilac Sparkles) --- */
+/* --- Floating Particle Canvas (Champagne Gold & Soft Lilac Sparkles) --- */
 function initParticleCanvas() {
     const canvas = document.getElementById('particle-canvas');
     if (!canvas) return;
@@ -394,7 +409,7 @@ function initParticleCanvas() {
 
     const particles = [];
     const particleCount = 42;
-    const colors = ['rgba(224, 230, 237, 0.45)', 'rgba(184, 146, 209, 0.4)', 'rgba(255, 255, 255, 0.35)'];
+    const colors = ['rgba(212, 175, 55, 0.45)', 'rgba(197, 165, 211, 0.4)', 'rgba(255, 255, 255, 0.35)'];
 
     for (let i = 0; i < particleCount; i++) {
         particles.push({
@@ -520,5 +535,5 @@ function orderGiftVoucher() {
                     `*Greeting Note:* ${encodeURIComponent(msg)}%0A%0A` +
                     `_Please generate WhatsApp digital luxury pass._`;
 
-    window.open(`https://wa.me/917788872255?text=`, '_blank');
+    window.open(`https://wa.me/917788872255?text=${message}`, '_blank');
 }
