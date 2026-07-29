@@ -1,0 +1,1435 @@
+/* ==========================================================================
+   AURORA INTERNATIONAL SPA — ROYAL EMERALD TEAL & STERLING SILVER DESIGN SYSTEM
+   ========================================================================== */
+
+/* --- Exact Palette: Royal Emerald Teal Silk & Sterling Silver --- */
+:root {
+    --bg-dark: #061614;
+    --bg-espresso: #0D2A26;
+    
+    /* Curated Emerald Teal & Sterling Silver Glass Surface Tokens */
+    --glass-bg: rgba(12, 34, 30, 0.58);
+    --glass-bg-hover: rgba(20, 52, 46, 0.78);
+    --glass-subpanel: rgba(8, 24, 21, 0.68);
+    --glass-border: rgba(224, 230, 237, 0.18);
+    --glass-border-hover: rgba(224, 230, 237, 0.42);
+    --glass-blur: blur(22px);
+    --glass-shadow: 0 12px 36px rgba(3, 12, 11, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+
+    /* Royal Emerald Teal Silk & Liquid Sterling Silver Accents */
+    --emerald-dark: #061614;
+    --emerald-silk: #0D2A26;
+    --emerald-deep: #133B36;
+    --emerald-teal: #1C5952;
+    --emerald-glow: #3CAAA0;
+
+    --silver-sterling: #E0E6ED;
+    --silver-platinum: #FFFFFF;
+    --silver-pewter: #A0ABBA;
+    --ivory: #F8FAFC;
+
+    --silver-gradient: linear-gradient(135deg, #E0E6ED 0%, #FFFFFF 50%, #A0ABBA 100%);
+    --emerald-gradient: linear-gradient(135deg, #1C5952 0%, #3CAAA0 50%, #0D2A26 100%);
+    --silver-glow: 0 3px 10px rgba(224, 230, 237, 0.14); /* Subtle non-harsh glow */
+
+    /* Aliases replacing gold with sterling silver */
+    --gold-champagne: var(--silver-sterling);
+    --bronze-antique: var(--silver-pewter);
+    --gold-gradient: var(--silver-gradient);
+    --gold-glow: var(--silver-glow);
+
+    --text-primary: #F8FAFC;
+    --text-muted: #B0C4C0;
+
+    --font-heading: 'Cinzel', serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Montserrat', sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Base --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 15px;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.8;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==========================================================================
+   FLOATING STERLING SILVER & EMERALD BACKGROUND SPHERES / LIGHT POOLS
+   ========================================================================== */
+
+.glass-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(85px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.28;
+    animation: orbFloat 16s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+    width: 480px;
+    height: 480px;
+    top: 5%;
+    left: -6%;
+    background: radial-gradient(circle, #E0E6ED 0%, transparent 70%);
+    opacity: 0.16;
+}
+
+.orb-2 {
+    width: 520px;
+    height: 520px;
+    top: 38%;
+    right: -8%;
+    background: radial-gradient(circle, #133B36 0%, transparent 70%);
+    animation-delay: -4s;
+}
+
+.orb-3 {
+    width: 400px;
+    height: 400px;
+    bottom: 10%;
+    left: 10%;
+    background: radial-gradient(circle, #3CAAA0 0%, transparent 70%);
+    opacity: 0.22;
+    animation-delay: -7s;
+}
+
+.orb-4 {
+    width: 560px;
+    height: 560px;
+    top: 68%;
+    right: 12%;
+    background: radial-gradient(circle, #E0E6ED 0%, transparent 70%);
+    opacity: 0.12;
+    animation-delay: -10s;
+}
+
+.orb-5 {
+    width: 340px;
+    height: 340px;
+    top: 22%;
+    left: 42%;
+    background: radial-gradient(circle, #1C5952 0%, transparent 70%);
+    opacity: 0.25;
+    animation-delay: -2s;
+}
+
+@keyframes orbFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, -55px) scale(1.12); }
+    100% { transform: translate(-35px, 40px) scale(0.92); }
+}
+
+/* --- Universal Silver & Emerald Glassmorphism Classes --- */
+.glass-card {
+    background: var(--glass-bg) !important;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border) !important;
+    border-top: 1px solid rgba(224, 230, 237, 0.28) !important;
+    box-shadow: var(--glass-shadow);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    background: var(--glass-bg-hover) !important;
+    border-color: var(--glass-border-hover) !important;
+    box-shadow: 0 18px 42px rgba(3, 12, 11, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+}
+
+.glass-subpanel {
+    background: var(--glass-subpanel) !important;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: var(--radius-sm);
+}
+
+.glass-panel {
+    background: rgba(8, 24, 21, 0.82) !important;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-input {
+    background: rgba(6, 18, 16, 0.75) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border) !important;
+    color: var(--text-primary) !important;
+}
+
+.glass-pill {
+    background: rgba(12, 34, 30, 0.65) !important;
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border) !important;
+    color: var(--text-muted);
+}
+
+.glass-pill.active {
+    background: var(--silver-gradient) !important;
+    color: #061614 !important;
+    border-color: transparent !important;
+    font-weight: 600;
+}
+
+.glass-badge {
+    background: rgba(8, 24, 21, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border) !important;
+}
+
+/* ==========================================================================
+   SILKY BREATHING STERLING SILVER INTRO CURTAIN
+   ========================================================================== */
+
+.intro-curtain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #0D2A26 0%, #061614 50%, #133B36 100%);
+    border-bottom: 3px solid var(--silver-sterling);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
+    transition: transform 1.25s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.9s ease;
+    will-change: transform, opacity;
+}
+
+.intro-logo-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-logo-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    height: 260px;
+}
+
+/* Silky Breathing Sterling Silver Halo Behind Logo (Soft Subtle Halo) */
+.intro-logo-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(224, 230, 237, 0.35) 0%, rgba(160, 171, 186, 0.1) 60%, transparent 80%);
+    box-shadow: 0 0 35px rgba(224, 230, 237, 0.3);
+    animation: luxuryAuraBreathe 2.8s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes luxuryAuraBreathe {
+    0% {
+        transform: scale(0.88);
+        opacity: 0.25;
+        box-shadow: 0 0 15px rgba(224, 230, 237, 0.15);
+    }
+    100% {
+        transform: scale(1.25);
+        opacity: 0.7;
+        box-shadow: 0 0 40px rgba(224, 230, 237, 0.45);
+    }
+}
+
+.intro-logo-img {
+    height: 185px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 18px rgba(224, 230, 237, 0.5));
+    position: relative;
+    z-index: 2;
+    animation: logoSmoothAppear 1.2s ease-out forwards;
+}
+
+@keyframes logoSmoothAppear {
+    0% { opacity: 0; transform: scale(0.88); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.intro-curtain-overlay.curtain-raise {
+    transform: translateY(-100%);
+    opacity: 0.95;
+}
+
+/* ==========================================================================
+   STERLING SILVER & EMERALD SILK SLIDE TRANSITION CURTAIN
+   ========================================================================== */
+
+.tab-transition-curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #0D2A26 0%, #1C5952 50%, #E0E6ED 100%);
+    z-index: 99999;
+    pointer-events: none;
+    transform: translateX(-100%);
+    opacity: 0;
+    box-shadow: 15px 0 40px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.curtain-logo {
+    max-height: 140px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(6, 22, 20, 0.7));
+    transform: scale(0.9);
+    transition: transform 0.45s ease;
+}
+
+.tab-transition-curtain.wipe-active {
+    animation: leftToRightWipe 0.85s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.tab-transition-curtain.wipe-active .curtain-logo {
+    transform: scale(1.15);
+}
+
+@keyframes leftToRightWipe {
+    0% { transform: translateX(-100%); opacity: 0.95; }
+    40% { transform: translateX(0%); opacity: 1; }
+    60% { transform: translateX(0%); opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* ==========================================================================
+   ALTERNATING EMERALD TEAL SILK SHADES FOR TABS (FROM USER'S SILK IMAGE)
+   ========================================================================== */
+
+/* Tab 1: Hero / Home — Deepest Obsidian Emerald Shadow (#061614) */
+.bg-tab-1 { 
+    background-color: #061614 !important; 
+}
+
+/* Tab 2: About — Rich Midnight Emerald Silk (#0F2C28) */
+.bg-tab-2 { 
+    background-color: #0F2C28 !important; 
+    border-top: 1px solid var(--glass-border); 
+    border-bottom: 1px solid var(--glass-border); 
+}
+
+/* Tab 3: Services (formerly Menu) — Deep Obsidian Emerald Quartz (#081C1A) */
+.bg-tab-3 { 
+    background-color: #081C1A !important; 
+}
+
+/* Tab 4: VIP Suite & Passes — Royal Emerald Jade Silk (#123530) */
+.bg-tab-4 { 
+    background-color: #123530 !important; 
+    border-top: 1px solid var(--glass-border); 
+    border-bottom: 1px solid var(--glass-border); 
+}
+
+/* Tab 5: Contact & Guide — Deep Emerald Mocha Quartz (#0A1F1C) */
+.bg-tab-5 { 
+    background-color: #0A1F1C !important; 
+}
+
+/* Floating Canvas Particle Layer */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.45;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--silver-pewter); border-radius: 3px; }
+
+/* --- Typography & Silver Section Tag --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: 1.2px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.silver-section-tag, .gold-section-tag {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--silver-sterling);
+    margin-bottom: 26px;
+}
+.silver-section-tag.center, .gold-section-tag.center { text-align: center; }
+
+.text-silver, .text-gold {
+    background: var(--silver-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.silver-icon, .gold-icon { color: var(--silver-sterling); }
+
+.section {
+    padding: 130px 0;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.section-container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Right-to-Left Slide-In Element Animation --- */
+.reveal-slide-right {
+    opacity: 0;
+    transform: translateX(110px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-slide-right.reveal-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.section-header { margin-bottom: 70px; }
+.section-header.center { text-align: center; }
+
+.section-title {
+    font-size: 2.3rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 18px;
+}
+
+.section-subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+/* --- Subtle Sterling Silver Glassmorphism Buttons (Reduced Glow) --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 13px 30px;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn-silver, .btn-gold {
+    background: var(--silver-gradient);
+    color: #061614;
+    box-shadow: 0 4px 12px rgba(224, 230, 237, 0.16); /* Reduced glow */
+}
+.btn-silver:hover, .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(224, 230, 237, 0.28); /* Reduced hover glow */
+}
+
+.btn-outline {
+    background: rgba(12, 34, 30, 0.4);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    backdrop-filter: blur(10px);
+}
+.btn-outline:hover {
+    border-color: var(--silver-sterling);
+    color: var(--silver-sterling);
+    transform: translateY(-2px);
+}
+
+.btn-lg { padding: 15px 36px; font-size: 0.9rem; }
+.btn-sm { padding: 9px 20px; font-size: 0.8rem; }
+
+.w-100 { width: 100%; }
+.mt-2 { margin-top: 0.75rem; }
+.mt-3 { margin-top: 1.5rem; }
+
+/* Single Minimalist Sound Symbol Button (Reduced Glow) */
+.sound-toggle-btn.icon-only {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(12, 34, 30, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    color: var(--silver-sterling);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.sound-toggle-btn.icon-only:hover {
+    border-color: var(--silver-sterling);
+    transform: scale(1.06);
+}
+
+.sound-toggle-btn.icon-only.playing {
+    background: var(--silver-gradient);
+    color: #061614;
+    box-shadow: 0 2px 10px rgba(224, 230, 237, 0.3); /* Subtle non-harsh glow */
+}
+
+/* Navbar Direct Contact Button */
+.nav-contact-btn {
+    padding: 9px 22px;
+}
+
+/* --- Navbar & Animated Header Pill --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 14px 0;
+    transition: var(--transition);
+}
+
+.nav-container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-logo-img {
+    height: 65px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+.nav-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border-radius: var(--radius-full);
+}
+
+.nav-slider-pill {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    height: calc(100% - 8px);
+    width: 80px;
+    background: var(--silver-gradient);
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 10px rgba(224, 230, 237, 0.22); /* Reduced glow */
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.nav-link {
+    position: relative;
+    z-index: 2;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    user-select: none;
+}
+
+.nav-link:active { transform: scale(0.95); }
+.nav-link.active { color: #061614; font-weight: 700; }
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   HERO SECTION WITH GLASSMORPHISM COMPACT ICONS & DECREASED CARD LENGTH
+   ========================================================================== */
+
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 150px;
+    padding-bottom: 80px;
+    overflow: hidden;
+}
+
+.hero-bg-animated {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(6, 22, 20, 0.95) 0%, rgba(6, 22, 20, 0.82) 48%, rgba(6, 22, 20, 0.2) 100%),
+                url('assets/hero_bg.jpg') center right / cover no-repeat;
+    z-index: 0;
+    animation: dayOnePan 25s ease-in-out infinite alternate;
+    transform-origin: center right;
+}
+
+@keyframes dayOnePan {
+    0% { transform: scale(1) translateX(0); }
+    100% { transform: scale(1.08) translateX(-15px); }
+}
+
+.hero-container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content-left {
+    max-width: 640px;
+    margin-left: 0;
+}
+
+.hero-title {
+    font-size: 3.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 22px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    max-width: 580px;
+    margin: 0 0 32px 0;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+}
+
+/* Reduced Size Interactive Icons & Decreased Card Width (410px) */
+.hero-icons-wrapper {
+    max-width: 410px;
+}
+
+.interactive-icons-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 14px;
+}
+.interactive-icons-row.left-aligned { justify-content: flex-start; }
+
+/* Reduced Glass Icon Dimensions (46px x 46px) & Reduced Glow */
+.interactive-icon-btn.glass-icon-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(12, 34, 30, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    color: var(--silver-sterling);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    outline: none;
+}
+
+.interactive-icon-btn.glass-icon-btn:hover {
+    border-color: var(--silver-sterling);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(224, 230, 237, 0.2); /* Reduced glow */
+}
+
+.interactive-icon-btn.glass-icon-btn.active {
+    background: var(--silver-gradient) !important;
+    color: #061614 !important;
+    border-color: transparent !important;
+    transform: scale(1.1);
+    box-shadow: 0 4px 14px rgba(224, 230, 237, 0.35); /* Reduced active glow */
+}
+
+/* Decreased Length Glass Card Container (410px) */
+.interactive-text-display {
+    text-align: left;
+    max-width: 410px;
+    min-height: 52px;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    padding: 12px 18px;
+}
+
+.interactive-text-display h4 {
+    font-size: 0.95rem;
+    color: var(--silver-sterling);
+    margin-bottom: 3px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.interactive-text-display p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+/* ==========================================================================
+   ABOUT US GLASS SECTION
+   ========================================================================== */
+
+.about-section {
+    padding: 110px 0;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+    padding: 44px;
+}
+
+.about-lead {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--silver-sterling);
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.about-desc {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.a-feat {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.about-image-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 16px 40px rgba(3, 12, 11, 0.65);
+}
+
+.about-image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.about-image-frame:hover img { transform: scale(1.05); }
+
+/* --- Highlights Section & Sequential Highlight (Reduced Pulse Glow) --- */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.highlight-card {
+    text-align: center;
+    padding: 28px 18px;
+    border-radius: var(--radius-md);
+}
+
+.highlight-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 16px auto;
+    border-radius: 50%;
+    background: rgba(224, 230, 237, 0.1);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    color: var(--silver-sterling);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Sequential Highlight Active Style (Soft Non-Harsh Glow) */
+.highlight-card.icon-active-pulse .highlight-icon {
+    background: var(--silver-gradient);
+    color: #061614;
+    transform: scale(1.15);
+    box-shadow: 0 4px 16px rgba(224, 230, 237, 0.4); /* Reduced pulse glow */
+    border-color: transparent;
+}
+
+.highlight-card h4 { font-size: 1rem; margin-bottom: 8px; font-weight: 600; }
+.highlight-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ==========================================================================
+   PINTEREST 3D FLIP GLASS CARDS FOR REVIEWS
+   ========================================================================== */
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    perspective: 1000px;
+}
+
+.review-card {
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.review-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--silver-gradient);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-8px) rotateX(2deg) scale(1.01);
+    border-color: rgba(224, 230, 237, 0.45) !important;
+}
+
+.review-card:hover::before { opacity: 1; }
+
+.review-quote-icon {
+    font-size: 1.6rem;
+    color: var(--silver-sterling);
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.review-card:hover .review-quote-icon {
+    opacity: 0.95;
+    transform: scale(1.1) translateY(-2px);
+}
+
+.stars { color: var(--silver-sterling); font-size: 0.9rem; }
+.review-text { font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: var(--text-muted); line-height: 1.7; flex-grow: 1; }
+.reviewer-info h4 { font-size: 0.95rem; margin-bottom: 2px; }
+.reviewer-info span { font-size: 0.75rem; color: var(--silver-sterling); }
+
+/* --- FAQ Glass Section --- */
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.faq-card {
+    padding: 24px;
+}
+
+.faq-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    color: var(--silver-sterling);
+}
+
+.faq-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* --- Category Glass Tabs & Sliding Pill --- */
+.category-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 54px;
+}
+
+.category-tabs {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px;
+    border-radius: var(--radius-full);
+}
+
+.tab-slider-pill {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    height: calc(100% - 12px);
+    width: 120px;
+    background: var(--silver-gradient);
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 10px rgba(224, 230, 237, 0.25);
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tab-btn {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tab-btn:active { transform: scale(0.94); }
+.tab-btn.active { color: #061614; font-weight: 700; }
+
+.therapies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+}
+
+.therapy-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.therapy-card.card-switching {
+    animation: p-card-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes p-card-in {
+    0% { opacity: 0; transform: translateX(40px) scale(0.97); }
+    100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.therapy-card:hover {
+    transform: translateY(-6px);
+}
+
+.card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.therapy-card:hover .card-image img { transform: scale(1.06); }
+
+.card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    color: var(--text-primary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+}
+.card-badge.silver-badge, .card-badge.gold-badge { background: var(--silver-gradient); color: #061614; border: none; }
+
+.card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.therapy-name { font-size: 1.2rem; margin-bottom: 8px; }
+
+.therapy-desc {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    flex-grow: 1;
+    line-height: 1.6;
+}
+
+.duration-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+}
+
+.d-price {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+}
+
+.d-price strong {
+    color: var(--silver-sterling);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+}
+
+/* --- VIP Jacuzzi Suite Glass Section --- */
+.vip-section {
+    background: linear-gradient(180deg, #123530 0%, #061614 100%);
+}
+
+.vip-banner {
+    background: linear-gradient(135deg, rgba(12, 34, 30, 0.82), rgba(6, 22, 20, 0.88)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-lg);
+    padding: 50px;
+}
+
+.vip-lead {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--silver-sterling);
+    max-width: 650px;
+    margin-top: 10px;
+    margin-bottom: 36px;
+    font-style: italic;
+}
+
+.vip-treatments {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.vip-t-card {
+    padding: 24px;
+    position: relative;
+}
+
+.t-ribbon {
+    position: absolute;
+    top: -10px;
+    right: 18px;
+    background: var(--silver-gradient);
+    color: #061614;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+}
+
+.vip-t-card h4 { font-size: 1.1rem; margin-bottom: 8px; }
+.vip-t-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5; }
+.v-prices { font-family: var(--font-heading); font-size: 0.85rem; color: var(--silver-sterling); margin-bottom: 12px; }
+
+/* --- Glass Gift Pass Section --- */
+.giftcard-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    border-radius: var(--radius-lg);
+    padding: 50px;
+}
+
+.gift-steps {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.g-step { display: flex; gap: 14px; }
+
+.g-num {
+    width: 32px;
+    height: 32px;
+    background: rgba(224, 230, 237, 0.15);
+    border: 1px solid var(--glass-border);
+    color: var(--silver-sterling);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.g-step h4 { font-size: 0.95rem; margin-bottom: 2px; }
+.g-step p { font-size: 0.82rem; color: var(--text-muted); }
+
+.giftcard-builder {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.voucher-preview {
+    border-radius: var(--radius-md);
+    padding: 24px;
+}
+
+.vp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.vp-amount {
+    font-family: var(--font-heading);
+    font-size: 2.1rem;
+    color: var(--silver-sterling);
+    margin: 8px 0;
+}
+
+.vp-msg {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.vp-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--glass-border);
+    padding-top: 10px;
+}
+
+.builder-form { display: flex; flex-direction: column; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group label { font-size: 0.75rem; color: var(--text-muted); }
+
+.form-group input, .form-group select {
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.amount-pills { display: flex; gap: 8px; }
+
+.pill {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.8rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   CONTACT & LOCATION GLASS SECTION
+   ========================================================================== */
+
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.location-card {
+    border-radius: var(--radius-lg);
+    padding: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-details {
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.c-item { display: flex; gap: 14px; }
+.c-icon { color: var(--silver-sterling); font-size: 1.1rem; }
+.c-item h4 { font-size: 0.9rem; margin-bottom: 2px; }
+.c-item p { font-size: 0.82rem; color: var(--text-muted); }
+.c-item a { color: var(--silver-sterling); text-decoration: none; }
+
+.map-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.map-frame.glass-map-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    flex-grow: 1;
+    min-height: 440px;
+    height: 100%;
+    background: #061614;
+    box-shadow: var(--glass-shadow);
+}
+
+.map-frame iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 440px;
+    border: 0;
+    display: block;
+}
+
+/* --- Clean 3-Column Footer Layout --- */
+.footer {
+    padding: 70px 0 28px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-grid-clean {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-col p { font-size: 0.82rem; color: var(--text-muted); margin-top: 12px; }
+.footer-col h4 { font-size: 0.95rem; margin-bottom: 16px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; }
+.footer-col ul li a:hover { color: var(--silver-sterling); }
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(224, 230, 237, 0.15);
+    padding-top: 20px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 54px;
+    height: 54px;
+    background: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    z-index: 999;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+    transition: var(--transition);
+}
+.whatsapp-float:hover { transform: scale(1.08); }
+
+/* Modals */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 12, 11, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.modal-backdrop.active { opacity: 1; pointer-events: auto; }
+
+.modal-card.glass-modal {
+    background: rgba(12, 34, 30, 0.94) !important;
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid var(--glass-border);
+    border-top: 1px solid rgba(224, 230, 237, 0.3) !important;
+    border-radius: var(--radius-lg);
+    width: 88%;
+    max-width: 600px;
+    padding: 36px;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.88);
+}
+
+.modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.modal-header { text-align: center; margin-bottom: 20px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr; padding: 28px; }
+    .hero-title { font-size: 2.7rem; }
+    .highlights-grid, .therapies-grid, .vip-treatments, .reviews-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
+    .giftcard-wrapper, .location-grid { grid-template-columns: 1fr; padding: 28px; }
+    .footer-grid-clean { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(12, 34, 30, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+        transform: translateY(-150%);
+        transition: var(--transition);
+        border-bottom: 1px solid var(--glass-border);
+    }
+    .nav-menu.mobile-active { transform: translateY(0); }
+    .mobile-toggle { display: block; }
+    .hero-title { font-size: 2.2rem; }
+    .hero-content-left { max-width: 100%; }
+    .about-features { grid-template-columns: 1fr; }
+    .highlights-grid, .therapies-grid, .vip-treatments, .reviews-grid, .faq-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .nav-slider-pill { display: none; }
+    .category-tabs { flex-wrap: wrap; justify-content: center; }
+    .tab-slider-pill { display: none; }
+    .tab-btn.active { background: var(--silver-gradient); }
+    .interactive-icons-row { gap: 14px; }
+    .interactive-icon-btn.glass-icon-btn { width: 42px; height: 42px; font-size: 0.95rem; }
+}

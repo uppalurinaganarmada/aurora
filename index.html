@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora International Spa | Luxury Sanctuary in Bhubaneswar</title>
+    <meta name="description" content="Experience ultimate relaxation at Aurora International Spa (Saheed Nagar, Bhubaneswar). Traditional massages, VIP Jacuzzi suites, organic botanicals, and certified therapists.">
+    
+    <!-- Google Fonts: Cinzel, Cormorant Garamond & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DaySpa",
+      "name": "Aurora International Spa",
+      "image": "assets/logo.png",
+      "logo": "assets/logo.png",
+      "telephone": "+917788872255",
+      "priceRange": "₹3000 - ₹12000",
+      "currenciesAccepted": "INR",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3rd Floor, Space No. 04, 1st Block, BMC Bhawani Mall, Saheed Nagar",
+        "addressLocality": "Bhubaneswar",
+        "addressRegion": "Odisha",
+        "postalCode": "751007",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "20.2961",
+        "longitude": "85.8245"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "10:00",
+          "closes": "21:00"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- GRAND LUXURY INTRO CURTAIN (SILKY BREATHING STERLING SILVER AURA LOGO INTRO) -->
+    <div class="intro-curtain-overlay" id="intro-curtain">
+        <div class="intro-logo-box">
+            <div class="intro-logo-wrapper">
+                <img src="assets/logo.png" alt="Aurora International Spa Official Logo" class="intro-logo-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- LEFT-TO-RIGHT STERLING SILVER & EMERALD TRANSITION CURTAIN ON TAB CLICK -->
+    <div class="tab-transition-curtain" id="tab-transition-curtain">
+        <img src="assets/logo.png" alt="Aurora International Spa Logo" class="curtain-logo">
+    </div>
+
+    <!-- Floating Canvas Particle Layer -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- FLOATING BACKGROUND GLASS SPHERES / ORBS -->
+    <div class="glass-orb orb-1"></div>
+    <div class="glass-orb orb-2"></div>
+    <div class="glass-orb orb-3"></div>
+    <div class="glass-orb orb-4"></div>
+    <div class="glass-orb orb-5"></div>
+
+    <!-- Glassmorphism Navigation Header -->
+    <header class="navbar glass-panel" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo">
+                <img src="assets/logo.png" alt="Aurora International Spa Logo" class="brand-logo-img">
+            </a>
+
+            <!-- Header Nav Links with Animated Sliding Pill -->
+            <nav class="nav-menu glass-subpanel" id="nav-menu">
+                <div class="nav-slider-pill" id="nav-slider-pill"></div>
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#vip-passes" class="nav-link">VIP Suite & Passes</a>
+                <a href="#contact" class="nav-link">Contact & Guide</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Single Sound Symbol Button -->
+                <button class="sound-toggle-btn icon-only glass-btn" id="sound-toggle-btn" onclick="toggleAudio()" title="Play Spa Ambient Audio">
+                    <i class="fa-solid fa-volume-xmark" id="sound-icon"></i>
+                </button>
+
+                <!-- Single Clean Contact Button (Sterling Silver Accent) -->
+                <a href="https://wa.me/917788872255?text=Hello%20Aurora%20Spa%2C%20I%20would%20like%20to%20reserve%20a%20treatment%20ritual." target="_blank" class="btn btn-silver btn-sm nav-contact-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Contact
+                </a>
+
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Reliable Audio Element for Ambient Spa Soundscape -->
+    <audio id="spa-audio" loop preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a7e3a3.mp3?filename=meditation-relaxing-10515.mp3"></audio>
+
+    <!-- MAIN SINGLE-PAGE SCROLLABLE CONTENT -->
+    <main>
+
+        <!-- TAB 1: HERO / HOME (Deepest Obsidian Emerald Shadow #061614) -->
+        <section class="hero-section bg-tab-1" id="hero">
+            <div class="hero-bg-animated"></div>
+            <div class="hero-container">
+                <div class="hero-content-left reveal-slide-right">
+                    <h1 class="hero-title">Rest Becomes <span class="text-silver">Renewal</span></h1>
+                    
+                    <p class="hero-subtitle">
+                        "Breathe. You are cared for here." Unhurried massage traditions from around the world paired with genuine care in a sanctuary of calm.
+                    </p>
+
+                    <!-- Single Primary CTA Button -->
+                    <div class="hero-actions">
+                        <button class="btn btn-silver btn-lg" onclick="openBookingModal()">
+                            <i class="fa-solid fa-spa"></i> Reserve A Ritual
+                        </button>
+                    </div>
+
+                    <!-- 4 Compact Clickable Glass Icons & Decreased Width Text Display Card -->
+                    <div class="hero-icons-wrapper mt-4" style="margin-top: 32px;">
+                        <div class="interactive-icons-row left-aligned">
+                            <button class="interactive-icon-btn glass-icon-btn active" onclick="selectHomeHighlight(0, 'Unhurried Care', 'Gentle, mindful rituals creating deep stillness for body and mind.')" title="Unhurried Care">
+                                <i class="fa-solid fa-feather"></i>
+                            </button>
+                            <button class="interactive-icon-btn glass-icon-btn" onclick="selectHomeHighlight(1, 'Natural Botanicals', 'Warm coconut oils, natural candles, and aromatic herbs.')" title="Natural Botanicals">
+                                <i class="fa-solid fa-leaf"></i>
+                            </button>
+                            <button class="interactive-icon-btn glass-icon-btn" onclick="selectHomeHighlight(2, 'VIP Jacuzzi Suite', 'Private room equipped with a warm hydrotherapy Jacuzzi tub.')" title="VIP Jacuzzi Suite">
+                                <i class="fa-solid fa-crown"></i>
+                            </button>
+                            <button class="interactive-icon-btn glass-icon-btn" onclick="selectHomeHighlight(3, 'Refined Luxury', 'Sterling silver accents on deep emerald silk fields.')" title="Refined Luxury">
+                                <i class="fa-solid fa-star"></i>
+                            </button>
+                        </div>
+
+                        <!-- Decreased Length Glass Card below Clicked Icon -->
+                        <div class="interactive-text-display glass-card left-aligned" id="highlight-text-display">
+                            <h4 id="highlight-title">Unhurried Care</h4>
+                            <p id="highlight-desc">Gentle, mindful rituals creating deep stillness for body and mind.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: ABOUT SECTION (Rich Midnight Emerald Silk #0F2C28) -->
+        <section class="section about-section bg-tab-2" id="about">
+            <div class="section-container reveal-slide-right">
+                <!-- Our Story Glass Block -->
+                <div class="about-grid glass-card p-5">
+                    <div class="about-text">
+                        <div class="silver-section-tag">OUR STORY</div>
+                        <h2 class="section-title">Sanctuary of Restorative Stillness</h2>
+                        <p class="about-lead">"Aurora is the first light of morning — the quiet moment where rest becomes renewal."</p>
+                        <p class="about-desc">
+                            Located on the 3rd floor of BMC Bhawani Mall in Saheed Nagar, Aurora International Spa was established as Bhubaneswar's premier sanctuary for restorative bodywork and unhurried care. We believe true wellness requires quiet time, organic botanicals, and genuine human care.
+                        </p>
+                        <p class="about-desc">
+                            Whether enjoying our rhythmic Thai dry stretches, warm coconut oil Swedish massages, or a private VIP hydrotherapy Jacuzzi ritual, every detail is composed to return your body and mind to complete balance.
+                        </p>
+                        <div class="about-features">
+                            <div class="a-feat"><i class="fa-solid fa-check text-silver"></i> Private Hydrotherapy Jacuzzi Suites</div>
+                            <div class="a-feat"><i class="fa-solid fa-check text-silver"></i> Certified Male & Female Therapists</div>
+                            <div class="a-feat"><i class="fa-solid fa-check text-silver"></i> 100% Organic Cold-Pressed Oils</div>
+                            <div class="a-feat"><i class="fa-solid fa-check text-silver"></i> Soundproof Ambient Quiet Rooms</div>
+                        </div>
+                    </div>
+                    <div class="about-image-frame glass-image-frame">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Aurora International Spa Sanctuary Interior">
+                    </div>
+                </div>
+
+                <!-- Sanctuary Amenities Block inside About (WITH SEQUENTIAL HIGHLIGHT) -->
+                <div class="about-amenities-wrapper" style="margin-top: 80px;">
+                    <div class="silver-section-tag center">SANCTUARY AMENITIES</div>
+
+                    <div class="highlights-grid" id="seq-amenities-grid">
+                        <div class="highlight-card glass-card reveal-slide-right">
+                            <div class="highlight-icon"><i class="fa-solid fa-hot-tub-person"></i></div>
+                            <h4>Hydrotherapy Jacuzzi</h4>
+                            <p>Private VIP Jacuzzi tub with warm jet therapy.</p>
+                        </div>
+
+                        <div class="highlight-card glass-card reveal-slide-right">
+                            <div class="highlight-icon"><i class="fa-solid fa-user-shield"></i></div>
+                            <h4>Certified Therapists</h4>
+                            <p>Skilled male and female therapists trained in global traditions.</p>
+                        </div>
+
+                        <div class="highlight-card glass-card reveal-slide-right">
+                            <div class="highlight-icon"><i class="fa-solid fa-pump-soap"></i></div>
+                            <h4>100% Organic Oils</h4>
+                            <p>Cold-pressed coconut oils and aromatic essential botanicals.</p>
+                        </div>
+
+                        <div class="highlight-card glass-card reveal-slide-right">
+                            <div class="highlight-icon"><i class="fa-solid fa-shower"></i></div>
+                            <h4>Steam & Rain Shower</h4>
+                            <p>Ensuite private showers with fresh organic towels and robes.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 3: SERVICES (formerly MENU) (Deep Obsidian Emerald Quartz #081C1A) -->
+        <section class="section menu-section bg-tab-3" id="services">
+            <div class="section-container reveal-slide-right">
+                <div class="silver-section-tag center">OUR SERVICES</div>
+                <div class="section-header center" style="margin-bottom: 40px;">
+                    <h2 class="section-title">Massage & Spa Services</h2>
+                    <p class="section-subtitle">Time-honoured traditions for pure ease and relaxation.</p>
+                </div>
+
+                <!-- Category Glass Tabs -->
+                <div class="category-tabs-wrapper">
+                    <div class="category-tabs glass-subpanel" id="category-tabs-container">
+                        <div class="tab-slider-pill" id="tab-slider-pill"></div>
+                        <button class="tab-btn active" data-filter="all">All Services</button>
+                        <button class="tab-btn" data-filter="massage">Dry & Oil Massage</button>
+                        <button class="tab-btn" data-filter="scrub">Scrub Combos</button>
+                        <button class="tab-btn" data-filter="vip">VIP Jacuzzi Suite</button>
+                    </div>
+                </div>
+
+                <!-- Treatment Menu Glass Grid -->
+                <div class="therapies-grid" id="menu-grid">
+
+                    <div class="therapy-card glass-card reveal-slide-right" data-category="massage">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Thai Massage">
+                            <span class="card-badge glass-badge">Traditional Dry</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="therapy-name">Thai Massage</h3>
+                            <p class="therapy-desc">Rhythmic pressure and guided stretches that gently unwind body tension.</p>
+                            <div class="duration-prices glass-subpanel">
+                                <span class="d-price">60 MIN: <strong>₹3,000</strong></span>
+                                <span class="d-price">90 MIN: <strong>₹4,000</strong></span>
+                                <span class="d-price">120 MIN: <strong>₹5,000</strong></span>
+                            </div>
+                            <button class="btn btn-silver btn-sm w-100 mt-3" onclick="openBookingModal('Thai Massage', '₹3,000 - ₹5,000')">Reserve</button>
+                        </div>
+                    </div>
+
+                    <div class="therapy-card glass-card reveal-slide-right" data-category="massage">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80" alt="Swedish Massage">
+                            <span class="card-badge silver-badge">Popular</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="therapy-name">Swedish Massage</h3>
+                            <p class="therapy-desc">Long gliding strokes following blood circulation for pure relaxation.</p>
+                            <div class="duration-prices glass-subpanel">
+                                <span class="d-price">60 MIN: <strong>₹3,500</strong></span>
+                                <span class="d-price">90 MIN: <strong>₹4,500</strong></span>
+                                <span class="d-price">120 MIN: <strong>₹5,500</strong></span>
+                            </div>
+                            <button class="btn btn-silver btn-sm w-100 mt-3" onclick="openBookingModal('Swedish Massage', '₹3,500 - ₹5,500')">Reserve</button>
+                        </div>
+                    </div>
+
+                    <div class="therapy-card glass-card reveal-slide-right" data-category="massage">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80" alt="Deep Tissue Massage">
+                            <span class="card-badge glass-badge">Restorative</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="therapy-name">Deep Tissue Massage</h3>
+                            <p class="therapy-desc">Slow deliberate strokes reaching deep layers to release chronic knots.</p>
+                            <div class="duration-prices glass-subpanel">
+                                <span class="d-price">60 MIN: <strong>₹4,000</strong></span>
+                                <span class="d-price">90 MIN: <strong>₹5,000</strong></span>
+                                <span class="d-price">120 MIN: <strong>₹6,000</strong></span>
+                            </div>
+                            <button class="btn btn-silver btn-sm w-100 mt-3" onclick="openBookingModal('Deep Tissue Massage', '₹4,000 - ₹6,000')">Reserve</button>
+                        </div>
+                    </div>
+
+                    <div class="therapy-card glass-card reveal-slide-right" data-category="massage">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Coconut Oil Massage">
+                            <span class="card-badge glass-badge">Nourishing</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="therapy-name">Coconut Oil Massage</h3>
+                            <p class="therapy-desc">Warm coconut oil soothes tired muscles and deeply hydrates skin.</p>
+                            <div class="duration-prices glass-subpanel">
+                                <span class="d-price">60 MIN: <strong>₹3,500</strong></span>
+                                <span class="d-price">90 MIN: <strong>₹4,300</strong></span>
+                                <span class="d-price">120 MIN: <strong>₹5,500</strong></span>
+                            </div>
+                            <button class="btn btn-silver btn-sm w-100 mt-3" onclick="openBookingModal('Coconut Oil Massage', '₹3,500 - ₹5,500')">Reserve</button>
+                        </div>
+                    </div>
+
+                    <div class="therapy-card glass-card reveal-slide-right" data-category="scrub">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Scrub & Swedish">
+                            <span class="card-badge silver-badge">Full Renewal</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="therapy-name">Scrub & Swedish Combo</h3>
+                            <p class="therapy-desc">Exfoliating body scrub followed by a smooth Swedish massage.</p>
+                            <div class="duration-prices glass-subpanel">
+                                <span class="d-price">90 MIN: <strong>₹5,000</strong></span>
+                                <span class="d-price">120 MIN: <strong>₹6,500</strong></span>
+                            </div>
+                            <button class="btn btn-silver btn-sm w-100 mt-3" onclick="openBookingModal('Scrub & Swedish Combo', '₹5,000 - ₹6,500')">Reserve</button>
+                        </div>
+                    </div>
+
+                    <div class="therapy-card glass-card reveal-slide-right" data-category="scrub">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80" alt="Scrub & Deep Tissue">
+                            <span class="card-badge glass-badge">Deep Care</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="therapy-name">Scrub & Deep Tissue Combo</h3>
+                            <p class="therapy-desc">Exfoliating scrub paired with restorative deep muscle work.</p>
+                            <div class="duration-prices glass-subpanel">
+                                <span class="d-price">90 MIN: <strong>₹5,500</strong></span>
+                                <span class="d-price">120 MIN: <strong>₹7,000</strong></span>
+                            </div>
+                            <button class="btn btn-silver btn-sm w-100 mt-3" onclick="openBookingModal('Scrub & Deep Tissue Combo', '₹5,500 - ₹7,000')">Reserve</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: VIP SUITE & PASSES (Royal Emerald Jade Silk #123530) -->
+        <section class="section vip-section bg-tab-4" id="vip-passes">
+            <div class="section-container reveal-slide-right">
+                <!-- VIP Jacuzzi Glass Banner -->
+                <div class="vip-banner glass-card mb-5" style="margin-bottom: 70px;">
+                    <div class="vip-content">
+                        <div class="silver-section-tag">THE PREMIUM ROOM</div>
+                        <h2>Private VIP Suite with Jacuzzi</h2>
+                        <p class="vip-lead">A private VIP suite with its own Jacuzzi — an unhurried occasion.</p>
+
+                        <div class="vip-treatments">
+                            <div class="vip-t-card glass-card reveal-slide-right">
+                                <h4>Aroma Hot Oil Massage</h4>
+                                <p>Warm aromatic oils carry the body into deep well-being.</p>
+                                <div class="v-prices">60M ₹7,000 &bull; 90M ₹8,500 &bull; 120M ₹10,500</div>
+                                <button class="btn btn-silver btn-sm mt-2" onclick="openBookingModal('Aroma Hot Oil Massage (VIP Suite)')">Book VIP Suite</button>
+                            </div>
+
+                            <div class="vip-t-card glass-card reveal-slide-right">
+                                <h4>Warm Candle Massage</h4>
+                                <p>Warm candle oil melts over the skin, easing tension with natural aromas.</p>
+                                <div class="v-prices">60M ₹7,000 &bull; 90M ₹8,500 &bull; 120M ₹10,500</div>
+                                <button class="btn btn-silver btn-sm mt-2" onclick="openBookingModal('Warm Candle Massage (VIP Suite)')">Book VIP Suite</button>
+                            </div>
+
+                            <div class="vip-t-card glass-card silver-border reveal-slide-right">
+                                <div class="t-ribbon">Signature</div>
+                                <h4>Aurora Signature Ritual</h4>
+                                <p>Aroma oils, hot stones and a soothing Jacuzzi soak in one ritual.</p>
+                                <div class="v-prices">60M ₹8,000 &bull; 90M ₹9,500 &bull; 120M ₹12,000</div>
+                                <button class="btn btn-silver btn-sm mt-2" onclick="openBookingModal('Aurora Signature Ritual (Jacuzzi VIP Suite)')">Book Signature</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glass Gift Pass Block -->
+                <div class="giftcard-wrapper glass-card">
+                    <div class="giftcard-info">
+                        <div class="silver-section-tag">REST & RENEWAL</div>
+                        <h2>Send an Aurora Gift Pass</h2>
+                        <p>Surprise loved ones with a bespoke gift voucher valid for all rituals.</p>
+                        
+                        <div class="gift-steps">
+                            <div class="g-step">
+                                <span class="g-num">1</span>
+                                <div>
+                                    <h4>Choose Voucher Value</h4>
+                                    <p>Select ₹3,000, ₹5,000, or ₹10,000 passes.</p>
+                                </div>
+                            </div>
+                            <div class="g-step">
+                                <span class="g-num">2</span>
+                                <div>
+                                    <h4>Personal Note</h4>
+                                    <p>Include a heartfelt greeting message.</p>
+                                </div>
+                            </div>
+                            <div class="g-step">
+                                <span class="g-num">3</span>
+                                <div>
+                                    <h4>WhatsApp Delivery</h4>
+                                    <p>Instant digital pass formatted for WhatsApp.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Voucher Preview -->
+                    <div class="giftcard-builder">
+                        <div class="voucher-preview glass-subpanel" id="voucher-preview">
+                            <div class="vp-header">
+                                <img src="assets/logo.png" alt="Aurora Logo" style="height: 48px;">
+                                <span>LUXURY GIFT PASS</span>
+                            </div>
+                            <div class="vp-body">
+                                <span class="vp-to">Presented to: <strong id="preview-to">Dearest Friend</strong></span>
+                                <div class="vp-amount" id="preview-amount">₹ 5,000</div>
+                                <p class="vp-msg" id="preview-msg">"A moment composed with intention — breathe and enjoy pure care."</p>
+                            </div>
+                            <div class="vp-footer">
+                                <span>Voucher Code: <strong>AURORA-GIFT-2026</strong></span>
+                                <span>Valid for 1 Year</span>
+                            </div>
+                        </div>
+
+                        <!-- Builder Controls -->
+                        <div class="builder-form">
+                            <div class="form-group">
+                                <label>Recipient Name</label>
+                                <input type="text" id="gift-to-input" class="glass-input" placeholder="e.g. Ananya Sharma" oninput="updateVoucherPreview()">
+                            </div>
+                            <div class="form-group">
+                                <label>Voucher Amount (INR)</label>
+                                <div class="amount-pills">
+                                    <button class="pill glass-pill" onclick="setVoucherAmount(3000, this)">₹3,000</button>
+                                    <button class="pill glass-pill active" onclick="setVoucherAmount(5000, this)">₹5,000</button>
+                                    <button class="pill glass-pill" onclick="setVoucherAmount(10000, this)">₹10,000</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Greeting Note</label>
+                                <input type="text" id="gift-msg-input" class="glass-input" placeholder="e.g. Wishing you calm renewal." oninput="updateVoucherPreview()">
+                            </div>
+                            <button class="btn btn-silver w-100" onclick="orderGiftVoucher()">
+                                <i class="fa-solid fa-gift"></i> Order Gift Pass via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 5: CONTACT & GUEST GUIDE (Deep Emerald Mocha Quartz #0A1F1C) -->
+        <section class="section location-section bg-tab-5" id="contact">
+            <div class="section-container reveal-slide-right">
+                <!-- Location & Google Map Grid -->
+                <div class="location-grid">
+                    <div class="location-card glass-card">
+                        <div class="silver-section-tag">SANCTUARY LOCATION</div>
+                        <h2>Visit Aurora Spa</h2>
+                        <p>A quiet moment where rest becomes renewal in Saheed Nagar, Bhubaneswar.</p>
+
+                        <div class="contact-details">
+                            <div class="c-item">
+                                <i class="fa-solid fa-location-dot c-icon"></i>
+                                <div>
+                                    <h4>Address</h4>
+                                    <p>3rd Floor, Space No. 04, 1st Block, BMC Bhawani Mall, Saheed Nagar, Bhubaneswar - 751007</p>
+                                </div>
+                            </div>
+
+                            <div class="c-item">
+                                <i class="fa-solid fa-phone c-icon"></i>
+                                <div>
+                                    <h4>Direct Phone / WhatsApp</h4>
+                                    <p><a href="tel:+917788872255">+91 77888 72255</a></p>
+                                </div>
+                            </div>
+
+                            <div class="c-item">
+                                <i class="fa-solid fa-clock c-icon"></i>
+                                <div>
+                                    <h4>Hours</h4>
+                                    <p>Monday – Sunday: 10:00 AM – 9:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="location-actions">
+                            <a href="https://maps.google.com/?q=BMC+Bhawani+Mall+Saheed+Nagar+Bhubaneswar" target="_blank" class="btn btn-silver">
+                                <i class="fa-solid fa-location-arrow"></i> Google Maps Directions
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Google Maps Frame with Side Heading -->
+                    <div class="map-wrapper">
+                        <div class="silver-section-tag" style="margin-bottom: 18px;">INTERACTIVE MAP & DIRECTIONS</div>
+                        <div class="map-frame glass-map-frame">
+                            <iframe src="https://maps.google.com/maps?q=BMC%20Bhawani%20Mall%20Saheed%20Nagar%20Bhubaneswar&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0; min-height: 440px; display: block;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMBINED GUEST GUIDE -->
+                <div class="guest-guide-wrapper" style="margin-top: 90px;">
+
+                    <!-- 1. Words of Stillness -->
+                    <div class="guide-block" style="margin-bottom: 80px;">
+                        <div class="silver-section-tag center">WORDS OF STILLNESS</div>
+                        <div class="reviews-grid">
+                            <div class="review-card glass-card">
+                                <div class="review-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="review-text">"The VIP Jacuzzi suite experience is unmatched in Bhubaneswar. Warm aromatic oils, completely hygienic private rooms, and exceptional certified therapists."</p>
+                                <div class="reviewer-info">
+                                    <h4>Rohan Mohanty</h4>
+                                    <span>Verified Google Review</span>
+                                </div>
+                            </div>
+
+                            <div class="review-card glass-card">
+                                <div class="review-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="review-text">"Deep tissue massage relieved weeks of lower back stiffness. Pure calm atmosphere with ambient music and genuine hospitality."</p>
+                                <div class="reviewer-info">
+                                    <h4>Priya Sen</h4>
+                                    <span>Saheed Nagar Visitor</span>
+                                </div>
+                            </div>
+
+                            <div class="review-card glass-card">
+                                <div class="review-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="review-text">"Aurora Signature Ritual with hot stones and Jacuzzi soak was pure relaxation. Will definitely be returning with family."</p>
+                                <div class="reviewer-info">
+                                    <h4>Amitav Ray</h4>
+                                    <span>Regular Guest</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Sanctuary Guidelines & Care -->
+                    <div class="guide-block" style="margin-bottom: 80px;">
+                        <div class="silver-section-tag center">SANCTUARY GUIDELINES & CARE</div>
+                        <div class="highlights-grid" id="seq-etiquette-grid">
+                            <div class="highlight-card glass-card reveal-slide-right">
+                                <div class="highlight-icon"><i class="fa-solid fa-clock text-silver"></i></div>
+                                <h4>Arrival Time</h4>
+                                <p>Arrive 15 minutes prior to enjoy a warm cup of herbal tea and consult with your therapist.</p>
+                            </div>
+
+                            <div class="highlight-card glass-card reveal-slide-right">
+                                <div class="highlight-icon"><i class="fa-solid fa-volume-xmark text-silver"></i></div>
+                                <h4>Silence Zone</h4>
+                                <p>Kindly keep mobile phones on silent or turned off to respect every guest's quiet moment.</p>
+                            </div>
+
+                            <div class="highlight-card glass-card reveal-slide-right">
+                                <div class="highlight-icon"><i class="fa-solid fa-hand-sparkles text-silver"></i></div>
+                                <h4>Hygiene & Comfort</h4>
+                                <p>Fresh disposable spa wear, warm towels, and shower amenities are provided for every ritual.</p>
+                            </div>
+
+                            <div class="highlight-card glass-card reveal-slide-right">
+                                <div class="highlight-icon"><i class="fa-solid fa-heart text-silver"></i></div>
+                                <h4>Personalized Care</h4>
+                                <p>Inform your therapist of any pressure preferences or focus areas before your session.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Frequently Asked Questions -->
+                    <div class="guide-block">
+                        <div class="silver-section-tag center">FREQUENTLY ASKED QUESTIONS</div>
+                        <div class="faq-grid">
+                            <div class="faq-card glass-card">
+                                <h4>Do I need prior appointment booking?</h4>
+                                <p>Prior reservation is highly recommended to reserve your preferred time slot and private treatment suite. You can book directly via WhatsApp or phone at +91 77888 72255.</p>
+                            </div>
+
+                            <div class="faq-card glass-card">
+                                <h4>What is included in the VIP Jacuzzi Suite?</h4>
+                                <p>Our VIP Jacuzzi Suite includes a private hydrotherapy tub, hot aroma oil treatment, organic candles, fresh linen, disposable spa wear, and private shower amenities.</p>
+                            </div>
+
+                            <div class="faq-card glass-card">
+                                <h4>What are the spa timings and location?</h4>
+                                <p>We are open daily from 10:00 AM to 9:00 PM on the 3rd Floor, Space No. 04, BMC Bhawani Mall, Saheed Nagar, Bhubaneswar.</p>
+                            </div>
+
+                            <div class="faq-card glass-card">
+                                <h4>What payment methods are accepted?</h4>
+                                <p>We accept cash, UPI (Google Pay, PhonePe, Paytm), and major credit/debit cards at our concierge desk.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Clean Footer -->
+    <footer class="footer glass-panel">
+        <div class="section-container footer-grid-clean">
+            <div class="footer-col brand-col">
+                <img src="assets/logo.png" alt="Aurora International Spa" style="max-height: 68px; margin-bottom: 14px;">
+                <p>"Aurora is the first light of morning — the quiet moment where rest becomes renewal."</p>
+                <div class="social-links mt-3" style="display: flex; gap: 12px;">
+                    <a href="https://www.instagram.com/vedanta_wellness_spa/" target="_blank" style="color: var(--silver-sterling); font-size: 1.2rem;" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/917788872255" target="_blank" style="color: var(--silver-sterling); font-size: 1.2rem;" title="WhatsApp Concierge"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Official Services</h4>
+                <ul>
+                    <li><a href="#services">Thai Massage</a></li>
+                    <li><a href="#services">Swedish Massage</a></li>
+                    <li><a href="#services">Deep Tissue Massage</a></li>
+                    <li><a href="#services">Coconut Oil Massage</a></li>
+                    <li><a href="#vip-passes">Aurora Signature Ritual</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Concierge</h4>
+                <p>Phone: <strong>+91 77888 72255</strong></p>
+                <p>Location: BMC Bhawani Mall, Saheed Nagar, Bhubaneswar</p>
+                <button class="btn btn-silver btn-sm mt-3" onclick="openBookingModal()">Book Appointment</button>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aurora International Spa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/917788872255?text=Hello%20Aurora%20Spa%2C%20I%20would%20like%20to%20reserve%20a%20treatment%20ritual." target="_blank" class="whatsapp-float" title="Chat with Spa Concierge">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Glass Booking Engine Modal -->
+    <div class="modal-backdrop" id="booking-modal">
+        <div class="modal-card glass-modal">
+            <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+            
+            <div class="modal-header">
+                <img src="assets/logo.png" alt="Aurora Logo" style="height: 54px; margin-bottom: 6px;">
+                <h2>Reserve Your Unhurried Ritual</h2>
+                <p>Breathe. You are cared for here.</p>
+            </div>
+
+            <div class="modal-body">
+                <form id="booking-form" onsubmit="handleBookingSubmit(event)">
+                    <div class="form-grid">
+                        <div class="form-group full">
+                            <label>Selected Treatment</label>
+                            <select id="modal-service" class="glass-input" required>
+                                <option value="Thai Massage">Thai Massage (Dry)</option>
+                                <option value="Swedish Massage">Swedish Massage (Oil)</option>
+                                <option value="Deep Tissue Massage">Deep Tissue Massage</option>
+                                <option value="Coconut Oil Massage">Coconut Oil Massage</option>
+                                <option value="Scrub & Swedish Combo">Scrub & Swedish Combo</option>
+                                <option value="Scrub & Deep Tissue Combo">Scrub & Deep Tissue Combo</option>
+                                <option value="Aroma Hot Oil Massage (VIP Suite)">Aroma Hot Oil (VIP Jacuzzi Suite)</option>
+                                <option value="Warm Candle Massage (VIP Suite)">Warm Candle Massage (VIP Jacuzzi Suite)</option>
+                                <option value="Aurora Signature Ritual (VIP Suite)">Aurora Signature Ritual (VIP Jacuzzi Suite)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Duration</label>
+                            <select id="modal-duration" class="glass-input" required>
+                                <option value="60 Minutes">60 Minutes</option>
+                                <option value="90 Minutes" selected>90 Minutes</option>
+                                <option value="120 Minutes">120 Minutes</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Preferred Date</label>
+                            <input type="date" id="modal-date" class="glass-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Preferred Time</label>
+                            <select id="modal-time" class="glass-input" required>
+                                <option value="10:30 AM">10:30 AM (Morning)</option>
+                                <option value="01:30 PM">01:30 PM (Midday)</option>
+                                <option value="04:30 PM">04:30 PM (Afternoon)</option>
+                                <option value="07:00 PM">07:00 PM (Evening)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="modal-name" class="glass-input" placeholder="Your name" required>
+                        </div>
+
+                        <div class="form-group full">
+                            <label>WhatsApp Phone Number</label>
+                            <input type="tel" id="modal-phone" class="glass-input" placeholder="e.g. +91 98765 43210" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-silver w-100 btn-lg mt-3">
+                        <i class="fa-brands fa-whatsapp"></i> Confirm & Reserve via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
