@@ -23,14 +23,14 @@
     --gold-champagne: #E5D5A2;
     --gold-bronze: #8A6510;
 
-    /* Exact Soft Cream Gold Button Gradient from User Image 2 */
+    /* Exact Soft Cream Gold Button Gradient */
     --gold-btn-gradient: linear-gradient(135deg, #FBEFC5 0%, #E5D5A2 50%, #C4AE6C 100%);
     --gold-gradient: linear-gradient(135deg, #FFF6D6 0%, #F5E6AD 40%, #E5D5A2 80%, #AA7C11 100%);
     --gold-glow: 0 4px 14px rgba(229, 213, 162, 0.35);
 
     --text-primary: #FFFFFF;
     --text-muted: #E2D7CC;
-    --text-dark-black: #1A1A1A; /* Solid Crisp Black for Light Tabs */
+    --text-dark-black: #1A1A1A;
 
     --font-heading: 'Cinzel', serif;
     --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -374,7 +374,7 @@ body {
     background-color: #2A2520 !important; 
 }
 
-/* Tab 4: VIP Suite & Passes — Soft Pearl White Silk with Crisp BLACK Text (Image 1 Fix) */
+/* Tab 4: VIP Suite & Passes — Soft Pearl White Silk */
 .bg-tab-4 { 
     background: linear-gradient(135deg, #FFFFFF 0%, #FAF8F5 50%, #F4EFEB 100%) !important; 
     color: #1A1A1A !important;
@@ -403,7 +403,7 @@ body {
     color: #1A1A1A !important;
 }
 
-/* VIP Treatment Cards inside White Tab 4: CRISP BLACK TEXT */
+/* VIP Treatment Cards inside White Tab 4 */
 .bg-tab-4 .vip-t-card {
     background: #FFFFFF !important;
     border: 1px solid rgba(42, 37, 32, 0.15) !important;
@@ -428,6 +428,19 @@ body {
     background-color: #2A2520 !important; 
 }
 
+/* TARGETED USER REQUEST: SANCTUARY GUIDELINES CARDS TEXT SET TO BRIGHT WHITE ONLY */
+#seq-etiquette-grid .highlight-card h4 {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+
+#seq-etiquette-grid .highlight-card p {
+    color: #E2D7CC !important;
+    font-weight: 400 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
 /* Floating Canvas Particle Layer */
 #particle-canvas {
     position: fixed;
@@ -445,7 +458,7 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg-dark); }
 ::-webkit-scrollbar-thumb { background: var(--gold-champagne); border-radius: 3px; }
 
-/* --- Typography, Gold Section Tag & Text Highlights --- */
+/* --- Typography, Gold Section Tag & Ultra-Sharp Text Highlights --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     letter-spacing: 1.2px;
@@ -545,7 +558,7 @@ h1, h2, h3, h4, h5, h6 {
     white-space: nowrap;
 }
 
-/* Soft Muted Cream Champagne Gold Button matching Image 2 perfectly */
+/* Soft Muted Cream Champagne Gold Button */
 .btn-gold, .btn-silver {
     background: var(--gold-btn-gradient) !important;
     color: #2A2520 !important;
@@ -789,10 +802,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 18px;
 }
 
-/* ==========================================================================
-   ICONS: LIGHT & BRIGHT SYMBOLS MATCHED TO IMAGE 3
-   ========================================================================== */
-
+/* Light & Luminous Icon Styling on Hero */
 .hero-icons-wrapper {
     max-width: 410px;
 }
@@ -805,14 +815,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 .interactive-icons-row.left-aligned { justify-content: flex-start; }
 
-/* Light & Luminous Icon Styling */
-.interactive-icon-btn.glass-icon-btn, .highlight-icon {
+.interactive-icon-btn.glass-icon-btn {
     width: 52px;
     height: 52px;
     border-radius: 50%;
     background: rgba(251, 239, 197, 0.12) !important;
     border: 1.5px solid rgba(229, 213, 162, 0.45) !important;
-    color: #FBEFC5 !important; /* LIGHT & BRIGHT SYMBOL MATCHED TO IMAGE 3 */
+    color: #FBEFC5 !important;
     font-size: 1.2rem;
     cursor: pointer;
     display: flex;
@@ -823,7 +832,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.interactive-icon-btn.glass-icon-btn i, .highlight-icon i {
+.interactive-icon-btn.glass-icon-btn i {
     color: #FBEFC5 !important;
     filter: drop-shadow(0 0 6px rgba(251, 239, 197, 0.6));
 }
@@ -835,8 +844,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 16px rgba(251, 239, 197, 0.5) !important;
 }
 
-/* Highlight Ring Outline: LIGHT & BRIGHT IN SIDE AND OUTSIDE */
-.interactive-icon-btn.glass-icon-btn.active, .highlight-card.icon-active-pulse .highlight-icon {
+.interactive-icon-btn.glass-icon-btn.active {
     background: rgba(42, 37, 32, 0.85) !important;
     color: #FBEFC5 !important;
     border: 2.5px solid #E5D5A2 !important;
@@ -844,12 +852,11 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.12);
 }
 
-.interactive-icon-btn.glass-icon-btn.active i, .highlight-card.icon-active-pulse .highlight-icon i {
+.interactive-icon-btn.glass-icon-btn.active i {
     color: #FBEFC5 !important;
     filter: drop-shadow(0 0 8px rgba(251, 239, 197, 0.9)) !important;
 }
 
-/* Decreased Length Glass Card Container (410px) */
 .interactive-text-display {
     text-align: left;
     max-width: 410px;
@@ -876,7 +883,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   ABOUT US GLASS SECTION (PEARL WHITE SILK TAB)
+   ABOUT US GLASS SECTION
    ========================================================================== */
 
 .about-section {
@@ -941,7 +948,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-image-frame:hover img { transform: scale(1.05); }
 
-/* --- Highlights Section & Sequential Highlight --- */
+/* --- Highlights Section --- */
 .highlights-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -952,6 +959,21 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     padding: 28px 18px;
     border-radius: var(--radius-md);
+}
+
+.highlight-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 16px auto;
+    border-radius: 50%;
+    background: rgba(42, 37, 32, 0.08);
+    border: 1.5px solid rgba(42, 37, 32, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    color: #AA7C11;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .highlight-card h4 { font-size: 1rem; margin-bottom: 8px; font-weight: 700; color: #1A1A1A !important; }
@@ -1175,7 +1197,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.85rem;
 }
 
-/* --- VIP Jacuzzi Suite Glass Section (PEARL WHITE TAB) --- */
+/* --- VIP Jacuzzi Suite Glass Section --- */
 .vip-section {
     background: linear-gradient(135deg, #FFFFFF 0%, #FAF8F5 50%, #F4EFEB 100%) !important;
 }
@@ -1276,7 +1298,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .builder-form { display: flex; flex-direction: column; gap: 14px; }
 .form-group { display: flex; flex-direction: column; gap: 5px; }
-.form-group label { font-size: 0.75rem; color: #1A1A1A; font-weight: 700; }
+
+.form-group label { 
+    font-size: 0.78rem; 
+    color: #1A1A1A !important;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
 
 .form-group input, .form-group select {
     padding: 10px 14px;
@@ -1416,7 +1445,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .whatsapp-float:hover { transform: scale(1.08); }
 
-/* Modals */
+/* Modals & Form Labels */
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -1451,6 +1480,10 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.88);
 }
 
+.modal-card label {
+    color: #FFFFFF !important;
+}
+
 .modal-close {
     position: absolute;
     top: 18px;
@@ -1463,6 +1496,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-header { text-align: center; margin-bottom: 20px; }
+.modal-header h2 { color: #FFFFFF !important; }
+.modal-header p { color: #E2D7CC !important; }
+
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
 /* Responsive */
