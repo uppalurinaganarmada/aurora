@@ -1,8 +1,8 @@
 /* ==========================================================================
-   AURORA INTERNATIONAL SPA — ROYAL PLUM PURPLE, SOFT LILAC & STERLING SILVER
+   AURORA INTERNATIONAL SPA — ROYAL PLUM PURPLE, SOFT LILAC & CHAMPAGNE GOLD
    ========================================================================== */
 
-/* --- Exact Palette: Royal Plum Purple, Soft Lilac Silk (Exact Screenshot) & Sterling Silver --- */
+/* --- Exact Palette: Royal Plum Purple, Soft Lilac Silk & Champagne Gold --- */
 :root {
     --bg-dark: #150820;       /* Deep Royal Plum Purple */
     --bg-espresso: #442852;   /* Exact Soft Lilac Silk from User Screenshot */
@@ -11,31 +11,30 @@
     --glass-bg: rgba(36, 18, 50, 0.58);
     --glass-bg-hover: rgba(54, 28, 74, 0.78);
     --glass-subpanel: rgba(24, 12, 36, 0.68);
-    --glass-border: rgba(224, 230, 237, 0.22);
-    --glass-border-hover: rgba(224, 230, 237, 0.58);
+    --glass-border: rgba(212, 175, 55, 0.22);
+    --glass-border-hover: rgba(212, 175, 55, 0.58);
     --glass-blur: blur(22px);
     --glass-shadow: 0 12px 36px rgba(10, 3, 18, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.15);
 
-    /* Royal Plum Purple, Soft Lilac (Exact Screenshot) & Liquid Sterling Silver Accents */
+    /* Royal Plum Purple, Soft Lilac & Champagne Gold Accents */
     --plum-purple: #150820;
     --plum-deep: #250E36;
-    --soft-lilac: #6D487E;    /* Exact Soft Lilac Silk Midtone */
-    --lilac-light: #C5A5D3;   /* Exact Soft Lilac Silk Highlight */
+    --soft-lilac: #6D487E;
+    --lilac-light: #C5A5D3;
+
+    --gold-champagne: #D4AF37;
+    --gold-bright: #F5E6AD;
+    --gold-bronze: #AA7C11;
 
     --silver-sterling: #E0E6ED;
     --silver-platinum: #FFFFFF;
     --silver-pewter: #A0ABBA;
     --ivory: #F8FAFC;
 
+    --gold-gradient: linear-gradient(135deg, #F5E6AD 0%, #D4AF37 50%, #AA7C11 100%);
     --silver-gradient: linear-gradient(135deg, #E0E6ED 0%, #FFFFFF 50%, #A0ABBA 100%);
     --plum-gradient: linear-gradient(135deg, #250E36 0%, #C5A5D3 50%, #150820 100%);
-    --silver-glow: 0 3px 10px rgba(224, 230, 237, 0.14); /* Subtle non-harsh glow */
-
-    /* Aliases replacing gold with sterling silver */
-    --gold-champagne: var(--silver-sterling);
-    --bronze-antique: var(--silver-pewter);
-    --gold-gradient: var(--silver-gradient);
-    --gold-glow: var(--silver-glow);
+    --gold-glow: 0 3px 12px rgba(212, 175, 55, 0.28);
 
     --text-primary: #F8FAFC;
     --text-muted: #DBCBE2;
@@ -74,7 +73,7 @@ body {
 }
 
 /* ==========================================================================
-   FLOATING STERLING SILVER, PLUM & EXACT SOFT LILAC BACKGROUND LIGHT POOLS
+   FLOATING STERLING SILVER, PLUM & CHAMPAGNE GOLD BACKGROUND LIGHT POOLS
    ========================================================================== */
 
 .glass-orb {
@@ -92,8 +91,8 @@ body {
     height: 480px;
     top: 5%;
     left: -6%;
-    background: radial-gradient(circle, #5A2A7A 0%, transparent 70%);
-    opacity: 0.35;
+    background: radial-gradient(circle, #D4AF37 0%, transparent 70%);
+    opacity: 0.22;
 }
 
 .orb-2 {
@@ -121,8 +120,8 @@ body {
     height: 560px;
     top: 68%;
     right: 12%;
-    background: radial-gradient(circle, #E0E6ED 0%, transparent 70%);
-    opacity: 0.14;
+    background: radial-gradient(circle, #D4AF37 0%, transparent 70%);
+    opacity: 0.18;
     animation-delay: -10s;
 }
 
@@ -142,13 +141,13 @@ body {
     100% { transform: translate(-35px, 40px) scale(0.92); }
 }
 
-/* --- Universal Silver & Emerald Glassmorphism Classes --- */
+/* --- Universal Gold & Glassmorphism Classes --- */
 .glass-card {
     background: var(--glass-bg) !important;
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border) !important;
-    border-top: 1px solid rgba(224, 230, 237, 0.28) !important;
+    border-top: 1px solid rgba(245, 230, 173, 0.32) !important;
     box-shadow: var(--glass-shadow);
     border-radius: var(--radius-md);
     transition: var(--transition);
@@ -191,10 +190,10 @@ body {
 }
 
 .glass-pill.active {
-    background: var(--silver-gradient) !important;
+    background: var(--gold-gradient) !important;
     color: #150820 !important;
     border-color: transparent !important;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .glass-badge {
@@ -205,7 +204,7 @@ body {
 }
 
 /* ==========================================================================
-   SILKY BREATHING STERLING SILVER INTRO CURTAIN
+   SILKY BREATHING CHAMPAGNE GOLD INTRO CURTAIN
    ========================================================================== */
 
 .intro-curtain-overlay {
@@ -215,7 +214,7 @@ body {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(135deg, #442852 0%, #150820 50%, #6D487E 100%);
-    border-bottom: 3px solid var(--silver-sterling);
+    border-bottom: 3px solid var(--gold-champagne);
     z-index: 999999;
     display: flex;
     align-items: center;
@@ -242,15 +241,15 @@ body {
     height: 260px;
 }
 
-/* Silky Breathing Sterling Silver Halo Behind Logo (Soft Subtle Halo) */
+/* Silky Breathing Gold Halo Behind Logo */
 .intro-logo-wrapper::before {
     content: '';
     position: absolute;
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(224, 230, 237, 0.35) 0%, rgba(160, 171, 186, 0.1) 60%, transparent 80%);
-    box-shadow: 0 0 35px rgba(224, 230, 237, 0.3);
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.45) 0%, rgba(170, 124, 17, 0.15) 60%, transparent 80%);
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
     animation: luxuryAuraBreathe 2.8s ease-in-out infinite alternate;
     z-index: 1;
 }
@@ -259,12 +258,12 @@ body {
     0% {
         transform: scale(0.88);
         opacity: 0.25;
-        box-shadow: 0 0 15px rgba(224, 230, 237, 0.15);
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.18);
     }
     100% {
         transform: scale(1.25);
         opacity: 0.7;
-        box-shadow: 0 0 40px rgba(224, 230, 237, 0.45);
+        box-shadow: 0 0 40px rgba(212, 175, 55, 0.55);
     }
 }
 
@@ -272,7 +271,7 @@ body {
     height: 185px;
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 18px rgba(224, 230, 237, 0.5));
+    filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.5));
     position: relative;
     z-index: 2;
     animation: logoSmoothAppear 1.2s ease-out forwards;
@@ -289,7 +288,7 @@ body {
 }
 
 /* ==========================================================================
-   PLUM PURPLE & SOFT LILAK SLIDE TRANSITION CURTAIN
+   PLUM PURPLE & CHAMPAGNE GOLD SLIDE TRANSITION CURTAIN
    ========================================================================== */
 
 .tab-transition-curtain {
@@ -298,7 +297,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #150820 0%, #6D487E 50%, #C5A5D3 100%);
+    background: linear-gradient(135deg, #150820 0%, #6D487E 50%, #D4AF37 100%);
     z-index: 99999;
     pointer-events: none;
     transform: translateX(-100%);
@@ -334,7 +333,7 @@ body {
 }
 
 /* ==========================================================================
-   EXACT ALTERNATING TABS: PLUM PURPLE & EXACT SOFT LILAC SILK (FROM SCREENSHOT)
+   EXACT ALTERNATING TABS: PLUM PURPLE & EXACT SOFT LILAC SILK
    ========================================================================== */
 
 /* Tab 1: Home — Plum Purple (#150820) */
@@ -381,9 +380,9 @@ body {
 /* Custom Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-dark); }
-::-webkit-scrollbar-thumb { background: var(--silver-pewter); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--gold-champagne); border-radius: 3px; }
 
-/* --- Typography & Silver Section Tag --- */
+/* --- Typography, Gold Section Tag & Text Highlights --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     letter-spacing: 1.2px;
@@ -391,24 +390,24 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
-.silver-section-tag, .gold-section-tag {
+.gold-section-tag, .silver-section-tag {
     display: block;
     font-family: var(--font-heading);
     font-size: 1.15rem;
     font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
     margin-bottom: 26px;
 }
-.silver-section-tag.center, .gold-section-tag.center { text-align: center; }
+.gold-section-tag.center, .silver-section-tag.center { text-align: center; }
 
-.text-silver, .text-gold {
-    background: var(--silver-gradient);
+.text-gold, .text-silver {
+    background: var(--gold-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.silver-icon, .gold-icon { color: var(--silver-sterling); }
+.gold-icon, .silver-icon { color: var(--gold-champagne); }
 
 .section {
     padding: 130px 0;
@@ -457,7 +456,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.7;
 }
 
-/* --- Subtle Sterling Silver Glassmorphism Buttons --- */
+/* --- Champagne Gold Buttons --- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -476,14 +475,15 @@ h1, h2, h3, h4, h5, h6 {
     white-space: nowrap;
 }
 
-.btn-silver, .btn-gold {
-    background: var(--silver-gradient);
+.btn-gold, .btn-silver {
+    background: var(--gold-gradient);
     color: #150820;
-    box-shadow: 0 4px 12px rgba(224, 230, 237, 0.16);
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.28);
 }
-.btn-silver:hover, .btn-gold:hover {
+.btn-gold:hover, .btn-silver:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(224, 230, 237, 0.28);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
 }
 
 .btn-outline {
@@ -493,8 +493,8 @@ h1, h2, h3, h4, h5, h6 {
     backdrop-filter: blur(10px);
 }
 .btn-outline:hover {
-    border-color: var(--silver-sterling);
-    color: var(--silver-sterling);
+    border-color: var(--gold-champagne);
+    color: var(--gold-champagne);
     transform: translateY(-2px);
 }
 
@@ -515,7 +515,7 @@ h1, h2, h3, h4, h5, h6 {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--glass-border);
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
     font-size: 1rem;
     cursor: pointer;
     display: flex;
@@ -525,14 +525,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .sound-toggle-btn.icon-only:hover {
-    border-color: var(--silver-sterling);
+    border-color: var(--gold-champagne);
     transform: scale(1.06);
 }
 
 .sound-toggle-btn.icon-only.playing {
-    background: var(--silver-gradient);
+    background: var(--gold-gradient);
     color: #150820;
-    box-shadow: 0 2px 10px rgba(224, 230, 237, 0.3);
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
 }
 
 /* Navbar Direct Contact Button */
@@ -582,9 +582,9 @@ h1, h2, h3, h4, h5, h6 {
     left: 4px;
     height: calc(100% - 8px);
     width: 80px;
-    background: var(--silver-gradient);
+    background: var(--gold-gradient);
     border-radius: var(--radius-full);
-    box-shadow: 0 2px 10px rgba(224, 230, 237, 0.22);
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.35);
     transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
     pointer-events: none;
     z-index: 1;
@@ -624,7 +624,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   HERO SECTION WITH GLASSMORPHISM COMPACT ICONS & DECREASED CARD LENGTH
+   HERO SECTION WITH BACKGROUND VIDEO & HIGHLIGHTED CIRCLE OUTLINE ICONS
    ========================================================================== */
 
 .hero-section {
@@ -637,22 +637,33 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
 }
 
-.hero-bg-animated {
+/* Background HTML5 Video Wrapper */
+.hero-video-wrapper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(21, 8, 32, 0.95) 0%, rgba(21, 8, 32, 0.82) 48%, rgba(21, 8, 32, 0.2) 100%),
-                url('assets/hero_bg.jpg') center right / cover no-repeat;
     z-index: 0;
-    animation: dayOnePan 25s ease-in-out infinite alternate;
-    transform-origin: center right;
+    overflow: hidden;
 }
 
-@keyframes dayOnePan {
-    0% { transform: scale(1) translateX(0); }
-    100% { transform: scale(1.08) translateX(-15px); }
+.hero-bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+    filter: brightness(0.75) contrast(1.05);
+}
+
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(21, 8, 32, 0.95) 0%, rgba(21, 8, 32, 0.82) 48%, rgba(21, 8, 32, 0.3) 100%);
+    z-index: 1;
 }
 
 .hero-container {
@@ -706,17 +717,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 .interactive-icons-row.left-aligned { justify-content: flex-start; }
 
-/* Reduced Glass Icon Dimensions (46px x 46px) */
+/* 
+   EXACT USER DIRECTIVE:
+   "when icons are getting highlighted, the symbol inside them arent visible, just highlight the circles around the symbols"
+*/
 .interactive-icon-btn.glass-icon-btn {
-    width: 46px;
-    height: 46px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: rgba(36, 18, 50, 0.65);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border: 1px solid var(--glass-border);
-    color: var(--silver-sterling);
-    font-size: 1rem;
+    border: 1.5px solid var(--glass-border);
+    color: #F8FAFC;
+    font-size: 1.05rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -726,17 +740,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .interactive-icon-btn.glass-icon-btn:hover {
-    border-color: var(--silver-sterling);
+    border-color: var(--gold-champagne);
+    color: var(--gold-champagne);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(224, 230, 237, 0.2);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
 }
 
+/* Highlight ONLY the circle ring outline so symbol inside is 100% crisp & visible! */
 .interactive-icon-btn.glass-icon-btn.active {
-    background: var(--silver-gradient) !important;
-    color: #150820 !important;
-    border-color: transparent !important;
-    transform: scale(1.1);
-    box-shadow: 0 4px 14px rgba(224, 230, 237, 0.35);
+    background: rgba(36, 18, 50, 0.88) !important; /* Keep background dark/translucent */
+    color: #FFFFFF !important;                     /* Symbol inside is pure white & 100% visible */
+    border: 2.5px solid var(--gold-champagne) !important; /* HIGHLIGHT ONLY THE CIRCLE OUTLINE */
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.75), inset 0 0 10px rgba(212, 175, 55, 0.3) !important;
+    transform: scale(1.12);
+}
+
+.interactive-icon-btn.glass-icon-btn.active i {
+    color: var(--gold-champagne) !important;       /* Gold icon symbol inside */
+    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.8));
 }
 
 /* Decreased Length Glass Card Container (410px) */
@@ -750,7 +771,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .interactive-text-display h4 {
     font-size: 0.95rem;
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
     margin-bottom: 3px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -784,7 +805,7 @@ h1, h2, h3, h4, h5, h6 {
 .about-lead {
     font-family: var(--font-serif);
     font-size: 1.25rem;
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
     margin-bottom: 18px;
     font-style: italic;
 }
@@ -828,7 +849,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-image-frame:hover img { transform: scale(1.05); }
 
-/* --- Highlights Section & Sequential Highlight --- */
+/* --- Highlights Section & Sequential Highlight (HIGHLIGHT ONLY CIRCLE RING) --- */
 .highlights-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -846,23 +867,28 @@ h1, h2, h3, h4, h5, h6 {
     height: 58px;
     margin: 0 auto 16px auto;
     border-radius: 50%;
-    background: rgba(224, 230, 237, 0.1);
-    border: 1px solid var(--glass-border);
+    background: rgba(224, 230, 237, 0.08);
+    border: 1.5px solid var(--glass-border);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.35rem;
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Sequential Highlight Active Style */
+/* Sequential Highlight Active Style: Highlight ONLY the circle ring outline so symbol is 100% visible */
 .highlight-card.icon-active-pulse .highlight-icon {
-    background: var(--silver-gradient);
-    color: #150820;
-    transform: scale(1.15);
-    box-shadow: 0 4px 16px rgba(224, 230, 237, 0.4);
-    border-color: transparent;
+    background: rgba(36, 18, 50, 0.88) !important;  /* Keep dark translucent background */
+    color: #FFFFFF !important;                      /* White symbol inside */
+    border: 2.5px solid var(--gold-champagne) !important; /* HIGHLIGHT ONLY THE CIRCLE OUTLINE */
+    transform: scale(1.18);
+    box-shadow: 0 0 22px rgba(212, 175, 55, 0.8), inset 0 0 12px rgba(212, 175, 55, 0.3) !important;
+}
+
+.highlight-card.icon-active-pulse .highlight-icon i {
+    color: var(--gold-champagne) !important;        /* Gold icon symbol inside */
+    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.8));
 }
 
 .highlight-card h4 { font-size: 1rem; margin-bottom: 8px; font-weight: 600; }
@@ -896,21 +922,21 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 4px;
-    background: var(--silver-gradient);
+    background: var(--gold-gradient);
     opacity: 0;
     transition: opacity 0.4s ease;
 }
 
 .review-card:hover {
     transform: translateY(-8px) rotateX(2deg) scale(1.01);
-    border-color: rgba(224, 230, 237, 0.45) !important;
+    border-color: rgba(212, 175, 55, 0.55) !important;
 }
 
 .review-card:hover::before { opacity: 1; }
 
 .review-quote-icon {
     font-size: 1.6rem;
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
     opacity: 0.4;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -920,10 +946,10 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.1) translateY(-2px);
 }
 
-.stars { color: var(--silver-sterling); font-size: 0.9rem; }
+.stars { color: var(--gold-champagne); font-size: 0.9rem; }
 .review-text { font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: var(--text-muted); line-height: 1.7; flex-grow: 1; }
 .reviewer-info h4 { font-size: 0.95rem; margin-bottom: 2px; }
-.reviewer-info span { font-size: 0.75rem; color: var(--silver-sterling); }
+.reviewer-info span { font-size: 0.75rem; color: var(--gold-champagne); }
 
 /* --- FAQ Glass Section --- */
 .faq-grid {
@@ -939,7 +965,7 @@ h1, h2, h3, h4, h5, h6 {
 .faq-card h4 {
     font-size: 1.05rem;
     margin-bottom: 10px;
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
 }
 
 .faq-card p {
@@ -969,9 +995,9 @@ h1, h2, h3, h4, h5, h6 {
     left: 6px;
     height: calc(100% - 12px);
     width: 120px;
-    background: var(--silver-gradient);
+    background: var(--gold-gradient);
     border-radius: var(--radius-full);
-    box-shadow: 0 2px 10px rgba(224, 230, 237, 0.25);
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.35);
     transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
     pointer-events: none;
     z-index: 1;
@@ -1045,7 +1071,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 3px 10px;
     border-radius: var(--radius-full);
 }
-.card-badge.silver-badge, .card-badge.gold-badge { background: var(--silver-gradient); color: #150820; border: none; }
+.card-badge.gold-badge, .card-badge.silver-badge { background: var(--gold-gradient); color: #150820; font-weight: 700; border: none; }
 
 .card-content {
     padding: 24px;
@@ -1081,7 +1107,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .d-price strong {
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
     font-family: var(--font-heading);
     font-size: 0.85rem;
 }
@@ -1102,7 +1128,7 @@ h1, h2, h3, h4, h5, h6 {
 .vip-lead {
     font-family: var(--font-serif);
     font-size: 1.2rem;
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
     max-width: 650px;
     margin-top: 10px;
     margin-bottom: 36px;
@@ -1124,7 +1150,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: -10px;
     right: 18px;
-    background: var(--silver-gradient);
+    background: var(--gold-gradient);
     color: #150820;
     font-size: 0.65rem;
     font-weight: 700;
@@ -1134,7 +1160,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .vip-t-card h4 { font-size: 1.1rem; margin-bottom: 8px; }
 .vip-t-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5; }
-.v-prices { font-family: var(--font-heading); font-size: 0.85rem; color: var(--silver-sterling); margin-bottom: 12px; }
+.v-prices { font-family: var(--font-heading); font-size: 0.85rem; color: var(--gold-champagne); margin-bottom: 12px; }
 
 /* --- Glass Gift Pass Section --- */
 .giftcard-wrapper {
@@ -1157,9 +1183,9 @@ h1, h2, h3, h4, h5, h6 {
 .g-num {
     width: 32px;
     height: 32px;
-    background: rgba(224, 230, 237, 0.15);
+    background: rgba(212, 175, 55, 0.18);
     border: 1px solid var(--glass-border);
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1197,7 +1223,7 @@ h1, h2, h3, h4, h5, h6 {
 .vp-amount {
     font-family: var(--font-heading);
     font-size: 2.1rem;
-    color: var(--silver-sterling);
+    color: var(--gold-champagne);
     margin: 8px 0;
 }
 
@@ -1267,10 +1293,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .c-item { display: flex; gap: 14px; }
-.c-icon { color: var(--silver-sterling); font-size: 1.1rem; }
+.c-icon { color: var(--gold-champagne); font-size: 1.1rem; }
 .c-item h4 { font-size: 0.9rem; margin-bottom: 2px; }
 .c-item p { font-size: 0.82rem; color: var(--text-muted); }
-.c-item a { color: var(--silver-sterling); text-decoration: none; }
+.c-item a { color: var(--gold-champagne); text-decoration: none; }
 
 .map-wrapper {
     display: flex;
@@ -1312,15 +1338,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-col p { font-size: 0.82rem; color: var(--text-muted); margin-top: 12px; }
-.footer-col h4 { font-size: 0.95rem; margin-bottom: 16px; }
+.footer-col h4 { font-size: 0.95rem; margin-bottom: 16px; color: var(--gold-champagne); }
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 8px; }
 .footer-col ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; }
-.footer-col ul li a:hover { color: var(--silver-sterling); }
+.footer-col ul li a:hover { color: var(--gold-champagne); }
 
 .footer-bottom {
     text-align: center;
-    border-top: 1px solid rgba(224, 230, 237, 0.15);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
     padding-top: 20px;
     font-size: 0.75rem;
     color: var(--text-muted);
@@ -1372,7 +1398,7 @@ h1, h2, h3, h4, h5, h6 {
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     border: 1px solid var(--glass-border);
-    border-top: 1px solid rgba(224, 230, 237, 0.3) !important;
+    border-top: 1px solid rgba(245, 230, 173, 0.35) !important;
     border-radius: var(--radius-lg);
     width: 88%;
     max-width: 600px;
@@ -1429,7 +1455,7 @@ h1, h2, h3, h4, h5, h6 {
     .nav-slider-pill { display: none; }
     .category-tabs { flex-wrap: wrap; justify-content: center; }
     .tab-slider-pill { display: none; }
-    .tab-btn.active { background: var(--silver-gradient); }
+    .tab-btn.active { background: var(--gold-gradient); }
     .interactive-icons-row { gap: 14px; }
-    .interactive-icon-btn.glass-icon-btn { width: 42px; height: 42px; font-size: 0.95rem; }
+    .interactive-icon-btn.glass-icon-btn { width: 44px; height: 44px; font-size: 0.95rem; }
 }
