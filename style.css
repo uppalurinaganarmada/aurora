@@ -1,27 +1,22 @@
 /* ==========================================================================
-   AURORA INTERNATIONAL SPA — ROYAL PLUM PURPLE, SOFT LILAC & CHAMPAGNE GOLD
+   AURORA INTERNATIONAL SPA — USER'S DARK SWATCH (#2A2520) & PEARL WHITE TABS
    ========================================================================== */
 
-/* --- Exact Palette: Royal Plum Purple, Soft Lilac Silk & Champagne Gold --- */
+/* --- Exact Palette: User's Dark Swatch (#2A2520), Pearl White & Champagne Gold --- */
 :root {
-    --bg-dark: #150820;       /* Deep Royal Plum Purple */
-    --bg-espresso: #442852;   /* Exact Soft Lilac Silk from User Screenshot */
+    --bg-dark: #2A2520;       /* User's Exact Swatch (#2A2520) */
+    --bg-espresso: #2A2520;   
     
-    /* Plum & Soft Lilac Glass Surface Tokens */
-    --glass-bg: rgba(36, 18, 50, 0.65);
-    --glass-bg-hover: rgba(54, 28, 74, 0.82);
-    --glass-subpanel: rgba(24, 12, 36, 0.75);
+    /* Dark Glass Surface Tokens */
+    --glass-bg: rgba(42, 37, 32, 0.65);
+    --glass-bg-hover: rgba(60, 52, 45, 0.82);
+    --glass-subpanel: rgba(28, 24, 20, 0.78);
     --glass-border: rgba(212, 175, 55, 0.28);
     --glass-border-hover: rgba(212, 175, 55, 0.65);
     --glass-blur: blur(16px);
-    --glass-shadow: 0 12px 36px rgba(10, 3, 18, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    --glass-shadow: 0 12px 36px rgba(15, 12, 10, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.15);
 
-    /* Royal Plum Purple, Soft Lilac & Champagne Gold Accents */
-    --plum-purple: #150820;
-    --plum-deep: #250E36;
-    --soft-lilac: #6D487E;
-    --lilac-light: #C5A5D3;
-
+    /* Accents */
     --gold-champagne: #D4AF37;
     --gold-bright: #F5E6AD;
     --gold-bronze: #AA7C11;
@@ -29,15 +24,13 @@
     --silver-sterling: #E0E6ED;
     --silver-platinum: #FFFFFF;
     --silver-pewter: #A0ABBA;
-    --ivory: #F8FAFC;
 
     --gold-gradient: linear-gradient(135deg, #FFF6D6 0%, #F5E6AD 40%, #D4AF37 80%, #AA7C11 100%);
     --silver-gradient: linear-gradient(135deg, #E0E6ED 0%, #FFFFFF 50%, #A0ABBA 100%);
-    --plum-gradient: linear-gradient(135deg, #250E36 0%, #C5A5D3 50%, #150820 100%);
     --gold-glow: 0 3px 12px rgba(212, 175, 55, 0.28);
 
     --text-primary: #FFFFFF;
-    --text-muted: #E2D4EA;
+    --text-muted: #E2D7CC;
 
     --font-heading: 'Cinzel', serif;
     --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -87,7 +80,7 @@ body {
     filter: blur(85px);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.38;
+    opacity: 0.35;
     animation: orbFloat 16s ease-in-out infinite alternate;
 }
 
@@ -105,8 +98,8 @@ body {
     height: 520px;
     top: 38%;
     right: -8%;
-    background: radial-gradient(circle, #6D487E 0%, transparent 70%);
-    opacity: 0.32;
+    background: radial-gradient(circle, #8A6510 0%, transparent 70%);
+    opacity: 0.28;
     animation-delay: -4s;
 }
 
@@ -115,8 +108,8 @@ body {
     height: 400px;
     bottom: 10%;
     left: 10%;
-    background: radial-gradient(circle, #C5A5D3 0%, transparent 70%);
-    opacity: 0.3;
+    background: radial-gradient(circle, #D4AF37 0%, transparent 70%);
+    opacity: 0.25;
     animation-delay: -7s;
 }
 
@@ -135,8 +128,8 @@ body {
     height: 340px;
     top: 22%;
     left: 42%;
-    background: radial-gradient(circle, #6D487E 0%, transparent 70%);
-    opacity: 0.32;
+    background: radial-gradient(circle, #AA7C11 0%, transparent 70%);
+    opacity: 0.25;
     animation-delay: -2s;
 }
 
@@ -146,7 +139,7 @@ body {
     100% { transform: translate(-35px, 40px) scale(0.92); }
 }
 
-/* --- Universal Gold & Glassmorphism Classes with Sharp Text Support --- */
+/* --- Universal Gold & Glassmorphism Classes --- */
 .glass-card {
     background: var(--glass-bg) !important;
     backdrop-filter: var(--glass-blur);
@@ -163,7 +156,7 @@ body {
 .glass-card:hover {
     background: var(--glass-bg-hover) !important;
     border-color: var(--glass-border-hover) !important;
-    box-shadow: 0 18px 42px rgba(10, 3, 18, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.22);
+    box-shadow: 0 18px 42px rgba(15, 12, 10, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.22);
 }
 
 .glass-subpanel {
@@ -176,33 +169,33 @@ body {
 }
 
 .glass-panel {
-    background: rgba(24, 12, 36, 0.88) !important;
+    background: rgba(28, 24, 20, 0.9) !important;
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--glass-border);
 }
 
 .glass-input {
-    background: rgba(16, 9, 25, 0.85) !important;
+    background: rgba(18, 15, 12, 0.85) !important;
     border: 1px solid var(--glass-border) !important;
     color: var(--text-primary) !important;
 }
 
 .glass-pill {
-    background: rgba(36, 18, 50, 0.75) !important;
+    background: rgba(42, 37, 32, 0.75) !important;
     border: 1px solid var(--glass-border) !important;
     color: var(--text-muted);
 }
 
 .glass-pill.active {
     background: var(--gold-gradient) !important;
-    color: #150820 !important;
+    color: #2A2520 !important;
     border-color: transparent !important;
     font-weight: 700;
 }
 
 .glass-badge {
-    background: rgba(24, 12, 36, 0.9) !important;
+    background: rgba(28, 24, 20, 0.9) !important;
     border: 1px solid var(--glass-border) !important;
 }
 
@@ -216,7 +209,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #442852 0%, #150820 50%, #6D487E 100%);
+    background: linear-gradient(135deg, #38302A 0%, #2A2520 50%, #1A1613 100%);
     border-bottom: 3px solid var(--gold-champagne);
     z-index: 999999;
     display: flex;
@@ -291,7 +284,7 @@ body {
 }
 
 /* ==========================================================================
-   PLUM PURPLE & CHAMPAGNE GOLD SLIDE TRANSITION CURTAIN
+   TRANSITION CURTAIN
    ========================================================================== */
 
 .tab-transition-curtain {
@@ -300,7 +293,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #150820 0%, #6D487E 50%, #D4AF37 100%);
+    background: linear-gradient(135deg, #2A2520 0%, #443B33 50%, #D4AF37 100%);
     z-index: 99999;
     pointer-events: none;
     transform: translateX(-100%);
@@ -336,36 +329,56 @@ body {
 }
 
 /* ==========================================================================
-   EXACT ALTERNATING TABS: PLUM PURPLE & EXACT SOFT LILAC SILK
+   ALTERNATING TABS: USER'S DARK SWATCH (#2A2520) & SOFT PEARL WHITE SILK
    ========================================================================== */
 
-/* Tab 1: Home — Plum Purple (#150820) */
+/* Tab 1: Home — User's Dark Swatch (#2A2520) */
 .bg-tab-1 { 
-    background-color: #150820 !important; 
+    background-color: #2A2520 !important; 
 }
 
-/* Tab 2: About — Soft Lilac Silk (Exact Palette from User's Screenshot) */
+/* Tab 2: About — Soft Pearl White Silk (#FAF8F5 / #FFFFFF) */
 .bg-tab-2 { 
-    background: radial-gradient(circle at 20% 30%, #6D487E 0%, #442852 55%, #2B1638 100%) !important; 
-    border-top: 1px solid var(--glass-border); 
-    border-bottom: 1px solid var(--glass-border); 
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAF8F5 50%, #F4EFEB 100%) !important; 
+    color: #2A2520 !important;
+    border-top: 1px solid rgba(42, 37, 32, 0.1); 
+    border-bottom: 1px solid rgba(42, 37, 32, 0.1); 
+}
+.bg-tab-2 h1, .bg-tab-2 h2, .bg-tab-2 h3, .bg-tab-2 h4, .bg-tab-2 h5 { color: #2A2520 !important; text-shadow: none !important; }
+.bg-tab-2 p { color: #4A423A !important; text-shadow: none !important; }
+.bg-tab-2 .gold-section-tag { color: #8A6510 !important; text-shadow: none !important; }
+.bg-tab-2 .glass-card { 
+    background: rgba(255, 255, 255, 0.88) !important; 
+    border: 1px solid rgba(42, 37, 32, 0.14) !important; 
+    box-shadow: 0 12px 36px rgba(42, 37, 32, 0.08) !important; 
+    color: #2A2520 !important;
 }
 
-/* Tab 3: Services (Menu) — Plum Purple (#180A24) */
+/* Tab 3: Services (Menu) — User's Dark Swatch (#2A2520) */
 .bg-tab-3 { 
-    background-color: #180A24 !important; 
+    background-color: #2A2520 !important; 
 }
 
-/* Tab 4: VIP Suite & Passes — Soft Lilac Silk (Exact Palette from User's Screenshot) */
+/* Tab 4: VIP Suite & Passes — Soft Pearl White Silk (#FAF8F5 / #FFFFFF) */
 .bg-tab-4 { 
-    background: radial-gradient(circle at 80% 30%, #6D487E 0%, #442852 55%, #2B1638 100%) !important; 
-    border-top: 1px solid var(--glass-border); 
-    border-bottom: 1px solid var(--glass-border); 
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAF8F5 50%, #F4EFEB 100%) !important; 
+    color: #2A2520 !important;
+    border-top: 1px solid rgba(42, 37, 32, 0.1); 
+    border-bottom: 1px solid rgba(42, 37, 32, 0.1); 
+}
+.bg-tab-4 h1, .bg-tab-4 h2, .bg-tab-4 h3, .bg-tab-4 h4, .bg-tab-4 h5 { color: #2A2520 !important; text-shadow: none !important; }
+.bg-tab-4 p { color: #4A423A !important; text-shadow: none !important; }
+.bg-tab-4 .gold-section-tag { color: #8A6510 !important; text-shadow: none !important; }
+.bg-tab-4 .glass-card { 
+    background: rgba(255, 255, 255, 0.88) !important; 
+    border: 1px solid rgba(42, 37, 32, 0.14) !important; 
+    box-shadow: 0 12px 36px rgba(42, 37, 32, 0.08) !important; 
+    color: #2A2520 !important;
 }
 
-/* Tab 5: Contact & Guide — Plum Purple (#160922) */
+/* Tab 5: Contact & Guide — User's Dark Swatch (#2A2520) */
 .bg-tab-5 { 
-    background-color: #160922 !important; 
+    background-color: #2A2520 !important; 
 }
 
 /* Floating Canvas Particle Layer */
@@ -484,7 +497,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-gold, .btn-silver {
     background: var(--gold-gradient);
-    color: #150820;
+    color: #2A2520;
     font-weight: 700;
     box-shadow: 0 4px 14px rgba(212, 175, 55, 0.28);
 }
@@ -494,7 +507,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline {
-    background: rgba(36, 18, 50, 0.4);
+    background: rgba(42, 37, 32, 0.4);
     border: 1px solid var(--glass-border);
     color: var(--text-primary);
     backdrop-filter: blur(10px);
@@ -518,7 +531,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 42px;
     padding: 0;
     border-radius: 50%;
-    background: rgba(36, 18, 50, 0.65);
+    background: rgba(42, 37, 32, 0.65);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--glass-border);
@@ -538,7 +551,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .sound-toggle-btn.icon-only.playing {
     background: var(--gold-gradient);
-    color: #150820;
+    color: #2A2520;
     box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
 }
 
@@ -613,7 +626,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link:active { transform: scale(0.95); }
-.nav-link.active { color: #150820; font-weight: 700; }
+.nav-link.active { color: #2A2520; font-weight: 700; }
 
 .nav-actions {
     display: flex;
@@ -642,10 +655,10 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 130px;
     padding-bottom: 60px;
     overflow: hidden;
-    background-color: #150820;
+    background-color: #2A2520;
 }
 
-/* RIGHT 50% HALF: FULL VERTICAL HEIGHT VIDEO (1-to-1 Native HD Pixels, Zero Scale Canvas Blur) */
+/* RIGHT 50% HALF: FULL VERTICAL HEIGHT VIDEO */
 .hero-right-video-half {
     position: absolute;
     top: 0;
@@ -654,17 +667,17 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     z-index: 0;
     overflow: hidden;
-    background-color: #150820;
+    background-color: #2A2520;
 }
 
 .hero-half-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 100% Crisp Native HD Video Rendering */
+    object-fit: cover;
     object-position: center center;
     display: block;
-    transform: none; /* No artificial upscaling transform blur */
-    filter: none;    /* Crisp native video colors */
+    transform: none;
+    filter: none;
 }
 
 /* Smooth Gradient Overlay */
@@ -674,11 +687,11 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, #150820 0%, rgba(21, 8, 32, 0.35) 30%, transparent 100%);
+    background: linear-gradient(to right, #2A2520 0%, rgba(42, 37, 32, 0.35) 30%, transparent 100%);
     pointer-events: none;
 }
 
-/* HERO CONTAINER: Centered in 88% / 1200px Grid so text is crisp and never cut off on left */
+/* HERO CONTAINER */
 .hero-container {
     width: 88%;
     max-width: 1200px;
@@ -737,7 +750,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(36, 18, 50, 0.75);
+    background: rgba(42, 37, 32, 0.75);
     border: 1.5px solid var(--glass-border);
     color: #F8FAFC;
     font-size: 1.05rem;
@@ -758,7 +771,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Highlight ONLY the circle ring outline so symbol inside is 100% crisp & visible! */
 .interactive-icon-btn.glass-icon-btn.active {
-    background: rgba(36, 18, 50, 0.92) !important;
+    background: rgba(42, 37, 32, 0.92) !important;
     color: #FFFFFF !important;
     border: 2.5px solid var(--gold-champagne) !important;
     box-shadow: 0 0 18px rgba(212, 175, 55, 0.75), inset 0 0 10px rgba(212, 175, 55, 0.3) !important;
@@ -770,7 +783,7 @@ h1, h2, h3, h4, h5, h6 {
     filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.8));
 }
 
-/* Decreased Length Glass Card Container (410px) with Ultra-Clean Text */
+/* Decreased Length Glass Card Container (410px) */
 .interactive-text-display {
     text-align: left;
     max-width: 410px;
@@ -797,12 +810,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   ABOUT US GLASS SECTION
+   ABOUT US GLASS SECTION (PEARL WHITE SILK TAB)
    ========================================================================== */
 
 .about-section {
     padding: 110px 0;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid rgba(42, 37, 32, 0.12);
 }
 
 .about-grid {
@@ -816,14 +829,14 @@ h1, h2, h3, h4, h5, h6 {
 .about-lead {
     font-family: var(--font-serif);
     font-size: 1.25rem;
-    color: var(--gold-champagne);
+    color: #8A6510;
     margin-bottom: 18px;
     font-style: italic;
 }
 
 .about-desc {
     font-size: 0.92rem;
-    color: var(--text-muted);
+    color: #4A423A;
     line-height: 1.8;
     margin-bottom: 16px;
 }
@@ -837,17 +850,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .a-feat {
     font-size: 0.85rem;
-    color: var(--text-primary);
+    color: #2A2520;
     display: flex;
     align-items: center;
     gap: 8px;
+    font-weight: 500;
 }
 
 .about-image-frame {
     border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 16px 40px rgba(10, 3, 18, 0.65);
+    border: 1px solid rgba(42, 37, 32, 0.15);
+    box-shadow: 0 16px 40px rgba(42, 37, 32, 0.12);
 }
 
 .about-image-frame img {
@@ -878,19 +892,19 @@ h1, h2, h3, h4, h5, h6 {
     height: 58px;
     margin: 0 auto 16px auto;
     border-radius: 50%;
-    background: rgba(224, 230, 237, 0.08);
-    border: 1.5px solid var(--glass-border);
+    background: rgba(42, 37, 32, 0.06);
+    border: 1.5px solid rgba(42, 37, 32, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.35rem;
-    color: var(--gold-champagne);
+    color: #AA7C11;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Sequential Highlight Active Style: Highlight ONLY the circle ring outline so symbol is 100% visible */
+/* Sequential Highlight Active Style */
 .highlight-card.icon-active-pulse .highlight-icon {
-    background: rgba(36, 18, 50, 0.88) !important;
+    background: rgba(42, 37, 32, 0.92) !important;
     color: #FFFFFF !important;
     border: 2.5px solid var(--gold-champagne) !important;
     transform: scale(1.18);
@@ -903,7 +917,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .highlight-card h4 { font-size: 1rem; margin-bottom: 8px; font-weight: 600; }
-.highlight-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+.highlight-card p { font-size: 0.82rem; color: #4A423A; line-height: 1.6; }
 
 /* ==========================================================================
    PINTEREST 3D FLIP GLASS CARDS FOR REVIEWS
@@ -1030,7 +1044,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tab-btn:active { transform: scale(0.94); }
-.tab-btn.active { color: #150820; font-weight: 700; }
+.tab-btn.active { color: #2A2520; font-weight: 700; }
 
 .therapies-grid {
     display: grid;
@@ -1082,7 +1096,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 3px 10px;
     border-radius: var(--radius-full);
 }
-.card-badge.gold-badge, .card-badge.silver-badge { background: var(--gold-gradient); color: #150820; font-weight: 700; border: none; }
+.card-badge.gold-badge, .card-badge.silver-badge { background: var(--gold-gradient); color: #2A2520; font-weight: 700; border: none; }
 
 .card-content {
     padding: 24px;
@@ -1123,18 +1137,20 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.85rem;
 }
 
-/* --- VIP Jacuzzi Suite Glass Section --- */
+/* --- VIP Jacuzzi Suite Glass Section (PEARL WHITE TAB) --- */
 .vip-section {
-    background: radial-gradient(circle at 80% 30%, #6D487E 0%, #442852 55%, #2B1638 100%) !important;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAF8F5 50%, #F4EFEB 100%) !important;
 }
 
 .vip-banner {
-    background: linear-gradient(135deg, rgba(54, 28, 74, 0.82), rgba(21, 8, 32, 0.88)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
+    background: linear-gradient(135deg, rgba(42, 37, 32, 0.9), rgba(28, 24, 20, 0.92)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
     background-size: cover;
     background-position: center;
     border-radius: var(--radius-lg);
     padding: 50px;
+    color: #FFFFFF !important;
 }
+.vip-banner h2 { color: #FFFFFF !important; }
 
 .vip-lead {
     font-family: var(--font-serif);
@@ -1155,6 +1171,8 @@ h1, h2, h3, h4, h5, h6 {
 .vip-t-card {
     padding: 24px;
     position: relative;
+    background: rgba(42, 37, 32, 0.75) !important;
+    color: #FFFFFF !important;
 }
 
 .t-ribbon {
@@ -1162,15 +1180,15 @@ h1, h2, h3, h4, h5, h6 {
     top: -10px;
     right: 18px;
     background: var(--gold-gradient);
-    color: #150820;
+    color: #2A2520;
     font-size: 0.65rem;
     font-weight: 700;
     padding: 2px 10px;
     border-radius: var(--radius-full);
 }
 
-.vip-t-card h4 { font-size: 1.1rem; margin-bottom: 8px; }
-.vip-t-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5; }
+.vip-t-card h4 { font-size: 1.1rem; margin-bottom: 8px; color: #FFFFFF !important; }
+.vip-t-card p { font-size: 0.82rem; color: #E2D7CC !important; margin-bottom: 14px; line-height: 1.5; }
 .v-prices { font-family: var(--font-heading); font-size: 0.85rem; color: var(--gold-champagne); margin-bottom: 12px; }
 
 /* --- Glass Gift Pass Section --- */
@@ -1180,6 +1198,9 @@ h1, h2, h3, h4, h5, h6 {
     gap: 48px;
     border-radius: var(--radius-lg);
     padding: 50px;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(42, 37, 32, 0.15) !important;
+    box-shadow: 0 16px 40px rgba(42, 37, 32, 0.1) !important;
 }
 
 .gift-steps {
@@ -1194,9 +1215,9 @@ h1, h2, h3, h4, h5, h6 {
 .g-num {
     width: 32px;
     height: 32px;
-    background: rgba(212, 175, 55, 0.18);
-    border: 1px solid var(--glass-border);
-    color: var(--gold-champagne);
+    background: rgba(42, 37, 32, 0.08);
+    border: 1px solid rgba(42, 37, 32, 0.2);
+    color: #AA7C11;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1206,8 +1227,8 @@ h1, h2, h3, h4, h5, h6 {
     flex-shrink: 0;
 }
 
-.g-step h4 { font-size: 0.95rem; margin-bottom: 2px; }
-.g-step p { font-size: 0.82rem; color: var(--text-muted); }
+.g-step h4 { font-size: 0.95rem; margin-bottom: 2px; color: #2A2520 !important; }
+.g-step p { font-size: 0.82rem; color: #4A423A !important; }
 
 .giftcard-builder {
     display: flex;
@@ -1218,46 +1239,15 @@ h1, h2, h3, h4, h5, h6 {
 .voucher-preview {
     border-radius: var(--radius-md);
     padding: 24px;
+    background: rgba(42, 37, 32, 0.95) !important;
+    color: #FFFFFF !important;
 }
-
-.vp-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 12px;
-    margin-bottom: 16px;
-}
-
-.vp-amount {
-    font-family: var(--font-heading);
-    font-size: 2.1rem;
-    color: var(--gold-champagne);
-    margin: 8px 0;
-}
-
-.vp-msg {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-}
-
-.vp-footer {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    border-top: 1px solid var(--glass-border);
-    padding-top: 10px;
-}
+.voucher-preview span, .voucher-preview strong, .voucher-preview p { color: #E2D7CC !important; }
+.voucher-preview .vp-amount { color: var(--gold-champagne) !important; }
 
 .builder-form { display: flex; flex-direction: column; gap: 14px; }
 .form-group { display: flex; flex-direction: column; gap: 5px; }
-.form-group label { font-size: 0.75rem; color: var(--text-muted); }
+.form-group label { font-size: 0.75rem; color: #4A423A; font-weight: 600; }
 
 .form-group input, .form-group select {
     padding: 10px 14px;
@@ -1265,6 +1255,9 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-body);
     font-size: 0.85rem;
     outline: none;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(42, 37, 32, 0.2) !important;
+    color: #2A2520 !important;
 }
 
 .amount-pills { display: flex; gap: 8px; }
@@ -1275,6 +1268,15 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.8rem;
     border-radius: var(--radius-sm);
     cursor: pointer;
+    background: rgba(42, 37, 32, 0.08) !important;
+    border: 1px solid rgba(42, 37, 32, 0.2) !important;
+    color: #2A2520 !important;
+}
+
+.pill.active {
+    background: var(--gold-gradient) !important;
+    color: #2A2520 !important;
+    font-weight: 700;
 }
 
 /* ==========================================================================
@@ -1322,7 +1324,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-grow: 1;
     min-height: 440px;
     height: 100%;
-    background: #150820;
+    background: #2A2520;
     box-shadow: var(--glass-shadow);
 }
 
@@ -1339,6 +1341,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 70px 0 28px 0;
     position: relative;
     z-index: 2;
+    background: rgba(28, 24, 20, 0.95) !important;
 }
 
 .footer-grid-clean {
@@ -1390,7 +1393,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 3, 18, 0.88);
+    background: rgba(15, 12, 10, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     z-index: 2000;
@@ -1405,7 +1408,7 @@ h1, h2, h3, h4, h5, h6 {
 .modal-backdrop.active { opacity: 1; pointer-events: auto; }
 
 .modal-card.glass-modal {
-    background: rgba(36, 18, 50, 0.94) !important;
+    background: rgba(42, 37, 32, 0.96) !important;
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     border: 1px solid var(--glass-border);
@@ -1449,7 +1452,7 @@ h1, h2, h3, h4, h5, h6 {
         top: 70px;
         left: 0;
         width: 100%;
-        background: rgba(36, 18, 50, 0.95);
+        background: rgba(42, 37, 32, 0.95);
         backdrop-filter: blur(20px);
         flex-direction: column;
         padding: 24px;
