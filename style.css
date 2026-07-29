@@ -624,7 +624,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   HERO SECTION 50/50 SPLIT (PROPER CONTAINER MARGINS & ZERO BLACK BARS)
+   HERO SECTION 50/50 SPLIT (ZERO BLACK PILLARBOXES ON LEFT AND RIGHT)
    ========================================================================== */
 
 .hero-section {
@@ -653,11 +653,11 @@ h1, h2, h3, h4, h5, h6 {
 .hero-half-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Eliminates all black bars on left/right */
+    object-fit: cover; /* Crops cleanly to eliminate all black bars on left/right */
     object-position: center center;
     display: block;
-    transform: scale(1.08); /* Scales slightly to ensure 0 pillarboxing */
-    filter: brightness(0.85) contrast(1.05);
+    transform: scale(1.12); /* Slightly scales to ensure 100% zero side pillarboxing */
+    filter: brightness(0.88) contrast(1.05);
 }
 
 /* Gradient transition edge blending left plum background smoothly */
@@ -667,7 +667,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, #150820 0%, rgba(21, 8, 32, 0.45) 35%, transparent 100%);
+    background: linear-gradient(to right, #150820 0%, rgba(21, 8, 32, 0.35) 30%, transparent 100%);
     pointer-events: none;
 }
 
