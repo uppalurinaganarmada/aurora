@@ -403,7 +403,7 @@ body {
     color: #1A1A1A !important;
 }
 
-/* VIP Treatment Cards inside White Tab 4: Centered Button & Perfect Inset Padding */
+/* VIP Treatment Cards inside White Tab 4: Centered Button & ROW-WISE DURATION PRICING STACKED */
 .vip-treatments {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -424,7 +424,7 @@ body {
     justify-content: space-between;
     align-items: center !important; /* Centered in middle */
     text-align: center !important;  /* Centered text */
-    min-height: 290px;
+    min-height: 310px;
     overflow: hidden;
 }
 
@@ -446,12 +446,24 @@ body {
     flex-grow: 1;
 }
 
+/* USER DIRECTIVE: ROW-WISE DURATION PRICING VERTICAL STACKING */
 .vip-t-card .v-prices {
     font-family: var(--font-heading);
-    font-size: 0.85rem !important;
+    font-size: 0.88rem !important;
     color: #8A6510 !important;
     margin-bottom: 18px !important;
     font-weight: 700 !important;
+    display: flex !important;
+    flex-direction: column !important; /* Row-wise vertical stack */
+    gap: 4px !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100%;
+}
+
+.vip-t-card .v-prices span {
+    display: block !important;
+    padding: 2px 0;
 }
 
 .vip-t-card .btn {
