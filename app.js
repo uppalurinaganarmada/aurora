@@ -161,11 +161,11 @@ function triggerTabWipeTransition(targetHash) {
     setTimeout(() => {
         curtain.classList.remove('wipe-active');
         isWipeActive = false;
-        setTimeout(() => { isClickNavigating = false; }, 300);
+        setTimeout(() => { isClickNavigating = false; }, 350);
     }, 850);
 }
 
-/* --- Smooth Tab Tracking Header Pill --- */
+/* --- Smooth Tab Tracking Header Pill & Real-Time Scroll Active Tab Updating --- */
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section');
@@ -208,31 +208,37 @@ function initNavigation() {
         });
     });
 
-    // IntersectionObserver for scroll tracking
-    const observerOptions = {
-        root: null,
-        rootMargin: '-30% 0px -40% 0px',
-        threshold: 0.15
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+    // Real-Time 100% Precise Scroll Position Tracker for active tab and sliding gold pill
+    function handleScrollActiveTab() {
         if (isClickNavigating) return;
 
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                const matchingLink = document.querySelector(`.nav-link[href="#${id}"]`);
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + (window.innerHeight * 0.35); // 35% viewport threshold
 
-                if (matchingLink) {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    matchingLink.classList.add('active');
-                    updateSliderPill(matchingLink);
-                }
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
             }
         });
-    }, observerOptions);
 
-    sections.forEach(sec => observer.observe(sec));
+        if (!currentSectionId && window.scrollY < 200) {
+            currentSectionId = 'home';
+        }
+
+        if (currentSectionId) {
+            const activeLink = document.querySelector(`.nav-link[href="#${currentSectionId}"]`);
+            if (activeLink && !activeLink.classList.contains('active')) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                activeLink.classList.add('active');
+                updateSliderPill(activeLink);
+            }
+        }
+    }
+
+    window.addEventListener('scroll', handleScrollActiveTab, { passive: true });
 
     // Initial positioning
     const initialActive = document.querySelector('.nav-link.active') || navLinks[0];

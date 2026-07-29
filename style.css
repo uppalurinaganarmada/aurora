@@ -16,7 +16,7 @@
     --glass-blur: blur(16px);
     --glass-shadow: 0 12px 36px rgba(15, 12, 10, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.15);
 
-    /* Soft Muted Cream Champagne Gold from User Screenshot */
+    /* Soft Muted Cream Champagne Gold */
     --gold-cream-light: #FBEFC5;
     --gold-cream-mid: #E5D5A2;
     --gold-cream-dark: #C4AE6C;
@@ -44,7 +44,7 @@
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- Base & Font Smoothing for Ultra Crisp Text --- */
+/* --- Base & Font Smoothing for Ultra Crisp Large Desktop Text --- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -53,10 +53,16 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 15px;
+    font-size: 17px; /* Scaled up from 15px for prominent desktop typography */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 1440px) {
+    html {
+        font-size: 18px; /* Ultra-crisp scaling for 1080p / 1440p / 4K monitors */
+    }
 }
 
 body {
@@ -429,27 +435,27 @@ body {
 }
 
 .vip-t-card h4 {
-    font-size: 1.05rem !important;
+    font-size: 1.12rem !important;
     margin-top: 0 !important;
     margin-bottom: 12px !important;
     color: #1A1A1A !important;
     font-weight: 700 !important;
-    line-height: 1.3 !important;
+    line-height: 1.35 !important;
 }
 
 .vip-t-card p {
-    font-size: 0.88rem !important;
+    font-size: 0.95rem !important;
     color: #333333 !important;
     margin-bottom: 16px !important;
-    line-height: 1.6 !important;
+    line-height: 1.65 !important;
     font-weight: 500 !important;
     flex-grow: 1;
 }
 
-/* USER DIRECTIVE: ROW-WISE DURATION PRICING VERTICAL STACKING */
+/* ROW-WISE DURATION PRICING VERTICAL STACKING */
 .vip-t-card .v-prices {
     font-family: var(--font-heading);
-    font-size: 0.88rem !important;
+    font-size: 0.9rem !important;
     color: #8A6510 !important;
     margin-bottom: 18px !important;
     font-weight: 700 !important;
@@ -478,9 +484,9 @@ body {
     right: 14px;
     background: var(--gold-btn-gradient);
     color: #2A2520;
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    padding: 3px 12px;
+    padding: 4px 14px;
     border-radius: var(--radius-full);
     z-index: 2;
 }
@@ -494,11 +500,13 @@ body {
 #seq-etiquette-grid .highlight-card h4 {
     color: #FFFFFF !important;
     font-weight: 700 !important;
+    font-size: 1.1rem !important;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
 }
 
 #seq-etiquette-grid .highlight-card p {
     color: #E2D7CC !important;
+    font-size: 0.92rem !important;
     font-weight: 400 !important;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
 }
@@ -560,7 +568,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-container {
     width: 88%;
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
 }
 
@@ -581,7 +589,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-header.center { text-align: center; }
 
 .section-title {
-    font-size: 2.3rem;
+    font-size: 2.6rem;
     font-weight: 600;
     line-height: 1.3;
     margin-bottom: 18px;
@@ -589,13 +597,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-subtitle {
     font-family: var(--font-serif);
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     color: var(--text-muted);
-    max-width: 650px;
+    max-width: 680px;
     margin: 0 auto;
     font-style: italic;
     font-weight: 300;
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 /* ==========================================================================
@@ -608,10 +616,10 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     gap: 10px;
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 700;
-    letter-spacing: 1px;
-    padding: 13px 30px;
+    letter-spacing: 1.1px;
+    padding: 14px 32px;
     border-radius: var(--radius-full);
     border: none;
     cursor: pointer;
@@ -649,8 +657,8 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-2px);
 }
 
-.btn-lg { padding: 15px 36px; font-size: 0.9rem; }
-.btn-sm { padding: 9px 20px; font-size: 0.8rem; }
+.btn-lg { padding: 16px 40px; font-size: 0.95rem; }
+.btn-sm { padding: 10px 24px; font-size: 0.82rem; }
 
 .w-100 { width: 100%; }
 .mt-2 { margin-top: 0.75rem; }
@@ -658,8 +666,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Single Minimalist Sound Symbol Button */
 .sound-toggle-btn.icon-only {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     border-radius: 50%;
     background: rgba(42, 37, 32, 0.65);
@@ -667,7 +675,7 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--glass-border);
     color: #E5D5A2;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -688,7 +696,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navbar Direct Contact Button */
 .nav-contact-btn {
-    padding: 9px 22px;
+    padding: 10px 24px;
 }
 
 /* --- Navbar & Animated Header Pill --- */
@@ -704,7 +712,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-container {
     width: 88%;
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -712,7 +720,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-logo-img {
-    height: 65px;
+    height: 68px;
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
@@ -744,14 +752,14 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link {
     position: relative;
     z-index: 2;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: var(--text-muted);
     text-decoration: none;
     transition: color 0.3s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    padding: 8px 18px;
+    letter-spacing: 1.3px;
+    padding: 9px 20px;
     border-radius: var(--radius-full);
     user-select: none;
 }
@@ -775,7 +783,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   HERO SECTION 50/50 SPLIT
+   HERO SECTION 50/50 SPLIT (PROMINENT LARGE DESKTOP TYPOGRAPHY)
    ========================================================================== */
 
 .hero-section {
@@ -825,35 +833,35 @@ h1, h2, h3, h4, h5, h6 {
 /* HERO CONTAINER */
 .hero-container {
     width: 88%;
-    max-width: 1200px;
+    max-width: 1240px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
 }
 
 .hero-content-half {
-    max-width: 520px;
+    max-width: 620px; /* Expanded for broader reading width */
     margin-left: 0;
     padding-left: 0;
 }
 
 .hero-title {
-    font-size: 3.6rem;
+    font-size: clamp(3.2rem, 4.5vw, 4.2rem);
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 22px;
     color: #FFFFFF;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
 }
 
 .hero-subtitle {
     font-family: var(--font-serif);
-    font-size: 1.3rem;
+    font-size: 1.45rem;
     color: var(--text-muted);
-    max-width: 500px;
+    max-width: 580px;
     margin: 0 0 32px 0;
     font-style: italic;
-    line-height: 1.8;
+    line-height: 1.85;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -866,7 +874,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Light & Luminous Icon Styling on Hero */
 .hero-icons-wrapper {
-    max-width: 410px;
+    max-width: 520px;
 }
 
 .interactive-icons-row {
@@ -878,13 +886,13 @@ h1, h2, h3, h4, h5, h6 {
 .interactive-icons-row.left-aligned { justify-content: flex-start; }
 
 .interactive-icon-btn.glass-icon-btn {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     background: rgba(251, 239, 197, 0.12) !important;
     border: 1.5px solid rgba(229, 213, 162, 0.45) !important;
     color: #FBEFC5 !important;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -921,25 +929,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .interactive-text-display {
     text-align: left;
-    max-width: 410px;
-    min-height: 52px;
+    max-width: 520px;
+    min-height: 60px;
     transition: opacity 0.35s ease, transform 0.35s ease;
-    padding: 12px 18px;
+    padding: 14px 20px;
 }
 
 .interactive-text-display h4 {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: #E5D5A2;
-    margin-bottom: 3px;
-    letter-spacing: 1.2px;
+    margin-bottom: 4px;
+    letter-spacing: 1.3px;
     text-transform: uppercase;
     text-shadow: 0 0 8px rgba(229, 213, 162, 0.4);
 }
 
 .interactive-text-display p {
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     color: var(--text-muted);
-    line-height: 1.5;
+    line-height: 1.6;
     font-family: var(--font-serif);
     font-style: italic;
 }
@@ -963,18 +971,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-lead {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     color: #8A6510;
     margin-bottom: 18px;
     font-style: italic;
 }
 
 .about-desc {
-    font-size: 0.92rem;
+    font-size: 0.98rem !important;
     color: #1A1A1A !important;
-    line-height: 1.8;
+    line-height: 1.85 !important;
     margin-bottom: 16px;
-    font-weight: 500;
+    font-weight: 500 !important;
 }
 
 .about-features {
@@ -985,7 +993,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .a-feat {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #1A1A1A !important;
     display: flex;
     align-items: center;
@@ -1024,8 +1032,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .highlight-icon {
-    width: 58px;
-    height: 58px;
+    width: 62px;
+    height: 62px;
     margin: 0 auto 16px auto;
     border-radius: 50%;
     background: rgba(42, 37, 32, 0.08);
@@ -1033,13 +1041,13 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     color: #AA7C11;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.highlight-card h4 { font-size: 1rem; margin-bottom: 8px; font-weight: 700; color: #1A1A1A !important; }
-.highlight-card p { font-size: 0.82rem; color: #222222 !important; line-height: 1.6; font-weight: 500; }
+.highlight-card h4 { font-size: 1.05rem; margin-bottom: 8px; font-weight: 700; color: #1A1A1A !important; }
+.highlight-card p { font-size: 0.9rem; color: #222222 !important; line-height: 1.65; font-weight: 500; }
 
 /* ==========================================================================
    PINTEREST 3D FLIP GLASS CARDS FOR REVIEWS
@@ -1093,10 +1101,10 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.1) translateY(-2px);
 }
 
-.stars { color: #E5D5A2; font-size: 0.9rem; }
-.review-text { font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: var(--text-muted); line-height: 1.7; flex-grow: 1; }
-.reviewer-info h4 { font-size: 0.95rem; margin-bottom: 2px; }
-.reviewer-info span { font-size: 0.75rem; color: #E5D5A2; }
+.stars { color: #E5D5A2; font-size: 0.95rem; }
+.review-text { font-family: var(--font-serif); font-style: italic; font-size: 1.05rem; color: var(--text-muted); line-height: 1.75; flex-grow: 1; }
+.reviewer-info h4 { font-size: 1rem; margin-bottom: 2px; }
+.reviewer-info span { font-size: 0.8rem; color: #E5D5A2; }
 
 /* --- FAQ Glass Section --- */
 .faq-grid {
@@ -1106,19 +1114,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .faq-card {
-    padding: 24px;
+    padding: 26px;
 }
 
 .faq-card h4 {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     margin-bottom: 10px;
     color: #E5D5A2;
 }
 
 .faq-card p {
-    font-size: 0.85rem;
+    font-size: 0.92rem;
     color: var(--text-muted);
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
 /* --- Category Glass Tabs & Sliding Pill --- */
@@ -1157,9 +1165,9 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     color: var(--text-muted);
     font-family: var(--font-body);
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    padding: 10px 24px;
+    padding: 11px 26px;
     border-radius: var(--radius-full);
     cursor: pointer;
     transition: color 0.3s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1195,7 +1203,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-image {
     position: relative;
-    height: 200px;
+    height: 220px;
     overflow: hidden;
 }
 
@@ -1213,41 +1221,41 @@ h1, h2, h3, h4, h5, h6 {
     top: 14px;
     left: 14px;
     color: var(--text-primary);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    padding: 3px 10px;
+    padding: 4px 12px;
     border-radius: var(--radius-full);
 }
 .card-badge.gold-badge, .card-badge.silver-badge { background: var(--gold-btn-gradient); color: #2A2520; font-weight: 700; border: none; }
 
 .card-content {
-    padding: 24px;
+    padding: 26px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.therapy-name { font-size: 1.2rem; margin-bottom: 8px; }
+.therapy-name { font-size: 1.25rem; margin-bottom: 8px; }
 
 .therapy-desc {
     font-family: var(--font-serif);
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text-muted);
     margin-bottom: 20px;
     flex-grow: 1;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 .duration-prices {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding: 10px 14px;
+    gap: 6px;
+    padding: 12px 16px;
     border-radius: var(--radius-sm);
 }
 
 .d-price {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     display: flex;
     justify-content: space-between;
@@ -1256,7 +1264,7 @@ h1, h2, h3, h4, h5, h6 {
 .d-price strong {
     color: #E5D5A2;
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.9rem;
 }
 
 /* --- VIP Jacuzzi Suite Glass Section --- */
@@ -1276,9 +1284,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .vip-lead {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #E5D5A2;
-    max-width: 650px;
+    max-width: 680px;
     margin-top: 10px;
     margin-bottom: 36px;
     font-style: italic;
@@ -1307,8 +1315,8 @@ h1, h2, h3, h4, h5, h6 {
 .g-step { display: flex; gap: 14px; }
 
 .g-num {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     background: rgba(42, 37, 32, 0.08);
     border: 1px solid rgba(42, 37, 32, 0.2);
     color: #AA7C11;
@@ -1316,13 +1324,13 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 600;
     flex-shrink: 0;
 }
 
-.g-step h4 { font-size: 0.95rem; margin-bottom: 2px; color: #1A1A1A !important; font-weight: 700; }
-.g-step p { font-size: 0.82rem; color: #222222 !important; font-weight: 500; }
+.g-step h4 { font-size: 1rem; margin-bottom: 2px; color: #1A1A1A !important; font-weight: 700; }
+.g-step p { font-size: 0.88rem; color: #222222 !important; font-weight: 500; }
 
 .giftcard-builder {
     display: flex;
@@ -1343,7 +1351,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-group { display: flex; flex-direction: column; gap: 5px; }
 
 .form-group label { 
-    font-size: 0.78rem; 
+    font-size: 0.82rem; 
     color: #1A1A1A !important;
     font-weight: 600;
     margin-bottom: 6px;
@@ -1351,10 +1359,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-group input, .form-group select {
-    padding: 10px 14px;
+    padding: 11px 15px;
     border-radius: var(--radius-sm);
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     outline: none;
     background: #FFFFFF !important;
     border: 1px solid rgba(42, 37, 32, 0.25) !important;
@@ -1365,8 +1373,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .pill {
     flex: 1;
-    padding: 8px;
-    font-size: 0.8rem;
+    padding: 9px;
+    font-size: 0.85rem;
     border-radius: var(--radius-sm);
     cursor: pointer;
     background: rgba(42, 37, 32, 0.08) !important;
@@ -1408,9 +1416,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .c-item { display: flex; gap: 14px; }
-.c-icon { color: #E5D5A2; font-size: 1.1rem; }
-.c-item h4 { font-size: 0.9rem; margin-bottom: 2px; }
-.c-item p { font-size: 0.82rem; color: var(--text-muted); }
+.c-icon { color: #E5D5A2; font-size: 1.2rem; }
+.c-item h4 { font-size: 0.95rem; margin-bottom: 2px; }
+.c-item p { font-size: 0.88rem; color: var(--text-muted); }
 .c-item a { color: #E5D5A2; text-decoration: none; }
 
 .map-wrapper {
@@ -1453,18 +1461,18 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 50px;
 }
 
-.footer-col p { font-size: 0.82rem; color: var(--text-muted); margin-top: 12px; }
-.footer-col h4 { font-size: 0.95rem; margin-bottom: 16px; color: #E5D5A2; }
+.footer-col p { font-size: 0.88rem; color: var(--text-muted); margin-top: 12px; }
+.footer-col h4 { font-size: 1rem; margin-bottom: 16px; color: #E5D5A2; }
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 8px; }
-.footer-col ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; }
+.footer-col ul li a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; }
 .footer-col ul li a:hover { color: #E5D5A2; }
 
 .footer-bottom {
     text-align: center;
     border-top: 1px solid rgba(229, 213, 162, 0.2);
     padding-top: 20px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
 }
 
@@ -1472,15 +1480,15 @@ h1, h2, h3, h4, h5, h6 {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    width: 54px;
-    height: 54px;
+    width: 56px;
+    height: 56px;
     background: #25D366;
     color: #FFF;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     z-index: 999;
     text-decoration: none;
     box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
@@ -1517,8 +1525,8 @@ h1, h2, h3, h4, h5, h6 {
     border-top: 1px solid rgba(251, 239, 197, 0.35) !important;
     border-radius: var(--radius-lg);
     width: 88%;
-    max-width: 600px;
-    padding: 36px;
+    max-width: 620px;
+    padding: 38px;
     position: relative;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.88);
 }
@@ -1549,7 +1557,7 @@ h1, h2, h3, h4, h5, h6 {
     .hero-right-video-half { width: 100%; opacity: 0.35; }
     .hero-content-half { max-width: 100%; }
     .about-grid { grid-template-columns: 1fr; padding: 28px; }
-    .hero-title { font-size: 2.7rem; }
+    .hero-title { font-size: 2.8rem; }
     .highlights-grid, .therapies-grid, .vip-treatments, .reviews-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
     .giftcard-wrapper { grid-template-columns: 1fr !important; padding: 28px; }
     .location-grid { grid-template-columns: 1fr; padding: 28px; }
@@ -1557,6 +1565,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+    html { font-size: 15px; }
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -1573,7 +1582,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     .nav-menu.mobile-active { transform: translateY(0); }
     .mobile-toggle { display: block; }
-    .hero-title { font-size: 2.2rem; }
+    .hero-title { font-size: 2.3rem; }
     .hero-content-left, .hero-content-half { max-width: 100%; }
     .about-features { grid-template-columns: 1fr; }
     .highlights-grid, .therapies-grid, .vip-treatments, .reviews-grid, .faq-grid { grid-template-columns: 1fr; }
