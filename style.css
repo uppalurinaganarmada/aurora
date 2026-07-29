@@ -2,25 +2,25 @@
    AURORA INTERNATIONAL SPA — ROYAL PLUM PURPLE, SOFT LILAC & STERLING SILVER
    ========================================================================== */
 
-/* --- Exact Palette: Royal Plum Purple, Soft Lilac Silk & Sterling Silver --- */
+/* --- Exact Palette: Royal Plum Purple, Soft Lilac Silk (Exact Screenshot) & Sterling Silver --- */
 :root {
     --bg-dark: #150820;       /* Deep Royal Plum Purple */
-    --bg-espresso: #2B1B36;   /* Lush Soft Lilac Silk */
+    --bg-espresso: #442852;   /* Exact Soft Lilac Silk from User Screenshot */
     
     /* Plum & Soft Lilac Glass Surface Tokens */
-    --glass-bg: rgba(32, 18, 46, 0.58);
-    --glass-bg-hover: rgba(48, 28, 68, 0.78);
-    --glass-subpanel: rgba(22, 12, 34, 0.68);
-    --glass-border: rgba(224, 230, 237, 0.2);
-    --glass-border-hover: rgba(224, 230, 237, 0.55);
+    --glass-bg: rgba(36, 18, 50, 0.58);
+    --glass-bg-hover: rgba(54, 28, 74, 0.78);
+    --glass-subpanel: rgba(24, 12, 36, 0.68);
+    --glass-border: rgba(224, 230, 237, 0.22);
+    --glass-border-hover: rgba(224, 230, 237, 0.58);
     --glass-blur: blur(22px);
     --glass-shadow: 0 12px 36px rgba(10, 3, 18, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.15);
 
-    /* Royal Plum Purple, Soft Lilac & Liquid Sterling Silver Accents */
+    /* Royal Plum Purple, Soft Lilac (Exact Screenshot) & Liquid Sterling Silver Accents */
     --plum-purple: #150820;
     --plum-deep: #250E36;
-    --soft-lilac: #2B1B36;
-    --lilac-light: #B892D1;
+    --soft-lilac: #6D487E;    /* Exact Soft Lilac Silk Midtone */
+    --lilac-light: #C5A5D3;   /* Exact Soft Lilac Silk Highlight */
 
     --silver-sterling: #E0E6ED;
     --silver-platinum: #FFFFFF;
@@ -28,7 +28,7 @@
     --ivory: #F8FAFC;
 
     --silver-gradient: linear-gradient(135deg, #E0E6ED 0%, #FFFFFF 50%, #A0ABBA 100%);
-    --plum-gradient: linear-gradient(135deg, #250E36 0%, #B892D1 50%, #150820 100%);
+    --plum-gradient: linear-gradient(135deg, #250E36 0%, #C5A5D3 50%, #150820 100%);
     --silver-glow: 0 3px 10px rgba(224, 230, 237, 0.14); /* Subtle non-harsh glow */
 
     /* Aliases replacing gold with sterling silver */
@@ -38,7 +38,7 @@
     --gold-glow: var(--silver-glow);
 
     --text-primary: #F8FAFC;
-    --text-muted: #CDBDD9;
+    --text-muted: #DBCBE2;
 
     --font-heading: 'Cinzel', serif;
     --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -74,7 +74,7 @@ body {
 }
 
 /* ==========================================================================
-   FLOATING STERLING SILVER, PLUM & LILAK BACKGROUND SPHERES / LIGHT POOLS
+   FLOATING STERLING SILVER, PLUM & EXACT SOFT LILAC BACKGROUND LIGHT POOLS
    ========================================================================== */
 
 .glass-orb {
@@ -83,7 +83,7 @@ body {
     filter: blur(85px);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.35;
+    opacity: 0.38;
     animation: orbFloat 16s ease-in-out infinite alternate;
 }
 
@@ -93,7 +93,7 @@ body {
     top: 5%;
     left: -6%;
     background: radial-gradient(circle, #5A2A7A 0%, transparent 70%);
-    opacity: 0.32;
+    opacity: 0.35;
 }
 
 .orb-2 {
@@ -101,8 +101,8 @@ body {
     height: 520px;
     top: 38%;
     right: -8%;
-    background: radial-gradient(circle, #8E65A8 0%, transparent 70%);
-    opacity: 0.28;
+    background: radial-gradient(circle, #6D487E 0%, transparent 70%);
+    opacity: 0.32;
     animation-delay: -4s;
 }
 
@@ -111,8 +111,8 @@ body {
     height: 400px;
     bottom: 10%;
     left: 10%;
-    background: radial-gradient(circle, #B892D1 0%, transparent 70%);
-    opacity: 0.25;
+    background: radial-gradient(circle, #C5A5D3 0%, transparent 70%);
+    opacity: 0.3;
     animation-delay: -7s;
 }
 
@@ -122,7 +122,7 @@ body {
     top: 68%;
     right: 12%;
     background: radial-gradient(circle, #E0E6ED 0%, transparent 70%);
-    opacity: 0.12;
+    opacity: 0.14;
     animation-delay: -10s;
 }
 
@@ -131,8 +131,8 @@ body {
     height: 340px;
     top: 22%;
     left: 42%;
-    background: radial-gradient(circle, #5A2A7A 0%, transparent 70%);
-    opacity: 0.3;
+    background: radial-gradient(circle, #6D487E 0%, transparent 70%);
+    opacity: 0.32;
     animation-delay: -2s;
 }
 
@@ -169,7 +169,7 @@ body {
 }
 
 .glass-panel {
-    background: rgba(22, 12, 34, 0.85) !important;
+    background: rgba(24, 12, 36, 0.85) !important;
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--glass-border);
@@ -184,7 +184,7 @@ body {
 }
 
 .glass-pill {
-    background: rgba(32, 18, 46, 0.65) !important;
+    background: rgba(36, 18, 50, 0.65) !important;
     backdrop-filter: blur(14px);
     border: 1px solid var(--glass-border) !important;
     color: var(--text-muted);
@@ -198,7 +198,7 @@ body {
 }
 
 .glass-badge {
-    background: rgba(22, 12, 34, 0.85) !important;
+    background: rgba(24, 12, 36, 0.85) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--glass-border) !important;
@@ -214,7 +214,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #2B1B36 0%, #150820 50%, #250E36 100%);
+    background: linear-gradient(135deg, #442852 0%, #150820 50%, #6D487E 100%);
     border-bottom: 3px solid var(--silver-sterling);
     z-index: 999999;
     display: flex;
@@ -298,7 +298,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #150820 0%, #5A2A7A 50%, #B892D1 100%);
+    background: linear-gradient(135deg, #150820 0%, #6D487E 50%, #C5A5D3 100%);
     z-index: 99999;
     pointer-events: none;
     transform: translateX(-100%);
@@ -334,7 +334,7 @@ body {
 }
 
 /* ==========================================================================
-   EXACT ALTERNATING TABS: PLUM PURPLE & SOFT LILAC (EXACT USER REQUEST)
+   EXACT ALTERNATING TABS: PLUM PURPLE & EXACT SOFT LILAC SILK (FROM SCREENSHOT)
    ========================================================================== */
 
 /* Tab 1: Home — Plum Purple (#150820) */
@@ -342,9 +342,9 @@ body {
     background-color: #150820 !important; 
 }
 
-/* Tab 2: About — Soft Lilac (#2B1B36) */
+/* Tab 2: About — Soft Lilac Silk (Exact Palette from User's Screenshot) */
 .bg-tab-2 { 
-    background-color: #2B1B36 !important; 
+    background: radial-gradient(circle at 20% 30%, #6D487E 0%, #442852 55%, #2B1638 100%) !important; 
     border-top: 1px solid var(--glass-border); 
     border-bottom: 1px solid var(--glass-border); 
 }
@@ -354,9 +354,9 @@ body {
     background-color: #180A24 !important; 
 }
 
-/* Tab 4: VIP Suite & Passes — Soft Lilac (#2D1C3A) */
+/* Tab 4: VIP Suite & Passes — Soft Lilac Silk (Exact Palette from User's Screenshot) */
 .bg-tab-4 { 
-    background-color: #2D1C3A !important; 
+    background: radial-gradient(circle at 80% 30%, #6D487E 0%, #442852 55%, #2B1638 100%) !important; 
     border-top: 1px solid var(--glass-border); 
     border-bottom: 1px solid var(--glass-border); 
 }
@@ -487,7 +487,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline {
-    background: rgba(32, 18, 46, 0.4);
+    background: rgba(36, 18, 50, 0.4);
     border: 1px solid var(--glass-border);
     color: var(--text-primary);
     backdrop-filter: blur(10px);
@@ -511,7 +511,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 42px;
     padding: 0;
     border-radius: 50%;
-    background: rgba(32, 18, 46, 0.65);
+    background: rgba(36, 18, 50, 0.65);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--glass-border);
@@ -711,7 +711,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 46px;
     height: 46px;
     border-radius: 50%;
-    background: rgba(32, 18, 46, 0.65);
+    background: rgba(36, 18, 50, 0.65);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--glass-border);
@@ -1088,11 +1088,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- VIP Jacuzzi Suite Glass Section --- */
 .vip-section {
-    background: linear-gradient(180deg, #2D1C3A 0%, #150820 100%);
+    background: radial-gradient(circle at 80% 30%, #6D487E 0%, #442852 55%, #2B1638 100%) !important;
 }
 
 .vip-banner {
-    background: linear-gradient(135deg, rgba(43, 27, 54, 0.82), rgba(21, 8, 32, 0.88)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
+    background: linear-gradient(135deg, rgba(54, 28, 74, 0.82), rgba(21, 8, 32, 0.88)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80');
     background-size: cover;
     background-position: center;
     border-radius: var(--radius-lg);
@@ -1368,7 +1368,7 @@ h1, h2, h3, h4, h5, h6 {
 .modal-backdrop.active { opacity: 1; pointer-events: auto; }
 
 .modal-card.glass-modal {
-    background: rgba(32, 18, 46, 0.94) !important;
+    background: rgba(36, 18, 50, 0.94) !important;
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     border: 1px solid var(--glass-border);
@@ -1410,7 +1410,7 @@ h1, h2, h3, h4, h5, h6 {
         top: 70px;
         left: 0;
         width: 100%;
-        background: rgba(32, 18, 46, 0.95);
+        background: rgba(36, 18, 50, 0.95);
         backdrop-filter: blur(20px);
         flex-direction: column;
         padding: 24px;
