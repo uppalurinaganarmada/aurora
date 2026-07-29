@@ -378,7 +378,7 @@ function initScrollReveal() {
     });
 }
 
-/* --- Floating Particle Canvas (Sterling Silver & Emerald Teal Sparkles) --- */
+/* --- Floating Particle Canvas (Sterling Silver & Soft Lilac Sparkles) --- */
 function initParticleCanvas() {
     const canvas = document.getElementById('particle-canvas');
     if (!canvas) return;
@@ -394,7 +394,7 @@ function initParticleCanvas() {
 
     const particles = [];
     const particleCount = 42;
-    const colors = ['rgba(224, 230, 237, 0.45)', 'rgba(60, 170, 160, 0.4)', 'rgba(255, 255, 255, 0.35)'];
+    const colors = ['rgba(224, 230, 237, 0.45)', 'rgba(184, 146, 209, 0.4)', 'rgba(255, 255, 255, 0.35)'];
 
     for (let i = 0; i < particleCount; i++) {
         particles.push({
