@@ -119,12 +119,20 @@
     <!-- MAIN SINGLE-PAGE SCROLLABLE CONTENT -->
     <main>
 
-        <!-- TAB 1: HERO / HOME (Plum Purple Background with Right-Framed Exact Pinterest Candle Video) -->
+        <!-- TAB 1: HERO / HOME (50/50 SPLIT: LEFT 50% INFO, RIGHT 50% FULL VERTICAL HEIGHT PINTEREST CANDLE VIDEO) -->
         <section class="hero-section bg-tab-1" id="hero">
-            <div class="hero-container hero-split-grid">
-                
-                <!-- Left Content Column -->
-                <div class="hero-content-left reveal-slide-right">
+            
+            <!-- RIGHT 50% HALF: FULL VERTICAL HEIGHT PINTEREST CANDLE VIDEO -->
+            <div class="hero-right-video-half">
+                <video autoplay loop muted playsinline class="hero-half-video" id="hero-bg-video">
+                    <source src="assets/hero_bg_video.mp4" type="video/mp4">
+                </video>
+                <div class="hero-half-video-overlay"></div>
+            </div>
+
+            <!-- LEFT 50% HALF: INFO TEXT & CONTROLS -->
+            <div class="hero-container">
+                <div class="hero-content-half reveal-slide-right">
                     <h1 class="hero-title">Rest Becomes <span class="text-gold">Renewal</span></h1>
                     
                     <p class="hero-subtitle">
@@ -163,15 +171,6 @@
                     </div>
 
                 </div>
-
-                <!-- Right Video Frame Column (EXACT PINTEREST CANDLE VIDEO OCCUPYING RIGHT HALF LIKE SCREENSHOT) -->
-                <div class="hero-video-card-frame glass-card reveal-slide-right">
-                    <video autoplay loop muted playsinline class="hero-card-video" id="hero-bg-video">
-                        <source src="assets/hero_bg_video.mp4" type="video/mp4">
-                    </video>
-                    <div class="hero-card-video-overlay"></div>
-                </div>
-
             </div>
         </section>
 

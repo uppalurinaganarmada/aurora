@@ -624,7 +624,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   HERO SECTION WITH 2-COLUMN SPLIT & RIGHT-FRAMED PINTEREST CANDLE VIDEO
+   HERO SECTION 50/50 SPLIT (LEFT 50% INFO, RIGHT 50% FULL HEIGHT PINTEREST VIDEO)
    ========================================================================== */
 
 .hero-section {
@@ -632,20 +632,44 @@ h1, h2, h3, h4, h5, h6 {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 150px;
-    padding-bottom: 80px;
+    padding-top: 130px;
+    padding-bottom: 60px;
+    overflow: hidden;
+    background-color: #150820;
+}
+
+/* RIGHT 50% HALF: FULL VERTICAL HEIGHT VIDEO (Top 0 to Bottom 0) */
+.hero-right-video-half {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 0;
     overflow: hidden;
 }
 
-.hero-split-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 48px;
-    align-items: center;
+.hero-half-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85) contrast(1.05);
 }
 
-.hero-content-left {
-    max-width: 640px;
+/* Gradient transition edge blending left plum background into right video half */
+.hero-half-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #150820 0%, rgba(21, 8, 32, 0.45) 30%, transparent 100%);
+    pointer-events: none;
+}
+
+.hero-content-half {
+    max-width: 520px;
     margin-left: 0;
 }
 
@@ -660,7 +684,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     font-size: 1.3rem;
     color: var(--text-muted);
-    max-width: 580px;
+    max-width: 500px;
     margin: 0 0 32px 0;
     font-style: italic;
     line-height: 1.8;
@@ -671,36 +695,6 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: flex-start;
     gap: 18px;
-}
-
-/* Right-Framed Glassmorphism Video Card Container (Occupies Space as in Screenshot) */
-.hero-video-card-frame {
-    position: relative;
-    width: 100%;
-    height: 480px;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--glass-border) !important;
-    border-top: 1px solid rgba(245, 230, 173, 0.35) !important;
-    box-shadow: 0 20px 50px rgba(10, 3, 18, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-}
-
-.hero-card-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.88) contrast(1.05);
-}
-
-.hero-card-video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(21, 8, 32, 0.25) 0%, transparent 60%);
-    pointer-events: none;
 }
 
 /* Reduced Size Interactive Icons & Decreased Card Width (410px) */
@@ -790,7 +784,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about-grid {
-    display grid;
+    display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 50px;
     align-items: center;
@@ -1418,8 +1412,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive */
 @media (max-width: 1024px) {
-    .hero-split-grid { grid-template-columns: 1fr; }
-    .hero-video-card-frame { height: 380px; }
+    .hero-right-video-half { width: 100%; opacity: 0.35; }
+    .hero-content-half { max-width: 100%; }
     .about-grid { grid-template-columns: 1fr; padding: 28px; }
     .hero-title { font-size: 2.7rem; }
     .highlights-grid, .therapies-grid, .vip-treatments, .reviews-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1445,7 +1439,7 @@ h1, h2, h3, h4, h5, h6 {
     .nav-menu.mobile-active { transform: translateY(0); }
     .mobile-toggle { display: block; }
     .hero-title { font-size: 2.2rem; }
-    .hero-content-left { max-width: 100%; }
+    .hero-content-left, .hero-content-half { max-width: 100%; }
     .about-features { grid-template-columns: 1fr; }
     .highlights-grid, .therapies-grid, .vip-treatments, .reviews-grid, .faq-grid { grid-template-columns: 1fr; }
     .form-grid { grid-template-columns: 1fr; }
