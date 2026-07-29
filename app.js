@@ -90,31 +90,6 @@ function initIntroCurtain() {
     }, 2400);
 }
 
-/* --- Interactive Home Bottom Icons (Click Icon to Reveal Text Below) --- */
-function selectHomeHighlight(index, title, desc) {
-    const btns = document.querySelectorAll('.interactive-icon-btn');
-    btns.forEach((b, i) => {
-        if (i === index) b.classList.add('active');
-        else b.classList.remove('active');
-    });
-
-    const display = document.getElementById('highlight-text-display');
-    const titleEl = document.getElementById('highlight-title');
-    const descEl = document.getElementById('highlight-desc');
-
-    if (!display || !titleEl || !descEl) return;
-
-    display.style.opacity = '0';
-    display.style.transform = 'translateY(8px)';
-
-    setTimeout(() => {
-        titleEl.innerText = title;
-        descEl.innerText = desc;
-        display.style.opacity = '1';
-        display.style.transform = 'translateY(0)';
-    }, 180);
-}
-
 /* --- Sequential Highlight Loop for Amenity & Etiquette Icons --- */
 function initSequentialIconHighlight() {
     const amenityGrids = document.querySelectorAll('#seq-amenities-grid, #seq-etiquette-grid');
@@ -168,7 +143,7 @@ function triggerTabWipeTransition(targetHash) {
 /* --- Smooth Tab Tracking Header Pill & Real-Time Scroll Active Tab Updating --- */
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
-    const sections = document.querySelectorAll('.section');
+    const sections = document.querySelectorAll('.section, .hero-section');
     const sliderPill = document.getElementById('nav-slider-pill');
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
@@ -213,19 +188,21 @@ function initNavigation() {
         if (isClickNavigating) return;
 
         let currentSectionId = '';
-        const scrollPosition = window.scrollY + (window.innerHeight * 0.35); // 35% viewport threshold
+        const scrollY = window.scrollY;
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
+        if (scrollY < 250) {
+            currentSectionId = 'hero';
+        } else {
+            const scrollPosition = scrollY + (window.innerHeight * 0.35);
 
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
 
-        if (!currentSectionId && window.scrollY < 200) {
-            currentSectionId = 'home';
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionId = section.getAttribute('id');
+                }
+            });
         }
 
         if (currentSectionId) {
