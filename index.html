@@ -119,18 +119,11 @@
     <!-- MAIN SINGLE-PAGE SCROLLABLE CONTENT -->
     <main>
 
-        <!-- TAB 1: HERO / HOME (Plum Purple Background with 100% Local Ambient Spa Video) -->
+        <!-- TAB 1: HERO / HOME (Plum Purple Background with Right-Framed Exact Pinterest Candle Video) -->
         <section class="hero-section bg-tab-1" id="hero">
-            <!-- 100% LOCAL MP4 BACKGROUND VIDEO FILE (ALWAYS LOOPS Seamlessly) -->
-            <div class="hero-video-wrapper">
-                <video autoplay loop muted playsinline class="hero-bg-video" id="hero-bg-video">
-                    <source src="assets/hero_bg_video.mp4" type="video/mp4">
-                    <source src="assets/hero_bg_video.mp4" type="video/webm">
-                </video>
-                <div class="hero-video-overlay"></div>
-            </div>
-
-            <div class="hero-container">
+            <div class="hero-container hero-split-grid">
+                
+                <!-- Left Content Column -->
                 <div class="hero-content-left reveal-slide-right">
                     <h1 class="hero-title">Rest Becomes <span class="text-gold">Renewal</span></h1>
                     
@@ -170,6 +163,15 @@
                     </div>
 
                 </div>
+
+                <!-- Right Video Frame Column (EXACT PINTEREST CANDLE VIDEO OCCUPYING RIGHT HALF LIKE SCREENSHOT) -->
+                <div class="hero-video-card-frame glass-card reveal-slide-right">
+                    <video autoplay loop muted playsinline class="hero-card-video" id="hero-bg-video">
+                        <source src="assets/hero_bg_video.mp4" type="video/mp4">
+                    </video>
+                    <div class="hero-card-video-overlay"></div>
+                </div>
+
             </div>
         </section>
 
