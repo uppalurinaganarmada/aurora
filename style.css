@@ -8,12 +8,12 @@
     --bg-espresso: #442852;   /* Exact Soft Lilac Silk from User Screenshot */
     
     /* Plum & Soft Lilac Glass Surface Tokens */
-    --glass-bg: rgba(36, 18, 50, 0.58);
-    --glass-bg-hover: rgba(54, 28, 74, 0.78);
-    --glass-subpanel: rgba(24, 12, 36, 0.68);
-    --glass-border: rgba(212, 175, 55, 0.22);
-    --glass-border-hover: rgba(212, 175, 55, 0.58);
-    --glass-blur: blur(22px);
+    --glass-bg: rgba(36, 18, 50, 0.65);
+    --glass-bg-hover: rgba(54, 28, 74, 0.82);
+    --glass-subpanel: rgba(24, 12, 36, 0.75);
+    --glass-border: rgba(212, 175, 55, 0.28);
+    --glass-border-hover: rgba(212, 175, 55, 0.65);
+    --glass-blur: blur(16px);
     --glass-shadow: 0 12px 36px rgba(10, 3, 18, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.15);
 
     /* Royal Plum Purple, Soft Lilac & Champagne Gold Accents */
@@ -31,13 +31,13 @@
     --silver-pewter: #A0ABBA;
     --ivory: #F8FAFC;
 
-    --gold-gradient: linear-gradient(135deg, #F5E6AD 0%, #D4AF37 50%, #AA7C11 100%);
+    --gold-gradient: linear-gradient(135deg, #FFF6D6 0%, #F5E6AD 40%, #D4AF37 80%, #AA7C11 100%);
     --silver-gradient: linear-gradient(135deg, #E0E6ED 0%, #FFFFFF 50%, #A0ABBA 100%);
     --plum-gradient: linear-gradient(135deg, #250E36 0%, #C5A5D3 50%, #150820 100%);
     --gold-glow: 0 3px 12px rgba(212, 175, 55, 0.28);
 
-    --text-primary: #F8FAFC;
-    --text-muted: #DBCBE2;
+    --text-primary: #FFFFFF;
+    --text-muted: #E2D4EA;
 
     --font-heading: 'Cinzel', serif;
     --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -51,7 +51,7 @@
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- Base --- */
+/* --- Base & Font Smoothing for Ultra Crisp Text --- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -61,6 +61,9 @@
 html {
     scroll-behavior: smooth;
     font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 body {
@@ -70,6 +73,8 @@ body {
     line-height: 1.8;
     overflow-x: hidden;
     position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==========================================================================
@@ -141,22 +146,24 @@ body {
     100% { transform: translate(-35px, 40px) scale(0.92); }
 }
 
-/* --- Universal Gold & Glassmorphism Classes --- */
+/* --- Universal Gold & Glassmorphism Classes with Sharp Text Support --- */
 .glass-card {
     background: var(--glass-bg) !important;
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border) !important;
-    border-top: 1px solid rgba(245, 230, 173, 0.32) !important;
+    border-top: 1px solid rgba(245, 230, 173, 0.38) !important;
     box-shadow: var(--glass-shadow);
     border-radius: var(--radius-md);
     transition: var(--transition);
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .glass-card:hover {
     background: var(--glass-bg-hover) !important;
     border-color: var(--glass-border-hover) !important;
-    box-shadow: 0 18px 42px rgba(10, 3, 18, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+    box-shadow: 0 18px 42px rgba(10, 3, 18, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.22);
 }
 
 .glass-subpanel {
@@ -165,26 +172,24 @@ body {
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border) !important;
     border-radius: var(--radius-sm);
+    transform: translateZ(0);
 }
 
 .glass-panel {
-    background: rgba(24, 12, 36, 0.85) !important;
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: rgba(24, 12, 36, 0.88) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--glass-border);
 }
 
 .glass-input {
-    background: rgba(16, 9, 25, 0.75) !important;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(16, 9, 25, 0.85) !important;
     border: 1px solid var(--glass-border) !important;
     color: var(--text-primary) !important;
 }
 
 .glass-pill {
-    background: rgba(36, 18, 50, 0.65) !important;
-    backdrop-filter: blur(14px);
+    background: rgba(36, 18, 50, 0.75) !important;
     border: 1px solid var(--glass-border) !important;
     color: var(--text-muted);
 }
@@ -197,9 +202,7 @@ body {
 }
 
 .glass-badge {
-    background: rgba(24, 12, 36, 0.85) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(24, 12, 36, 0.9) !important;
     border: 1px solid var(--glass-border) !important;
 }
 
@@ -382,12 +385,14 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg-dark); }
 ::-webkit-scrollbar-thumb { background: var(--gold-champagne); border-radius: 3px; }
 
-/* --- Typography, Gold Section Tag & Text Highlights --- */
+/* --- Typography, Gold Section Tag & Ultra-Sharp Text Highlights --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     letter-spacing: 1.2px;
     color: var(--text-primary);
     font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .gold-section-tag, .silver-section-tag {
@@ -399,13 +404,15 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     color: var(--gold-champagne);
     margin-bottom: 26px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.35);
 }
 .gold-section-tag.center, .silver-section-tag.center { text-align: center; }
 
 .text-gold, .text-silver {
-    background: var(--gold-gradient);
+    background: linear-gradient(135deg, #FFF6D6 0%, #F5E6AD 40%, #D4AF37 80%, #AA7C11 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
 }
 .gold-icon, .silver-icon { color: var(--gold-champagne); }
 
@@ -594,7 +601,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     z-index: 2;
     font-size: 0.78rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-muted);
     text-decoration: none;
     transition: color 0.3s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -624,7 +631,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   HERO SECTION 50/50 SPLIT (ZERO BLACK PILLARBOXES ON LEFT AND RIGHT)
+   HERO SECTION 50/50 SPLIT — 100% CRISP UNALTERED HD VIDEO & SHARP TEXT
    ========================================================================== */
 
 .hero-section {
@@ -638,7 +645,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #150820;
 }
 
-/* RIGHT 50% HALF: FULL VERTICAL HEIGHT VIDEO (Top 0 to Bottom 0, Zero Black Bars) */
+/* RIGHT 50% HALF: FULL VERTICAL HEIGHT VIDEO (1-to-1 Native HD Pixels, Zero Scale Canvas Blur) */
 .hero-right-video-half {
     position: absolute;
     top: 0;
@@ -653,14 +660,14 @@ h1, h2, h3, h4, h5, h6 {
 .hero-half-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Crops cleanly to eliminate all black bars on left/right */
+    object-fit: cover; /* 100% Crisp Native HD Video Rendering */
     object-position: center center;
     display: block;
-    transform: scale(1.12); /* Slightly scales to ensure 100% zero side pillarboxing */
-    filter: brightness(0.88) contrast(1.05);
+    transform: none; /* No artificial upscaling transform blur */
+    filter: none;    /* Crisp native video colors */
 }
 
-/* Gradient transition edge blending left plum background smoothly */
+/* Smooth Gradient Overlay */
 .hero-half-video-overlay {
     position: absolute;
     top: 0;
@@ -671,7 +678,7 @@ h1, h2, h3, h4, h5, h6 {
     pointer-events: none;
 }
 
-/* HERO CONTAINER: Centered in 88% / 1200px Grid so text is NEVER cut off on left */
+/* HERO CONTAINER: Centered in 88% / 1200px Grid so text is crisp and never cut off on left */
 .hero-container {
     width: 88%;
     max-width: 1200px;
@@ -691,6 +698,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 22px;
+    color: #FFFFFF;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .hero-subtitle {
@@ -701,6 +710,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 32px 0;
     font-style: italic;
     line-height: 1.8;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-actions {
@@ -727,9 +737,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(36, 18, 50, 0.65);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(36, 18, 50, 0.75);
     border: 1.5px solid var(--glass-border);
     color: #F8FAFC;
     font-size: 1.05rem;
@@ -750,7 +758,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Highlight ONLY the circle ring outline so symbol inside is 100% crisp & visible! */
 .interactive-icon-btn.glass-icon-btn.active {
-    background: rgba(36, 18, 50, 0.88) !important;
+    background: rgba(36, 18, 50, 0.92) !important;
     color: #FFFFFF !important;
     border: 2.5px solid var(--gold-champagne) !important;
     box-shadow: 0 0 18px rgba(212, 175, 55, 0.75), inset 0 0 10px rgba(212, 175, 55, 0.3) !important;
@@ -762,7 +770,7 @@ h1, h2, h3, h4, h5, h6 {
     filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.8));
 }
 
-/* Decreased Length Glass Card Container (410px) */
+/* Decreased Length Glass Card Container (410px) with Ultra-Clean Text */
 .interactive-text-display {
     text-align: left;
     max-width: 410px;
@@ -777,6 +785,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 3px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
 }
 
 .interactive-text-display p {
@@ -1013,7 +1022,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-muted);
     font-family: var(--font-body);
     font-size: 0.82rem;
-    font-weight: 500;
+    font-weight: 600;
     padding: 10px 24px;
     border-radius: var(--radius-full);
     cursor: pointer;
