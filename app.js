@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initParticleCanvas();
     initSequentialIconHighlight();
+    initSoundscapePlayer();
     updateVoucherPreview();
 });
 
@@ -34,7 +35,49 @@ function initHeroVideo() {
     }
 }
 
-/* --- Luxury Intro Curtain Reveal Animation (Silky Breathing Aura) --- */
+/* --- Soundscape Audio Player (30s Audio Stream from Pinterest Pin 21603273207964484) --- */
+function initSoundscapePlayer() {
+    const audio = document.getElementById('spa-soundscape');
+    const soundBtn = document.getElementById('sound-toggle-btn');
+    if (!audio || !soundBtn) return;
+
+    // Attach click handler to single sound button
+    soundBtn.addEventListener('click', () => toggleSoundscape());
+
+    // Auto-enable soundscape on first user click anywhere on page if desired
+    const startAudioOnGesture = () => {
+        if (audio.paused) {
+            audio.play().then(() => {
+                soundBtn.classList.add('playing');
+                soundBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+            }).catch(e => console.log('Audio autoplay gesture catch:', e));
+        }
+        document.removeEventListener('click', startAudioOnGesture);
+    };
+
+    document.addEventListener('click', startAudioOnGesture, { once: true });
+}
+
+function toggleSoundscape() {
+    const audio = document.getElementById('spa-soundscape');
+    const soundBtn = document.getElementById('sound-toggle-btn');
+    if (!audio || !soundBtn) return;
+
+    if (audio.paused) {
+        audio.play().then(() => {
+            soundBtn.classList.add('playing');
+            soundBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        }).catch(err => {
+            console.log('Audio play error:', err);
+        });
+    } else {
+        audio.pause();
+        soundBtn.classList.remove('playing');
+        soundBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    }
+}
+
+/* --- Luxury Intro Curtain Reveal Animation --- */
 function initIntroCurtain() {
     const introCurtain = document.getElementById('intro-curtain');
     if (!introCurtain) return;
@@ -72,7 +115,7 @@ function selectHomeHighlight(index, title, desc) {
     }, 180);
 }
 
-/* --- Increased 2.5-Second Sequential Highlight Loop for Amenity & Etiquette Icons --- */
+/* --- Sequential Highlight Loop for Amenity & Etiquette Icons --- */
 function initSequentialIconHighlight() {
     const amenityGrids = document.querySelectorAll('#seq-amenities-grid, #seq-etiquette-grid');
     if (!amenityGrids.length) return;
@@ -102,298 +145,173 @@ function triggerTabWipeTransition(targetHash) {
 
     isWipeActive = true;
     isClickNavigating = true;
-
     curtain.classList.remove('wipe-active');
+
     void curtain.offsetWidth; // Force reflow
+
     curtain.classList.add('wipe-active');
 
     setTimeout(() => {
-        if (targetHash && targetHash.startsWith('#')) {
-            const targetSec = document.querySelector(targetHash);
-            if (targetSec) {
-                const navbarHeight = 70;
-                const targetPosition = targetSec.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'instant'
-                });
-                
-                const slideEls = targetSec.querySelectorAll('.reveal-slide-right');
-                slideEls.forEach(el => {
-                    el.classList.remove('reveal-active');
-                    void el.offsetWidth;
-                    el.classList.add('reveal-active');
-                });
-            }
+        const targetElement = document.querySelector(targetHash);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'auto' });
         }
-    }, 380);
+    }, 400);
 
     setTimeout(() => {
         curtain.classList.remove('wipe-active');
         isWipeActive = false;
-        isClickNavigating = false;
+        setTimeout(() => { isClickNavigating = false; }, 300);
     }, 850);
 }
 
+/* --- Smooth Tab Tracking Header Pill --- */
 function initNavigation() {
-    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.section');
+    const sliderPill = document.getElementById('nav-slider-pill');
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const navPill = document.getElementById('nav-slider-pill');
 
-    function updateNavPill(activeLink) {
-        if (!navPill || !navMenu || !activeLink) return;
-        const linkRect = activeLink.getBoundingClientRect();
-        const menuRect = navMenu.getBoundingClientRect();
-
-        const offsetLeft = linkRect.left - menuRect.left;
-        const width = linkRect.width;
-
-        navPill.style.transform = `translateX(${offsetLeft}px)`;
-        navPill.style.width = `${width}px`;
-    }
-
-    const activeLink = document.querySelector('.nav-link.active');
-    if (activeLink) {
-        setTimeout(() => updateNavPill(activeLink), 100);
-    }
-
-    window.addEventListener('resize', () => {
-        const currentActive = document.querySelector('.nav-link.active');
-        if (currentActive) updateNavPill(currentActive);
-    });
-
-    const sections = document.querySelectorAll('section[id]');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        if (isClickNavigating) return;
-
-        let detectedSectionId = '';
-        sections.forEach(sec => {
-            const secTop = sec.offsetTop - 140;
-            const secHeight = sec.offsetHeight;
-            if (window.scrollY >= secTop && window.scrollY < secTop + secHeight) {
-                detectedSectionId = sec.getAttribute('id');
-            }
-        });
-
-        if (detectedSectionId) {
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${detectedSectionId}`) {
-                    link.classList.add('active');
-                    updateNavPill(link);
-                }
-            });
-        }
-    });
-
-    if (mobileToggle) {
+    if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('mobile-active');
         });
     }
 
+    function updateSliderPill(activeLink) {
+        if (!sliderPill || !activeLink || window.innerWidth <= 768) return;
+        const linkRect = activeLink.getBoundingClientRect();
+        const menuRect = activeLink.parentElement.getBoundingClientRect();
+
+        const leftOffset = linkRect.left - menuRect.left;
+        sliderPill.style.transform = `translateX(${leftOffset}px)`;
+        sliderPill.style.width = `${linkRect.width}px`;
+    }
+
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const href = link.getAttribute('href');
-            
-            if (navMenu) navMenu.classList.remove('mobile-active');
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-            updateNavPill(link);
+            const targetHash = link.getAttribute('href');
+            if (targetHash.startsWith('#')) {
+                e.preventDefault();
 
-            triggerTabWipeTransition(href);
-        });
-    });
-}
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                updateSliderPill(link);
 
-/* --- Menu Category Filter Switcher --- */
-function initCategoryFilters() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const cards = document.querySelectorAll('.therapy-card');
-    const pill = document.getElementById('tab-slider-pill');
-    const container = document.getElementById('category-tabs-container');
+                triggerTabWipeTransition(targetHash);
 
-    function updatePillPosition(activeBtn) {
-        if (!pill || !container || !activeBtn) return;
-        const btnRect = activeBtn.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-
-        const offsetLeft = btnRect.left - containerRect.left;
-        const width = btnRect.width;
-
-        pill.style.transform = `translateX(${offsetLeft}px)`;
-        pill.style.width = `${width}px`;
-    }
-
-    const activeBtn = document.querySelector('.tab-btn.active');
-    if (activeBtn) {
-        setTimeout(() => updatePillPosition(activeBtn), 100);
-    }
-
-    window.addEventListener('resize', () => {
-        const currentActive = document.querySelector('.tab-btn.active');
-        if (currentActive) updatePillPosition(currentActive);
-    });
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            if (btn.classList.contains('active')) return;
-
-            tabBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            updatePillPosition(btn);
-
-            const filter = btn.getAttribute('data-filter');
-            let visibleCount = 0;
-
-            cards.forEach(card => {
-                const matches = filter === 'all' || card.getAttribute('data-category') === filter;
-
-                if (matches) {
-                    card.style.display = 'flex';
-                    card.classList.remove('card-switching');
-                    void card.offsetWidth;
-                    card.style.animationDelay = `${visibleCount * 0.06}s`;
-                    card.classList.add('card-switching');
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                    card.classList.remove('card-switching');
+                if (navMenu.classList.contains('mobile-active')) {
+                    navMenu.classList.remove('mobile-active');
                 }
-            });
-        });
-    });
-}
-
-/* --- 100% RELIABLE WEB AUDIO API SPA SOUNDSCAPE ENGINE --- */
-let audioCtx = null;
-let isPlayingAudio = false;
-let activeOscillators = [];
-let masterGain = null;
-
-function toggleAudio() {
-    const btn = document.getElementById('sound-toggle-btn');
-    const icon = document.getElementById('sound-icon');
-    const htmlAudio = document.getElementById('spa-audio');
-
-    if (!isPlayingAudio) {
-        try {
-            startWebAudioSpaSoundscape();
-            isPlayingAudio = true;
-            if (btn) btn.classList.add('playing');
-            if (icon) icon.className = 'fa-solid fa-volume-high';
-        } catch (e) {
-            console.log('Web Audio fallback to HTML Audio:', e);
-            if (htmlAudio) {
-                htmlAudio.play().then(() => {
-                    isPlayingAudio = true;
-                    if (btn) btn.classList.add('playing');
-                    if (icon) icon.className = 'fa-solid fa-volume-high';
-                });
             }
-        }
-    } else {
-        stopWebAudioSpaSoundscape();
-        if (htmlAudio) htmlAudio.pause();
-        isPlayingAudio = false;
-        if (btn) btn.classList.remove('playing');
-        if (icon) icon.className = 'fa-solid fa-volume-xmark';
-    }
-}
-
-function startWebAudioSpaSoundscape() {
-    if (!audioCtx) {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        audioCtx = new AudioContext();
-    }
-    
-    if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-    }
-
-    stopWebAudioSpaSoundscape();
-
-    masterGain = audioCtx.createGain();
-    masterGain.gain.setValueAtTime(0.01, audioCtx.currentTime);
-    masterGain.gain.exponentialRampToValueAtTime(0.28, audioCtx.currentTime + 3);
-    masterGain.connect(audioCtx.destination);
-
-    const freqs = [108, 216, 324, 432, 540];
-
-    freqs.forEach(freq => {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-        const lfo = audioCtx.createOscillator();
-        const lfoGain = audioCtx.createGain();
-        lfo.frequency.setValueAtTime(0.12, audioCtx.currentTime);
-        lfoGain.gain.setValueAtTime(1.5, audioCtx.currentTime);
-        lfo.connect(osc.frequency);
-        lfo.start();
-
-        gain.gain.setValueAtTime(0.15 / freqs.length, audioCtx.currentTime);
-
-        osc.connect(gain);
-        gain.connect(masterGain);
-        osc.start();
-
-        activeOscillators.push(osc, lfo);
-    });
-}
-
-function stopWebAudioSpaSoundscape() {
-    if (masterGain && audioCtx) {
-        try {
-            masterGain.gain.setValueAtTime(masterGain.gain.value, audioCtx.currentTime);
-            masterGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.8);
-        } catch(e) {}
-    }
-
-    setTimeout(() => {
-        activeOscillators.forEach(osc => {
-            try { osc.stop(); osc.disconnect(); } catch (e) {}
         });
-        activeOscillators = [];
-    }, 850);
-}
+    });
 
-/* --- Scroll Reveal Animations --- */
-function initScrollReveal() {
+    // IntersectionObserver for scroll tracking
     const observerOptions = {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
+        root: null,
+        rootMargin: '-30% 0px -40% 0px',
+        threshold: 0.15
     };
 
-    const observer = new IntersectionObserver((entries, obs) => {
+    const observer = new IntersectionObserver((entries) => {
+        if (isClickNavigating) return;
+
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('reveal-active');
-                obs.unobserve(entry.target);
+                const id = entry.target.getAttribute('id');
+                const matchingLink = document.querySelector(`.nav-link[href="#${id}"]`);
+
+                if (matchingLink) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    matchingLink.classList.add('active');
+                    updateSliderPill(matchingLink);
+                }
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.reveal-slide-right').forEach(el => {
-        observer.observe(el);
+    sections.forEach(sec => observer.observe(sec));
+
+    // Initial positioning
+    const initialActive = document.querySelector('.nav-link.active') || navLinks[0];
+    if (initialActive) updateSliderPill(initialActive);
+
+    window.addEventListener('resize', () => {
+        const currentActive = document.querySelector('.nav-link.active');
+        if (currentActive) updateSliderPill(currentActive);
     });
 }
 
-/* --- Floating Particle Canvas (Champagne Gold & Soft Lilac Sparkles) --- */
+/* --- Category Glass Tab Filter --- */
+function initCategoryFilters() {
+    const filterBtns = document.querySelectorAll('.tab-btn');
+    const therapyCards = document.querySelectorAll('.therapy-card');
+    const tabPill = document.getElementById('tab-slider-pill');
+
+    function updateTabPill(activeBtn) {
+        if (!tabPill || !activeBtn || window.innerWidth <= 768) return;
+        const btnRect = activeBtn.getBoundingClientRect();
+        const containerRect = activeBtn.parentElement.getBoundingClientRect();
+
+        const leftOffset = btnRect.left - containerRect.left;
+        tabPill.style.transform = `translateX(${leftOffset}px)`;
+        tabPill.style.width = `${btnRect.width}px`;
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filterValue = btn.getAttribute('data-filter');
+
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateTabPill(btn);
+
+            therapyCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+
+                if (filterValue === 'all' || category === filterValue) {
+                    card.style.display = 'flex';
+                    card.classList.remove('card-switching');
+                    void card.offsetWidth; // Reflow
+                    card.classList.add('card-switching');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    const initialBtn = document.querySelector('.tab-btn.active') || filterBtns[0];
+    if (initialBtn) updateTabPill(initialBtn);
+
+    window.addEventListener('resize', () => {
+        const currentBtn = document.querySelector('.tab-btn.active');
+        if (currentBtn) updateTabPill(currentBtn);
+    });
+}
+
+/* --- Scroll Reveal Animations --- */
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal-slide-right');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-active');
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0.08,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+}
+
+/* --- Particle Canvas Layer --- */
 function initParticleCanvas() {
     const canvas = document.getElementById('particle-canvas');
     if (!canvas) return;
@@ -408,17 +326,16 @@ function initParticleCanvas() {
     });
 
     const particles = [];
-    const particleCount = 42;
-    const colors = ['rgba(212, 175, 55, 0.45)', 'rgba(197, 165, 211, 0.4)', 'rgba(255, 255, 255, 0.35)'];
+    const particleCount = 28;
 
     for (let i = 0; i < particleCount; i++) {
         particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            radius: Math.random() * 2.2 + 0.8,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            speedY: Math.random() * 0.4 + 0.1,
-            speedX: (Math.random() - 0.5) * 0.2
+            radius: Math.random() * 1.5 + 0.5,
+            vx: (Math.random() - 0.5) * 0.25,
+            vy: (Math.random() - 0.5) * 0.25,
+            alpha: Math.random() * 0.35 + 0.15
         });
     }
 
@@ -426,20 +343,20 @@ function initParticleCanvas() {
         ctx.clearRect(0, 0, width, height);
 
         particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0) p.x = width;
+            if (p.x > width) p.x = 0;
+            if (p.y < 0) p.y = height;
+            if (p.y > height) p.y = 0;
+
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = p.color;
-            ctx.shadowBlur = 8;
-            ctx.shadowColor = p.color;
+            ctx.fillStyle = `rgba(229, 213, 162, ${p.alpha})`;
+            ctx.shadowBlur = 4;
+            ctx.shadowColor = 'rgba(229, 213, 162, 0.4)';
             ctx.fill();
-
-            p.y -= p.speedY;
-            p.x += p.speedX;
-
-            if (p.y < -10) {
-                p.y = height + 10;
-                p.x = Math.random() * width;
-            }
         });
 
         requestAnimationFrame(animate);
