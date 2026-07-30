@@ -1524,16 +1524,22 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-backdrop-filter: blur(28px);
     border: 1px solid var(--glass-border);
     border-top: 1px solid rgba(251, 239, 197, 0.35) !important;
-    border-radius: var(--radius-lg);
-    width: 88%;
-    max-width: 620px;
-    padding: 38px;
+    border-radius: var(--radius-lg) !important;
+    width: 90% !important;
+    max-width: 680px !important;
+    padding: 36px 32px !important;
     position: relative;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.88);
+    box-sizing: border-box !important;
+    overflow: hidden !important;
 }
 
 .modal-card label {
     color: #FFFFFF !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 6px !important;
+    display: block !important;
 }
 
 .modal-close {
@@ -1548,10 +1554,40 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-header { text-align: center; margin-bottom: 20px; }
-.modal-header h2 { color: #FFFFFF !important; }
-.modal-header p { color: #E2D7CC !important; }
+.modal-header h2 { color: #FFFFFF !important; font-size: 1.6rem !important; }
+.modal-header p { color: #E2D7CC !important; font-size: 0.92rem !important; }
 
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-grid { 
+    display: grid !important; 
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
+    gap: 16px !important; 
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.form-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.form-group.full {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+}
+
+.glass-input, .form-group input, .form-group select {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+}
 
 /* Responsive */
 @media (max-width: 1024px) {
