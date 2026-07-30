@@ -1638,33 +1638,104 @@ h1, h2, h3, h4, h5, h6 {
     .footer-grid-clean { grid-template-columns: 1fr 1fr; }
 }
 
+/* ==========================================================================
+   ULTRA-PREMIUM MOBILE & RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .hero-right-video-half { width: 100%; opacity: 0.35; }
+    .hero-content-half { max-width: 100%; }
+    .about-grid { grid-template-columns: 1fr; padding: 28px; }
+    .hero-title { font-size: 2.8rem; }
+    .highlights-grid, .therapies-grid, .vip-treatments, .faq-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    .giftcard-wrapper { grid-template-columns: 1fr !important; padding: 28px; }
+    .location-grid { grid-template-columns: 1fr; padding: 28px; }
+    .footer-grid-clean { grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 768px) {
     html { font-size: 15px; }
+
+    /* Header Nav */
+    .nav-container { padding: 12px 18px !important; }
+    .nav-logo img { height: 42px !important; }
+    
     .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 66px;
         left: 0;
         width: 100%;
-        background: rgba(42, 37, 32, 0.95);
-        backdrop-filter: blur(20px);
+        background: rgba(30, 26, 22, 0.98) !important;
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
         flex-direction: column;
-        padding: 24px;
-        gap: 16px;
-        transform: translateY(-150%);
-        transition: var(--transition);
-        border-bottom: 1px solid var(--glass-border);
+        align-items: center;
+        padding: 28px 20px !important;
+        gap: 18px !important;
+        transform: translateY(-160%);
+        transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        border-bottom: 1px solid rgba(229, 213, 162, 0.25);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+        z-index: 9999;
     }
     .nav-menu.mobile-active { transform: translateY(0); }
-    .mobile-toggle { display: block; }
-    .hero-title { font-size: 2.3rem; }
-    .hero-content-left, .hero-content-half { max-width: 100%; }
-    .about-features { grid-template-columns: 1fr; }
-    .highlights-grid, .therapies-grid, .vip-treatments, .reviews-grid, .faq-grid { grid-template-columns: 1fr; }
-    .form-grid { grid-template-columns: 1fr; }
-    .nav-slider-pill { display: none; }
-    .category-tabs { flex-wrap: wrap; justify-content: center; }
+    .nav-link { width: 100%; text-align: center; font-size: 1.05rem; padding: 8px 0; }
+    .mobile-toggle { display: block; font-size: 1.5rem; color: #E5D5A2; }
+
+    /* Hero Section */
+    .hero-section { padding: 105px 18px 60px 18px !important; text-align: center; }
+    .hero-title { font-size: 2.15rem !important; line-height: 1.28 !important; text-align: center !important; margin-bottom: 16px !important; }
+    .hero-subtitle { font-size: 0.98rem !important; line-height: 1.65 !important; text-align: center !important; max-width: 100% !important; margin-bottom: 24px !important; }
+    .hero-actions { flex-direction: column; width: 100%; gap: 14px; align-items: stretch; justify-content: center; }
+    .hero-actions .btn { width: 100% !important; text-align: center; justify-content: center; }
+    .interactive-icons-row { justify-content: center !important; flex-wrap: wrap; gap: 12px; }
+    .interactive-icon-btn.glass-icon-btn { width: 46px; height: 46px; font-size: 0.95rem; }
+
+    /* About Section */
+    .section { padding: 60px 18px !important; }
+    .about-grid { grid-template-columns: 1fr !important; padding: 22px 16px !important; gap: 24px; }
+    .about-image-frame { max-height: 240px; }
+
+    /* Category Tabs */
+    .category-tabs-wrapper { margin-bottom: 32px !important; padding: 0 4px !important; width: 100%; box-sizing: border-box; }
+    .category-tabs { display: flex !important; width: 100% !important; flex-direction: row !important; gap: 6px !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch; padding: 5px !important; border-radius: var(--radius-full); scrollbar-width: none; }
+    .category-tabs::-webkit-scrollbar { display: none; }
+    .tab-btn { flex: 1 0 auto !important; white-space: nowrap !important; font-size: 0.82rem !important; padding: 10px 16px !important; text-align: center; }
     .tab-slider-pill { display: none; }
-    .tab-btn.active { background: var(--gold-btn-gradient); }
-    .interactive-icons-row { gap: 14px; }
-    .interactive-icon-btn.glass-icon-btn { width: 44px; height: 44px; font-size: 0.95rem; }
+    .tab-btn.active { background: var(--gold-btn-gradient); color: #2A2520 !important; font-weight: 700; }
+
+    /* Grids & Cards */
+    .therapies-grid, .vip-treatments, .reviews-grid, .highlights-grid, .faq-grid { grid-template-columns: 1fr !important; gap: 22px !important; }
+    .therapy-card { border-radius: var(--radius-md) !important; }
+    .card-image { height: 195px !important; }
+    .card-content { padding: 22px 18px !important; }
+    .duration-prices { flex-wrap: wrap !important; gap: 8px !important; justify-content: space-between !important; padding: 10px 12px !important; }
+    .d-price { font-size: 0.85rem !important; }
+
+    /* VIP Section */
+    .vip-banner { padding: 24px 16px !important; margin-bottom: 36px !important; }
+    .vip-banner h2 { font-size: 1.5rem !important; }
+    .vip-t-card { padding: 26px 18px !important; min-height: auto !important; }
+
+    /* Gift Cards & Location */
+    .giftcard-wrapper { grid-template-columns: 1fr !important; padding: 22px 16px !important; gap: 28px; }
+    .location-grid { grid-template-columns: 1fr !important; padding: 22px 16px !important; gap: 28px; }
+
+    /* Modal Form */
+    .form-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+    .modal-card.glass-modal { width: 94% !important; padding: 28px 18px !important; max-height: 90vh !important; overflow-y: auto !important; border-radius: 18px !important; }
+    .modal-header h2 { font-size: 1.4rem !important; }
+
+    /* Footer */
+    .footer-grid-clean { grid-template-columns: 1fr !important; gap: 28px !important; text-align: center; }
+    .footer-brand, .footer-col { display: flex; flex-direction: column; align-items: center; text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: 1.85rem !important; }
+    .section-title { font-size: 1.6rem !important; }
+    .btn { padding: 12px 20px !important; font-size: 0.88rem !important; }
+    .card-image { height: 180px !important; }
+    .modal-card.glass-modal { width: 95% !important; padding: 22px 14px !important; }
 }
