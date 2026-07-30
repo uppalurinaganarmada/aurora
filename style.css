@@ -1057,7 +1057,7 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 22px;
-    perspective: 1000px;
+    perspective: 1200px;
 }
 
 .review-card {
@@ -1068,6 +1068,9 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     overflow: hidden;
     transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.65s ease, border-color 0.45s ease, background 0.45s ease;
+    will-change: transform, box-shadow;
+    border-radius: var(--radius-md);
 }
 
 .review-card::before {
@@ -1080,14 +1083,37 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--gold-btn-gradient);
     opacity: 0;
     transition: opacity 0.4s ease;
+    z-index: 6;
+}
+
+.review-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        115deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.15) 48%,
+        rgba(229, 213, 162, 0.28) 52%,
+        transparent 70%
+    );
+    transform: rotate(25deg);
+    transition: transform 0.85s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+    z-index: 5;
 }
 
 .review-card:hover {
-    transform: translateY(-8px) rotateX(2deg) scale(1.01);
-    border-color: rgba(229, 213, 162, 0.55) !important;
+    transform: translateY(-12px) rotateY(-4deg) rotateX(4deg) scale(1.03);
+    box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(229, 213, 162, 0.3) !important;
+    border-color: rgba(229, 213, 162, 0.75) !important;
 }
 
 .review-card:hover::before { opacity: 1; }
+.review-card:hover::after { transform: translateX(130%) rotate(25deg); }
 
 .review-quote-icon {
     font-size: 1.6rem;

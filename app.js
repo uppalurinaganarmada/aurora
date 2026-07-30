@@ -437,3 +437,22 @@ function orderGiftVoucher() {
 
     window.open(`https://wa.me/917788872255?text=${message}`, '_blank');
 }
+
+/* --- Pinterest 3D Card Tilt Parallax for Review Cards --- */
+document.addEventListener('DOMContentLoaded', () => {
+    const reviewCards = document.querySelectorAll('.review-card');
+    reviewCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            const rotateX = (-y / rect.height) * 14;
+            const rotateY = (x / rect.width) * 14;
+            card.style.transform = `translateY(-12px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+});
