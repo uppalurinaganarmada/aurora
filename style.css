@@ -1773,10 +1773,10 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-backdrop-filter: blur(28px);
     border: 1px solid var(--glass-border);
     border-top: 1px solid rgba(251, 239, 197, 0.35) !important;
-    border-radius: var(--radius-lg) !important;
-    width: 90% !important;
-    max-width: 680px !important;
-    padding: 36px 32px !important;
+    border-radius: var(--radius-md) !important;
+    width: 92% !important;
+    max-width: 540px !important;
+    padding: 24px 26px !important;
     position: relative;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.88);
     box-sizing: border-box !important;
@@ -1785,31 +1785,31 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal-card label {
     color: #FFFFFF !important;
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
     font-weight: 600 !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
     display: block !important;
 }
 
 .modal-close {
     position: absolute;
-    top: 18px;
-    right: 18px;
+    top: 14px;
+    right: 14px;
     background: none;
     border: none;
     color: var(--text-muted);
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     cursor: pointer;
 }
 
-.modal-header { text-align: center; margin-bottom: 20px; }
-.modal-header h2 { color: #FFFFFF !important; font-size: 1.6rem !important; }
-.modal-header p { color: #E2D7CC !important; font-size: 0.92rem !important; }
+.modal-header { text-align: center; margin-bottom: 12px; }
+.modal-header h2 { color: #FFFFFF !important; font-size: 1.32rem !important; margin-bottom: 2px; }
+.modal-header p { color: #E2D7CC !important; font-size: 0.82rem !important; }
 
 .form-grid { 
     display: grid !important; 
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
-    gap: 16px !important; 
+    gap: 10px !important; 
     width: 100% !important;
     box-sizing: border-box !important;
 }
@@ -1817,7 +1817,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-group {
     display: flex !important;
     flex-direction: column !important;
-    gap: 5px !important;
+    gap: 3px !important;
     width: 100% !important;
     min-width: 0 !important;
     box-sizing: border-box !important;
@@ -1830,9 +1830,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-label-gold {
     color: #E5D5A2 !important;
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
     font-weight: 600 !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
     display: block !important;
 }
 
