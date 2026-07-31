@@ -582,13 +582,13 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 1.1px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
     padding: 14px 32px;
-    border-radius: var(--radius-full);
+    border-radius: 8px !important;
     border: none;
     cursor: pointer;
     transition: var(--transition);
@@ -649,7 +649,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 44px;
     height: 44px;
     padding: 0;
-    border-radius: 50%;
+    border-radius: 8px !important;
     background: rgba(42, 37, 32, 0.65);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -779,7 +779,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 8px 14px;
     background: rgba(36, 31, 26, 0.92);
     border: 1px solid rgba(229, 213, 162, 0.4);
-    border-radius: var(--radius-full);
+    border-radius: 10px !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.2);
@@ -1464,15 +1464,23 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 14px;
     left: 14px;
-    color: var(--text-primary);
+    color: #E5D5A2;
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 1.2px;
     padding: 5px 14px;
-    border-radius: var(--radius-full);
+    border-radius: 6px !important;
+    background: rgba(36, 31, 26, 0.88);
+    border: 1px solid rgba(229, 213, 162, 0.45);
     backdrop-filter: blur(10px);
 }
-.card-badge.gold-badge, .card-badge.silver-badge { background: var(--gold-btn-gradient); color: #2A2520; font-weight: 700; border: none; }
+.card-badge.gold-badge, .card-badge.silver-badge {
+    background: rgba(42, 37, 32, 0.92) !important;
+    color: #E5D5A2 !important;
+    font-weight: 600 !important;
+    border: 1px solid rgba(229, 213, 162, 0.65) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
 
 .card-content {
     padding: 26px;
@@ -1734,7 +1742,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 56px;
     background: #25D366;
     color: #FFF;
-    border-radius: 50%;
+    border-radius: 12px !important;
     display: flex;
     align-items: center;
     justify-content: center;
