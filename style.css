@@ -2069,8 +2069,15 @@ h1, h2, h3, h4, h5, h6 {
     .vip-t-card { padding: 26px 18px !important; min-height: auto !important; }
 
     /* Gift Cards & Location */
-    .giftcard-wrapper { grid-template-columns: 1fr !important; padding: 22px 16px !important; gap: 28px; }
-    .location-grid { grid-template-columns: 1fr !important; padding: 22px 16px !important; gap: 28px; }
+    .giftcard-wrapper { grid-template-columns: 1fr !important; padding: 22px 16px !important; gap: 28px; width: 100% !important; box-sizing: border-box !important; }
+    .location-grid { grid-template-columns: 1fr !important; padding: 0 !important; gap: 24px; width: 100% !important; box-sizing: border-box !important; }
+    .location-card { padding: 24px 18px !important; border-radius: var(--radius-md) !important; width: 100% !important; box-sizing: border-box !important; }
+    .location-card h2 { font-size: 1.6rem !important; }
+    .gps-directions-btn { width: 100% !important; font-size: 0.82rem !important; padding: 12px 14px !important; white-space: normal !important; text-align: center !important; justify-content: center !important; line-height: 1.4 !important; }
+    
+    .map-wrapper { width: 100% !important; box-sizing: border-box !important; }
+    .map-frame.glass-map-frame { border-radius: var(--radius-md) !important; min-height: 320px !important; width: 100% !important; box-sizing: border-box !important; overflow: hidden !important; }
+    .map-frame iframe { min-height: 320px !important; height: 320px !important; width: 100% !important; border-radius: var(--radius-md) !important; }
 
     /* Modal Form */
     .form-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
