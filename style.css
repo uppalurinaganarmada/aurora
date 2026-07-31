@@ -38,9 +38,19 @@
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Montserrat', sans-serif;
 
+    /* Strict Spacing System Tokens */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+    --space-xxl: 64px;
+    --space-section: 140px;
+
+    /* Standardized Component Border Radii */
     --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
     --radius-full: 9999px;
 
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
