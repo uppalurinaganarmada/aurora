@@ -510,32 +510,74 @@ document.addEventListener('click', (e) => {
     }
 });
 
-/* --- WhatsApp Reservation Handler --- */
+/* --- WhatsApp Reservation Handler with Validation & Loading State --- */
 function handleBookingSubmit(event) {
     event.preventDefault();
+
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    const nameInput = document.getElementById('modal-name');
+    const phoneInput = document.getElementById('modal-phone');
+    const statusMsg = document.getElementById('modal-status-msg');
 
     const service = document.getElementById('modal-service').value;
     const duration = document.getElementById('modal-duration').value;
     const date = document.getElementById('modal-date').value;
     const time = document.getElementById('modal-time-selected')?.value || '12:30 PM';
-    const name = document.getElementById('modal-name').value;
-    const phone = document.getElementById('modal-phone').value;
+    const name = nameInput?.value.trim() || '';
+    const phone = phoneInput?.value.trim() || '';
     const therapistPref = document.querySelector('input[name="therapist-preference"]:checked')?.value || 'No Preference';
 
-    const message = `*NEW RESERVATION REQUEST — AURORA INTERNATIONAL SPA*%0A%0A` +
-                    `*Guest Name:* ${encodeURIComponent(name)}%0A` +
-                    `*WhatsApp Phone:* ${encodeURIComponent(phone)}%0A` +
-                    `*Treatment:* ${encodeURIComponent(service)}%0A` +
-                    `*Duration:* ${encodeURIComponent(duration)}%0A` +
-                    `*Requested Date:* ${encodeURIComponent(date)}%0A` +
-                    `*Time Slot:* ${encodeURIComponent(time)}%0A` +
-                    `*Therapist Preference:* ${encodeURIComponent(therapistPref)}%0A%0A` +
-                    `_"Breathe. You are cared for here."_`;
+    // Simple Form Validation Check
+    if (name.length < 2) {
+        if (statusMsg) {
+            statusMsg.className = 'form-status-msg error';
+            statusMsg.textContent = 'Please enter your full name.';
+            statusMsg.style.display = 'block';
+        }
+        if (nameInput) nameInput.focus();
+        return;
+    }
 
-    const whatsappUrl = `https://wa.me/917788872255?text=${message}`;
+    if (phone.length < 8) {
+        if (statusMsg) {
+            statusMsg.className = 'form-status-msg error';
+            statusMsg.textContent = 'Please enter a valid phone number.';
+            statusMsg.style.display = 'block';
+        }
+        if (phoneInput) phoneInput.focus();
+        return;
+    }
 
-    window.open(whatsappUrl, '_blank');
-    closeBookingModal();
+    // Display Button Loading State
+    const originalBtnHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Formatting Reservation...';
+
+    if (statusMsg) {
+        statusMsg.className = 'form-status-msg success';
+        statusMsg.textContent = 'Opening WhatsApp Concierge...';
+        statusMsg.style.display = 'block';
+    }
+
+    setTimeout(() => {
+        const message = `*NEW RESERVATION REQUEST — AURORA INTERNATIONAL SPA*%0A%0A` +
+                        `*Guest Name:* ${encodeURIComponent(name)}%0A` +
+                        `*WhatsApp Phone:* ${encodeURIComponent(phone)}%0A` +
+                        `*Treatment:* ${encodeURIComponent(service)}%0A` +
+                        `*Duration:* ${encodeURIComponent(duration)}%0A` +
+                        `*Requested Date:* ${encodeURIComponent(date)}%0A` +
+                        `*Time Slot:* ${encodeURIComponent(time)}%0A` +
+                        `*Therapist Preference:* ${encodeURIComponent(therapistPref)}%0A%0A` +
+                        `_"Breathe. You are cared for here."_`;
+
+        const whatsappUrl = `https://wa.me/917788872255?text=${message}`;
+
+        window.open(whatsappUrl, '_blank');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHTML;
+        if (statusMsg) statusMsg.style.display = 'none';
+        closeBookingModal();
+    }, 600);
 }
 
 /* --- Gift Voucher Controls --- */

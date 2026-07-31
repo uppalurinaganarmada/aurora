@@ -1824,6 +1824,26 @@ h1, h2, h3, h4, h5, h6 {
 .modal-header h2 { color: #FFFFFF !important; font-size: 1.32rem !important; margin-bottom: 2px; }
 .modal-header p { color: #E2D7CC !important; font-size: 0.82rem !important; }
 
+.form-status-msg {
+    margin-top: 10px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.form-status-msg.success {
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.5);
+    color: #25D366;
+}
+.form-status-msg.error {
+    background: rgba(235, 87, 87, 0.15);
+    border: 1px solid rgba(235, 87, 87, 0.5);
+    color: #FF6B6B;
+}
+
 .form-grid { 
     display: grid !important; 
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
