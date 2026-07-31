@@ -103,6 +103,13 @@
         </div>
     </header>
 
+    <!-- Floating Desktop Section Progress Counter -->
+    <div class="section-progress-indicator" id="section-progress-indicator" aria-hidden="true">
+        <span class="sp-num" id="sp-num">01</span>
+        <span class="sp-divider">/</span>
+        <span class="sp-name" id="sp-name">HOME</span>
+    </div>
+
     <!-- Reliable Audio Element for Ambient Spa Soundscape -->
     <audio id="spa-soundscape" loop preload="auto" src="assets/bg_soundscape.mp3"></audio>
 
@@ -697,6 +704,16 @@
             <p>&copy; 2026 Aurora International Spa. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Floating Quick-Action Concierge Bar -->
+    <div class="floating-concierge-pill" id="floating-concierge-pill">
+        <button onclick="openBookingModal()" class="btn btn-gold btn-sm pill-btn-primary">
+            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i> Reserve Ritual
+        </button>
+        <a href="https://wa.me/917788872255?text=Hello%20Aurora%20Spa%2C%20I%20would%20like%20to%20inquire%20about%20a%20treatment." target="_blank" rel="noopener noreferrer" class="btn btn-silver btn-sm pill-btn-secondary">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Concierge
+        </a>
+    </div>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/917788872255?text=Hello%20Aurora%20Spa%2C%20I%20would%20like%20to%20reserve%20a%20treatment%20ritual." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat with Spa Concierge on WhatsApp" title="Chat with Spa Concierge">

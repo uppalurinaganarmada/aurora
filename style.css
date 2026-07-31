@@ -686,8 +686,22 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 14px 0;
-    transition: var(--transition);
+    padding: 18px 0;
+    transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.navbar.nav-scrolled {
+    padding: 10px 0 !important;
+    background: rgba(36, 31, 26, 0.94) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border-bottom: 1px solid rgba(229, 213, 162, 0.25) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+.navbar.nav-scrolled .brand-logo-img {
+    height: 52px !important;
+    transition: height 0.4s ease;
 }
 
 .nav-container {
@@ -697,6 +711,95 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/* --- Floating Desktop Section Progress Counter --- */
+.section-progress-indicator {
+    position: fixed;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-heading);
+    letter-spacing: 1.5px;
+    background: rgba(36, 31, 26, 0.75);
+    border: 1px solid rgba(229, 213, 162, 0.3);
+    padding: 12px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section-progress-indicator.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sp-num {
+    color: #E5D5A2;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.sp-divider {
+    color: rgba(229, 213, 162, 0.4);
+    font-size: 0.75rem;
+}
+
+.sp-name {
+    color: #FFFFFF;
+    font-size: 0.68rem;
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+
+@media (max-width: 1024px) {
+    .section-progress-indicator { display: none !important; }
+}
+
+/* --- Floating Quick-Action Concierge Bar --- */
+.floating-concierge-pill {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(40px);
+    z-index: 990;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 14px;
+    background: rgba(36, 31, 26, 0.92);
+    border: 1px solid rgba(229, 213, 162, 0.4);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-concierge-pill.pill-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 768px) {
+    .floating-concierge-pill {
+        bottom: 16px;
+        padding: 6px 10px;
+        gap: 8px;
+    }
 }
 
 .brand-logo-img {

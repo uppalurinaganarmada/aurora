@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroVideo();
     initIntroCurtain();
     initNavigation();
+    initStickyNavbarCondensation();
     initCategoryFilters();
     initServiceCardVideos();
     initSubtleParallax();
     initQuickBookingDate();
     initTimeSlotPicker();
     initScrollReveal();
-    initParticleCanvas();
     initSequentialIconHighlight();
     initSoundscapePlayer();
     updateVoucherPreview();
@@ -232,6 +232,67 @@ function initNavigation() {
     });
 }
 
+/* --- Dynamic Sticky Navbar Condensation, Progress Counter & Floating Concierge Pill --- */
+function initStickyNavbarCondensation() {
+    const navbar = document.getElementById('navbar');
+    const conciergePill = document.getElementById('floating-concierge-pill');
+    const sectionProgress = document.getElementById('section-progress-indicator');
+    const spNum = document.getElementById('sp-num');
+    const spName = document.getElementById('sp-name');
+
+    const sections = [
+        { id: 'hero', num: '01', name: 'HOME' },
+        { id: 'about', num: '02', name: 'ABOUT' },
+        { id: 'services', num: '03', name: 'SERVICES' },
+        { id: 'vip-passes', num: '04', name: 'VIP SUITES' },
+        { id: 'contact', num: '05', name: 'CONTACT' }
+    ];
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        // 1. Condense Sticky Navbar
+        if (navbar) {
+            if (scrollY > 80) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        }
+
+        // 2. Toggle Floating Concierge Pill
+        if (conciergePill) {
+            if (scrollY > 380) {
+                conciergePill.classList.add('pill-active');
+            } else {
+                conciergePill.classList.remove('pill-active');
+            }
+        }
+
+        // 3. Update Desktop Section Progress Counter
+        if (sectionProgress && spNum && spName) {
+            if (scrollY > 220) {
+                sectionProgress.classList.add('active');
+
+                const scrollPosition = scrollY + (window.innerHeight * 0.4);
+                sections.forEach(sec => {
+                    const el = document.getElementById(sec.id);
+                    if (el) {
+                        const top = el.offsetTop;
+                        const height = el.offsetHeight;
+                        if (scrollPosition >= top && scrollPosition < top + height) {
+                            spNum.textContent = sec.num;
+                            spName.textContent = sec.name;
+                        }
+                    }
+                });
+            } else {
+                sectionProgress.classList.remove('active');
+            }
+        }
+    }, { passive: true });
+}
+
 /* --- Category Glass Tab Filter --- */
 function initCategoryFilters() {
     const filterBtns = document.querySelectorAll('.tab-btn');
@@ -255,6 +316,10 @@ function initCategoryFilters() {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             updateTabPill(btn);
+
+            if (window.innerWidth <= 768) {
+                btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
 
             therapyCards.forEach(card => {
                 const category = card.getAttribute('data-category');
