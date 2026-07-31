@@ -572,10 +572,25 @@ h1, h2, h3, h4, h5, h6 {
 .gold-icon, .silver-icon { color: #E5D5A2; }
 
 .section {
-    padding: 130px 0;
+    padding: 135px 0;
     position: relative;
     z-index: 2;
     overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+    .section {
+        padding: 155px 0 !important;
+    }
+    .therapies-grid {
+        gap: 42px !important;
+    }
+    .vip-treatments {
+        gap: 32px !important;
+    }
+    .highlights-grid, .reviews-grid {
+        gap: 32px !important;
+    }
 }
 
 .section-container {
@@ -604,6 +619,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 2.6rem;
     font-weight: 600;
     line-height: 1.3;
+    letter-spacing: 1.4px;
     margin-bottom: 18px;
 }
 
@@ -615,7 +631,8 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
     font-style: italic;
     font-weight: 300;
-    line-height: 1.8;
+    line-height: 1.85;
+    letter-spacing: 0.4px;
 }
 
 /* ==========================================================================
@@ -1335,10 +1352,12 @@ h1, h2, h3, h4, h5, h6 {
     top: 14px;
     left: 14px;
     color: var(--text-primary);
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    padding: 4px 12px;
+    letter-spacing: 1.2px;
+    padding: 5px 14px;
     border-radius: var(--radius-full);
+    backdrop-filter: blur(10px);
 }
 .card-badge.gold-badge, .card-badge.silver-badge { background: var(--gold-btn-gradient); color: #2A2520; font-weight: 700; border: none; }
 
@@ -1349,28 +1368,31 @@ h1, h2, h3, h4, h5, h6 {
     flex-grow: 1;
 }
 
-.therapy-name { font-size: 1.25rem; margin-bottom: 8px; }
+.therapy-name { font-size: 1.3rem; margin-bottom: 10px; letter-spacing: 1.3px; font-weight: 600; }
 
 .therapy-desc {
     font-family: var(--font-serif);
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     flex-grow: 1;
-    line-height: 1.65;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
 }
 
 .duration-prices {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 12px 16px;
+    gap: 8px;
+    padding: 14px 18px;
     border-radius: var(--radius-sm);
+    background: rgba(18, 15, 12, 0.65) !important;
 }
 
 .d-price {
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    font-size: 0.86rem;
+    letter-spacing: 1.1px;
+    color: rgba(255, 255, 255, 0.85);
     display: flex;
     justify-content: space-between;
 }
@@ -1378,7 +1400,8 @@ h1, h2, h3, h4, h5, h6 {
 .d-price strong {
     color: #E5D5A2;
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    letter-spacing: 1.2px;
 }
 
 /* --- VIP Jacuzzi Suite Glass Section --- */

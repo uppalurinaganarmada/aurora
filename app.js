@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initCategoryFilters();
     initServiceCardVideos();
+    initSubtleParallax();
     initQuickBookingDate();
     initScrollReveal();
     initParticleCanvas();
@@ -536,6 +537,30 @@ function initServiceCardVideos() {
     document.addEventListener('touchstart', (e) => {
         if (!e.target.closest('.therapy-card')) {
             pauseAllServiceVideos();
+        }
+    }, { passive: true });
+}
+
+/* --- Subtle Parallax Background Depth Scroll Control --- */
+function initSubtleParallax() {
+    const parallaxImages = document.querySelectorAll('.about-image-frame img, .card-image img, .card-image video');
+    if (!parallaxImages.length) return;
+
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                parallaxImages.forEach(img => {
+                    const rect = img.parentElement.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        const translateY = (rect.top - window.innerHeight / 2) * 0.04;
+                        img.style.transform = `translateY(${translateY}px) scale(1.08)`;
+                    }
+                });
+                ticking = false;
+            });
+            ticking = true;
         }
     }, { passive: true });
 }
