@@ -86,8 +86,8 @@ function initIntroCurtain() {
         introCurtain.classList.add('curtain-raise');
         setTimeout(() => {
             introCurtain.style.display = 'none';
-        }, 1300);
-    }, 2400);
+        }, 800);
+    }, 600);
 }
 
 /* --- Sequential Highlight Loop for Amenity & Etiquette Icons --- */
