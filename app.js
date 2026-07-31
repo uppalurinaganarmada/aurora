@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initIntroCurtain();
     initNavigation();
     initCategoryFilters();
+    initServiceCardVideos();
     initQuickBookingDate();
     initScrollReveal();
     initParticleCanvas();
@@ -476,3 +477,91 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+/* --- Services Videos Interactive Control (Desktop: Play on Hover | Mobile: Sequential Play) --- */
+function initServiceCardVideos() {
+    const cards = document.querySelectorAll('.therapy-card');
+    if (!cards.length) return;
+
+    const isTouchOrMobile = window.innerWidth <= 768 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+
+    cards.forEach(card => {
+        const video = card.querySelector('.card-video');
+        if (!video) return;
+
+        // Ensure initially paused
+        video.pause();
+
+        if (!isTouchOrMobile) {
+            // DESKTOP: Play only when hovered over
+            card.addEventListener('mouseenter', () => {
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(e => console.log('Hover video play catch:', e));
+                }
+            });
+
+            card.addEventListener('mouseleave', () => {
+                video.pause();
+                video.currentTime = 0; // Rewind to start frame
+            });
+        }
+    });
+
+    // MOBILE: Sequential video playback (plays 1 by 1 in loop)
+    if (isTouchOrMobile) {
+        let currentMobileIndex = 0;
+        let mobileSeqTimer = null;
+
+        function playNextMobileVideo() {
+            const visibleCards = Array.from(document.querySelectorAll('.therapy-card')).filter(c => c.style.display !== 'none');
+            const visibleVideos = visibleCards.map(c => c.querySelector('.card-video')).filter(v => v !== null);
+
+            if (!visibleVideos.length) return;
+
+            // Pause all service videos first
+            visibleVideos.forEach(v => {
+                v.pause();
+            });
+
+            if (currentMobileIndex >= visibleVideos.length) {
+                currentMobileIndex = 0; // Loop back to start
+            }
+
+            const currentVid = visibleVideos[currentMobileIndex];
+            if (currentVid) {
+                const playPromise = currentVid.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(e => console.log('Mobile video play catch:', e));
+                }
+
+                // Advance to next video after 6 seconds
+                clearTimeout(mobileSeqTimer);
+                mobileSeqTimer = setTimeout(() => {
+                    currentMobileIndex++;
+                    playNextMobileVideo();
+                }, 6000);
+            }
+        }
+
+        // Start sequential playback when services section is visible
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        playNextMobileVideo();
+                    } else {
+                        clearTimeout(mobileSeqTimer);
+                        cards.forEach(c => {
+                            const v = c.querySelector('.card-video');
+                            if (v) v.pause();
+                        });
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            observer.observe(servicesSection);
+        }
+    }
+}
