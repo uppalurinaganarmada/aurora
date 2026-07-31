@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initIntroCurtain();
     initNavigation();
     initCategoryFilters();
-    initDurationFilter();
     initServiceCardVideos();
     initSubtleParallax();
     initQuickBookingDate();
@@ -277,35 +276,6 @@ function initCategoryFilters() {
     window.addEventListener('resize', () => {
         const currentBtn = document.querySelector('.tab-btn.active');
         if (currentBtn) updateTabPill(currentBtn);
-    });
-}
-
-/* --- Duration & Price Quick Filter Control --- */
-function initDurationFilter() {
-    const durationBtns = document.querySelectorAll('.duration-pill-btn');
-    const priceBadges = document.querySelectorAll('.d-price');
-    if (!durationBtns.length) return;
-
-    durationBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const selectedDuration = btn.getAttribute('data-duration-filter');
-
-            durationBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            priceBadges.forEach(badge => {
-                const text = badge.textContent.toLowerCase();
-                if (selectedDuration === 'all') {
-                    badge.classList.remove('d-price-dimmed', 'd-price-highlight');
-                } else if (text.includes(`${selectedDuration} min`)) {
-                    badge.classList.remove('d-price-dimmed');
-                    badge.classList.add('d-price-highlight');
-                } else {
-                    badge.classList.remove('d-price-highlight');
-                    badge.classList.add('d-price-dimmed');
-                }
-            });
-        });
     });
 }
 
