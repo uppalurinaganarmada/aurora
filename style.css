@@ -1236,7 +1236,59 @@ h1, h2, h3, h4, h5, h6 {
 .category-tabs-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 54px;
+    margin-bottom: 24px;
+}
+
+/* Duration & Price Quick Filter Bar */
+.duration-filter-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.duration-filter-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #E5D5A2;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-right: 4px;
+}
+
+.duration-pill-btn {
+    background: rgba(229, 213, 162, 0.08);
+    border: 1px solid rgba(229, 213, 162, 0.35);
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 1px;
+}
+
+.duration-pill-btn:hover, .duration-pill-btn.active {
+    background: rgba(229, 213, 162, 0.25);
+    border-color: #E5D5A2;
+    color: #FFFFFF;
+    box-shadow: 0 0 14px rgba(229, 213, 162, 0.45);
+}
+
+.d-price.d-price-highlight {
+    background: rgba(229, 213, 162, 0.22) !important;
+    border-radius: 6px;
+    padding: 4px 8px !important;
+    box-shadow: 0 0 12px rgba(229, 213, 162, 0.4) !important;
+    transition: all 0.3s ease;
+}
+
+.d-price.d-price-dimmed {
+    opacity: 0.35;
+    transition: all 0.3s ease;
 }
 
 .category-tabs {
