@@ -33,6 +33,7 @@
     --text-muted: #E2D7CC;
     --text-dark-black: #1A1A1A;
 
+    --font-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
     --font-heading: 'Cinzel', serif;
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Montserrat', sans-serif;
@@ -616,6 +617,9 @@ h1, h2, h3, h4, h5, h6 {
 .section-header.center { text-align: center; }
 
 .section-title {
+    font-family: var(--font-display);
+    font-feature-settings: "liga" 1, "dlig" 1, "clig" 1;
+    font-variant-ligatures: common-ligatures discretionary-ligatures;
     font-size: 2.6rem;
     font-weight: 600;
     line-height: 1.3;
@@ -900,6 +904,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title {
+    font-family: var(--font-display);
+    font-feature-settings: "liga" 1, "dlig" 1, "clig" 1;
+    font-variant-ligatures: common-ligatures discretionary-ligatures;
     font-size: clamp(3.2rem, 4.5vw, 4.2rem);
     font-weight: 600;
     line-height: 1.2;

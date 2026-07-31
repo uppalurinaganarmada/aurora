@@ -298,7 +298,7 @@ function initScrollReveal() {
     revealElements.forEach(el => revealObserver.observe(el));
 }
 
-/* --- Particle Canvas Layer --- */
+/* --- Dynamic Canvas Ambient Light Reflections Layer --- */
 function initParticleCanvas() {
     const canvas = document.getElementById('particle-canvas');
     if (!canvas) return;
@@ -312,23 +312,55 @@ function initParticleCanvas() {
         height = canvas.height = window.innerHeight;
     });
 
-    const particles = [];
-    const particleCount = 28;
+    // Ambient gold light flares shifting across glass background
+    const lightFlares = [
+        { x: width * 0.2, y: height * 0.3, radius: 280, vx: 0.15, vy: 0.1, alpha: 0.08 },
+        { x: width * 0.8, y: height * 0.6, radius: 340, vx: -0.12, vy: 0.12, alpha: 0.06 },
+        { x: width * 0.5, y: height * 0.8, radius: 240, vx: 0.08, vy: -0.15, alpha: 0.07 }
+    ];
 
-    for (let i = 0; i < particleCount; i++) {
+    // Floating gold ambient dust
+    const particles = [];
+    for (let i = 0; i < 24; i++) {
         particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            radius: Math.random() * 1.5 + 0.5,
-            vx: (Math.random() - 0.5) * 0.25,
-            vy: (Math.random() - 0.5) * 0.25,
-            alpha: Math.random() * 0.35 + 0.15
+            radius: Math.random() * 1.6 + 0.6,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            alpha: Math.random() * 0.3 + 0.1
         });
     }
+
+    let scrollYOffset = 0;
+    window.addEventListener('scroll', () => {
+        scrollYOffset = window.scrollY * 0.15;
+    }, { passive: true });
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
+        // Render dynamic gold light flare reflections
+        lightFlares.forEach(flare => {
+            flare.x += flare.vx;
+            flare.y += flare.vy;
+
+            if (flare.x < 0 || flare.x > width) flare.vx *= -1;
+            if (flare.y < 0 || flare.y > height) flare.vy *= -1;
+
+            const drawY = (flare.y + scrollYOffset) % (height + 200) - 100;
+            const grad = ctx.createRadialGradient(flare.x, drawY, 0, flare.x, drawY, flare.radius);
+            grad.addColorStop(0, `rgba(229, 213, 162, ${flare.alpha})`);
+            grad.addColorStop(0.5, `rgba(197, 160, 89, ${flare.alpha * 0.4})`);
+            grad.addColorStop(1, 'transparent');
+
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(flare.x, drawY, flare.radius, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        // Render ambient gold dust particles
         particles.forEach(p => {
             p.x += p.vx;
             p.y += p.vy;
@@ -341,8 +373,8 @@ function initParticleCanvas() {
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(229, 213, 162, ${p.alpha})`;
-            ctx.shadowBlur = 4;
-            ctx.shadowColor = 'rgba(229, 213, 162, 0.4)';
+            ctx.shadowBlur = 6;
+            ctx.shadowColor = 'rgba(229, 213, 162, 0.5)';
             ctx.fill();
         });
 
