@@ -65,6 +65,17 @@ html {
     }
 }
 
+/* Accessibility Focus Rings */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #E5D5A2 !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 12px rgba(229, 213, 162, 0.4) !important;
+}
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-primary);

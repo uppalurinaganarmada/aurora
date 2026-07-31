@@ -79,15 +79,15 @@
     <div class="glass-orb orb-5"></div>
 
     <!-- Glassmorphism Navigation Header -->
-    <header class="navbar glass-panel" id="navbar">
+    <header class="navbar glass-panel" id="navbar" role="banner">
         <div class="nav-container">
-            <a href="#hero" class="brand-logo">
+            <a href="#hero" class="brand-logo" aria-label="Aurora International Spa Home">
                 <img src="assets/logo.png" alt="Aurora International Spa Logo" class="brand-logo-img">
             </a>
 
             <!-- Header Nav Links with Animated Sliding Pill -->
-            <nav class="nav-menu glass-subpanel" id="nav-menu">
-                <div class="nav-slider-pill" id="nav-slider-pill"></div>
+            <nav class="nav-menu glass-subpanel" id="nav-menu" aria-label="Main Navigation">
+                <div class="nav-slider-pill" id="nav-slider-pill" aria-hidden="true"></div>
                 <a href="#hero" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
@@ -97,24 +97,24 @@
 
             <div class="nav-actions">
                 <!-- Single Sound Symbol Button -->
-                <button class="sound-toggle-btn icon-only glass-btn" id="sound-toggle-btn" onclick="toggleAudio()" title="Play Spa Ambient Audio">
-                    <i class="fa-solid fa-volume-xmark" id="sound-icon"></i>
+                <button class="sound-toggle-btn icon-only glass-btn" id="sound-toggle-btn" aria-label="Toggle Spa Ambient Audio" title="Toggle Spa Ambient Audio">
+                    <i class="fa-solid fa-volume-xmark" id="sound-icon" aria-hidden="true"></i>
                 </button>
 
                 <!-- Single Clean Contact Button (Champagne Gold Accent) -->
-                <a href="https://wa.me/917788872255?text=Hello%20Aurora%20Spa%2C%20I%20would%20like%20to%20reserve%20a%20treatment%20ritual." target="_blank" class="btn btn-gold btn-sm nav-contact-btn">
-                    <i class="fa-brands fa-whatsapp"></i> Contact
+                <a href="https://wa.me/917788872255?text=Hello%20Aurora%20Spa%2C%20I%20would%20like%20to%20reserve%20a%20treatment%20ritual." target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm nav-contact-btn">
+                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Contact
                 </a>
 
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
-                    <i class="fa-solid fa-bars"></i>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
     </header>
 
     <!-- Reliable Audio Element for Ambient Spa Soundscape -->
-    <audio id="spa-audio" loop preload="auto" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a7e3a3.mp3?filename=meditation-relaxing-10515.mp3"></audio>
+    <audio id="spa-soundscape" loop preload="auto" src="assets/bg_soundscape.mp3"></audio>
 
     <!-- MAIN SINGLE-PAGE SCROLLABLE CONTENT -->
     <main>
@@ -693,18 +693,18 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/917788872255?text=Hello%20Aurora%20Spa%2C%20I%20would%20like%20to%20reserve%20a%20treatment%20ritual." target="_blank" class="whatsapp-float" title="Chat with Spa Concierge">
-        <i class="fa-brands fa-whatsapp"></i>
+    <a href="https://wa.me/917788872255?text=Hello%20Aurora%20Spa%2C%20I%20would%20like%20to%20reserve%20a%20treatment%20ritual." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat with Spa Concierge on WhatsApp" title="Chat with Spa Concierge">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <!-- Glass Booking Engine Modal -->
-    <div class="modal-backdrop" id="booking-modal">
+    <div class="modal-backdrop" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal-card glass-modal">
-            <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+            <button class="modal-close" onclick="closeBookingModal()" aria-label="Close booking modal">&times;</button>
             
             <div class="modal-header">
                 <img src="assets/logo.png" alt="Aurora Logo" style="height: 54px; margin-bottom: 6px;">
-                <h2>Reserve Your Unhurried Ritual</h2>
+                <h2 id="modal-title">Reserve Your Unhurried Ritual</h2>
                 <p>Breathe. You are cared for here.</p>
             </div>
 
@@ -712,7 +712,7 @@
                 <form id="booking-form" onsubmit="handleBookingSubmit(event)">
                     <div class="form-grid">
                         <div class="form-group full">
-                            <label>Selected Treatment</label>
+                            <label for="modal-service">Selected Treatment</label>
                             <select id="modal-service" class="glass-input" required>
                                 <option value="Thai Massage">Thai Massage (Dry)</option>
                                 <option value="Swedish Massage">Swedish Massage (Oil)</option>
@@ -727,7 +727,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Duration</label>
+                            <label for="modal-duration">Duration</label>
                             <select id="modal-duration" class="glass-input" required>
                                 <option value="60 Minutes">60 Minutes</option>
                                 <option value="90 Minutes" selected>90 Minutes</option>
@@ -736,12 +736,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Preferred Date</label>
+                            <label for="modal-date">Preferred Date</label>
                             <input type="date" id="modal-date" class="glass-input" required>
                         </div>
 
                         <div class="form-group">
-                            <label>Preferred Time</label>
+                            <label for="modal-time">Preferred Time</label>
                             <select id="modal-time" class="glass-input" required>
                                 <option value="10:30 AM">10:30 AM (Morning)</option>
                                 <option value="01:30 PM">01:30 PM (Midday)</option>
@@ -751,26 +751,23 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Full Name</label>
+                            <label for="modal-name">Full Name</label>
                             <input type="text" id="modal-name" class="glass-input" placeholder="Your name" required>
                         </div>
 
                         <div class="form-group">
-                            <label>WhatsApp Phone Number</label>
+                            <label for="modal-phone">WhatsApp Phone Number</label>
                             <input type="tel" id="modal-phone" class="glass-input" placeholder="e.g. +91 98765 43210" required>
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-gold w-100 btn-lg mt-3">
-                        <i class="fa-brands fa-whatsapp"></i> Confirm & Reserve via WhatsApp
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Confirm & Reserve via WhatsApp
                     </button>
                 </form>
             </div>
         </div>
     </div>
-
-    <!-- Background Soundscape Audio (Pinterest Pin 21603273207964484 30s Track) -->
-    <audio id="spa-soundscape" src="assets/bg_soundscape.mp3" loop preload="auto"></audio>
 
     <!-- JavaScript -->
     <script src="app.js"></script>

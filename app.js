@@ -150,7 +150,8 @@ function initNavigation() {
 
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('mobile-active');
+            const isExpanded = navMenu.classList.toggle('mobile-active');
+            mobileToggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
         });
     }
 
@@ -178,6 +179,7 @@ function initNavigation() {
 
                 if (navMenu.classList.contains('mobile-active')) {
                     navMenu.classList.remove('mobile-active');
+                    if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
                 }
             }
         });
@@ -358,8 +360,9 @@ function initQuickBookingDate() {
 function openBookingModal(serviceName = null, priceRange = null) {
     const modal = document.getElementById('booking-modal');
     const serviceSelect = document.getElementById('modal-service');
+    if (!modal) return;
 
-    if (serviceName) {
+    if (serviceName && serviceSelect) {
         for (let i = 0; i < serviceSelect.options.length; i++) {
             if (serviceSelect.options[i].text.toLowerCase().includes(serviceName.toLowerCase())) {
                 serviceSelect.selectedIndex = i;
@@ -369,11 +372,28 @@ function openBookingModal(serviceName = null, priceRange = null) {
     }
 
     modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
 function closeBookingModal() {
-    document.getElementById('booking-modal').classList.remove('active');
+    const modal = document.getElementById('booking-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 }
+
+// Close modal when pressing Escape or clicking outside modal content
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeBookingModal();
+});
+
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('booking-modal');
+    if (modal && modal.classList.contains('active') && e.target === modal) {
+        closeBookingModal();
+    }
+});
 
 /* --- WhatsApp Reservation Handler --- */
 function handleBookingSubmit(event) {
