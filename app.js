@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initServiceCardVideos();
     initSubtleParallax();
     initQuickBookingDate();
+    initTimeSlotPicker();
     initScrollReveal();
     initParticleCanvas();
     initSequentialIconHighlight();
@@ -417,6 +418,21 @@ function closeBookingModal() {
     }
 }
 
+/* --- Time Slot Chip Picker Control --- */
+function initTimeSlotPicker() {
+    const timeChips = document.querySelectorAll('.time-chip');
+    const hiddenTimeInput = document.getElementById('modal-time-selected');
+    if (!timeChips.length || !hiddenTimeInput) return;
+
+    timeChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            timeChips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            hiddenTimeInput.value = chip.getAttribute('data-time');
+        });
+    });
+}
+
 // Close modal when pressing Escape or clicking outside modal content
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeBookingModal();
@@ -436,9 +452,10 @@ function handleBookingSubmit(event) {
     const service = document.getElementById('modal-service').value;
     const duration = document.getElementById('modal-duration').value;
     const date = document.getElementById('modal-date').value;
-    const time = document.getElementById('modal-time').value;
+    const time = document.getElementById('modal-time-selected')?.value || '12:30 PM';
     const name = document.getElementById('modal-name').value;
     const phone = document.getElementById('modal-phone').value;
+    const therapistPref = document.querySelector('input[name="therapist-preference"]:checked')?.value || 'No Preference';
 
     const message = `*NEW RESERVATION REQUEST — AURORA INTERNATIONAL SPA*%0A%0A` +
                     `*Guest Name:* ${encodeURIComponent(name)}%0A` +
@@ -446,14 +463,14 @@ function handleBookingSubmit(event) {
                     `*Treatment:* ${encodeURIComponent(service)}%0A` +
                     `*Duration:* ${encodeURIComponent(duration)}%0A` +
                     `*Requested Date:* ${encodeURIComponent(date)}%0A` +
-                    `*Time Slot:* ${encodeURIComponent(time)}%0A%0A` +
+                    `*Time Slot:* ${encodeURIComponent(time)}%0A` +
+                    `*Therapist Preference:* ${encodeURIComponent(therapistPref)}%0A%0A` +
                     `_"Breathe. You are cared for here."_`;
 
     const whatsappUrl = `https://wa.me/917788872255?text=${message}`;
 
     window.open(whatsappUrl, '_blank');
     closeBookingModal();
-    alert('Thank you! Your reservation has been formatted. Opening WhatsApp to connect with Aurora Spa Concierge.');
 }
 
 /* --- Gift Voucher Controls --- */

@@ -756,14 +756,37 @@
                             <input type="date" id="modal-date" class="glass-input" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="modal-time">Preferred Time</label>
-                            <select id="modal-time" class="glass-input" required>
-                                <option value="10:30 AM">10:30 AM (Morning)</option>
-                                <option value="01:30 PM">01:30 PM (Midday)</option>
-                                <option value="04:30 PM">04:30 PM (Afternoon)</option>
-                                <option value="07:00 PM">07:00 PM (Evening)</option>
-                            </select>
+                        <!-- Interactive Time Slot Picker Chips -->
+                        <div class="form-group full">
+                            <label class="form-label-gold"><i class="fa-solid fa-clock" aria-hidden="true"></i> Select Time Slot</label>
+                            <div class="time-slots-grid" id="time-slots-container">
+                                <button type="button" class="time-chip" data-time="10:30 AM">10:30 AM</button>
+                                <button type="button" class="time-chip active" data-time="12:30 PM">12:30 PM</button>
+                                <button type="button" class="time-chip" data-time="02:30 PM">02:30 PM</button>
+                                <button type="button" class="time-chip" data-time="04:30 PM">04:30 PM</button>
+                                <button type="button" class="time-chip" data-time="06:30 PM">06:30 PM</button>
+                                <button type="button" class="time-chip" data-time="08:00 PM">08:00 PM</button>
+                            </div>
+                            <input type="hidden" id="modal-time-selected" value="12:30 PM" required>
+                        </div>
+
+                        <!-- Therapist Gender Preference Radio Group -->
+                        <div class="form-group full">
+                            <label class="form-label-gold"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> Therapist Preference</label>
+                            <div class="therapist-radio-group">
+                                <label class="therapist-radio-label">
+                                    <input type="radio" name="therapist-preference" value="Female Therapist" checked>
+                                    <span class="radio-custom-btn"><i class="fa-solid fa-venus" aria-hidden="true"></i> Female</span>
+                                </label>
+                                <label class="therapist-radio-label">
+                                    <input type="radio" name="therapist-preference" value="Male Therapist">
+                                    <span class="radio-custom-btn"><i class="fa-solid fa-mars" aria-hidden="true"></i> Male</span>
+                                </label>
+                                <label class="therapist-radio-label">
+                                    <input type="radio" name="therapist-preference" value="No Preference">
+                                    <span class="radio-custom-btn"><i class="fa-solid fa-sparkles" aria-hidden="true"></i> No Pref</span>
+                                </label>
+                            </div>
                         </div>
 
                         <div class="form-group">

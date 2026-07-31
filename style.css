@@ -1790,6 +1790,83 @@ h1, h2, h3, h4, h5, h6 {
     width: 100% !important;
 }
 
+.form-label-gold {
+    color: #E5D5A2 !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 6px !important;
+    display: block !important;
+}
+
+.therapist-radio-group {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+}
+
+.therapist-radio-label {
+    position: relative !important;
+    cursor: pointer !important;
+}
+
+.therapist-radio-label input[type="radio"] {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.radio-custom-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 9px 8px !important;
+    border-radius: var(--radius-sm) !important;
+    background: rgba(229, 213, 162, 0.08) !important;
+    border: 1px solid rgba(229, 213, 162, 0.3) !important;
+    color: var(--text-muted) !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+}
+
+.therapist-radio-label input[type="radio"]:checked + .radio-custom-btn {
+    background: rgba(229, 213, 162, 0.25) !important;
+    border-color: #E5D5A2 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 0 12px rgba(229, 213, 162, 0.4) !important;
+}
+
+.time-slots-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+}
+
+.time-chip {
+    padding: 9px 8px !important;
+    border-radius: var(--radius-sm) !important;
+    background: rgba(229, 213, 162, 0.08) !important;
+    border: 1px solid rgba(229, 213, 162, 0.3) !important;
+    color: var(--text-muted) !important;
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-align: center !important;
+}
+
+.time-chip:hover, .time-chip.active {
+    background: rgba(229, 213, 162, 0.25) !important;
+    border-color: #E5D5A2 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 0 12px rgba(229, 213, 162, 0.4) !important;
+}
+
 .glass-input, .form-group input, .form-group select {
     width: 100% !important;
     max-width: 100% !important;
