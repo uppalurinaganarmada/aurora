@@ -71,6 +71,29 @@ html {
     text-rendering: optimizeLegibility;
 }
 
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.8;
+    overflow-x: hidden;
+    position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Prevent text overflow and image distortion across all viewports */
+h1, h2, h3, h4, h5, h6, p, span, a, label {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 @media (min-width: 1440px) {
     html {
         font-size: 18px; /* Ultra-crisp scaling for 1080p / 1440p / 4K monitors */
